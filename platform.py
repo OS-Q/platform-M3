@@ -3,7 +3,7 @@ from platform import system
 from platformio.managers.platform import PlatformBase
 
 
-class Ststm32Platform(PlatformBase):
+class Stm32Platform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         board = variables.get("board")
