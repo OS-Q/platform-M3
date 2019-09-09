@@ -1,7 +1,7 @@
 {
   "name": "STM32",
   "title": "STM32",
-  "description": "STM32 开发平台.",
+  "description": "STM32 开发平台",
   "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
   "homepage": "https://github.com/OS-Q/H1",
   "license": " ",
@@ -31,7 +31,7 @@
       "script": "builder/frameworks/arduino.py"
     },
     "stm32cube": {
-      "package": "framework-stm32cube",
+      "package": "framework-stcube",
       "script": "builder/frameworks/stm32cube.py"
     }
   },
@@ -55,10 +55,10 @@
       "optional": true,
       "version": "~3.10601.190716"
     },
-    "framework-stm32cube": {
+    "framework-stcube": {
       "type": "framework",
       "optional": true,
-      "version": "~2.0.181130"
+      "version": "https://github.com/OS-Q/N1.git"
     },
     "tool-stm32duino": {
       "type": "uploader",
