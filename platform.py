@@ -12,9 +12,9 @@ class Stm32Platform(PlatformBase):
                 "build.core", "arduino"))
 
         if "arduino" in variables.get("pioframework", []) and build_core == "maple":
-            self.frameworks['arduino']['package'] = "framework-arduinoststm32-maple"
-            self.packages["framework-arduinoststm32-maple"]["optional"] = False
-            self.packages["framework-arduinoststm32"]["optional"] = True
+            self.frameworks['arduino']['package'] = "framework-stm32maple"
+            self.packages["framework-stm32maple"]["optional"] = False
+            self.packages["framework-stm32arduino"]["optional"] = True
 
         if variables.get("upload_protocol", "") == "dfu":
             self.packages["tool-dfuutil"]["optional"] = False
