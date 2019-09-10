@@ -19,7 +19,7 @@
   ],
   "frameworks": {
     "mbed": {
-      "package": "framework-mbed",
+      "package": "framework-N2",
       "script": "builder/frameworks/mbed.py"
     },
     "N4": {
@@ -40,7 +40,7 @@
       "type": "toolchain",
       "version": ">=1.60301.0,<1.80000.0"
     },
-    "framework-mbed": {
+    "framework-N2": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/N2.git"
