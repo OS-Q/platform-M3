@@ -36,14 +36,20 @@
     }
   },
   "packages": {
-    "toolchain-gccarmnoneeabi": {
-      "type": "toolchain",
-      "version": ">=1.60301.0,<1.80000.0"
+    "framework-N1": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/N1.git"
     },
     "framework-N2": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/N2.git"
+    },
+    "framework-N3": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/N3.git"
     },
     "framework-N4": {
       "type": "framework",
@@ -55,25 +61,19 @@
       "optional": true,
       "version": "https://github.com/OS-Q/N5.git"
     },
-    "framework-N3": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/N3.git"
-    },
     "framework-arduinostm32mxchip": {
       "type": "framework",
       "optional": true,
       "version": "~1.3.0"
     },
-    "framework-N1": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/N1.git"
+    "toolchain-gccarmnoneeabi": {
+      "type": "toolchain",
+      "version": "https://github.com/OS-Q/S1.git"
     },
     "tool-stm32duino": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.0.1"
+      "version": "https://github.com/OS-Q/S4.git"
     },
     "tool-openocd": {
       "type": "uploader",

@@ -37,7 +37,7 @@ env = DefaultEnvironment()
 
 env.SConscript("../_bare.py")
 
-FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-libopencm3")
+FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-N4")
 assert isdir(FRAMEWORK_DIR)
 
 
