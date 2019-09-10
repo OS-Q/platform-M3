@@ -34,7 +34,7 @@ core = env.BoardConfig().get("build.core", "")
 
 if core == "maple":
     build_script = join(
-        env.PioPlatform().get_package_dir("framework-stm32maple"),
+        env.PioPlatform().get_package_dir("framework-N3"),
         "tools", "platformio-build-%s.py" % mcu[0:7])
     if isfile(build_script):
         SConscript(build_script)
@@ -46,5 +46,5 @@ if core == "maple":
 else:
     SConscript(
         join(env.PioPlatform().get_package_dir(
-            "framework-stm32arduino"),
+            "framework-N5"),
             "tools", "platformio-build.py"))

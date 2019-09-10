@@ -37,7 +37,7 @@ from platformio.builder.tools.piolib import PlatformIOLibBuilder
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-stcube")
+FRAMEWORK_DIR = platform.get_package_dir("framework-N1")
 assert isdir(FRAMEWORK_DIR)
 
 FRAMEWORK_CORE = env.BoardConfig().get("build.mcu")[5:7].lower()
