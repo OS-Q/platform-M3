@@ -1,7 +1,7 @@
 {
-  "name": "STM32",
+  "name": "H1",
   "title": "H1",
-  "description": "STM32  MCU综合开发平台",
+  "description": "H1: STM32  MCU综合开发平台",
   "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
   "homepage": "https://github.com/OS-Q/H1",
   "license": " ",
@@ -22,9 +22,9 @@
       "package": "framework-mbed",
       "script": "builder/frameworks/mbed.py"
     },
-    "libopencm3": {
-      "package": "framework-opencm3",
-      "script": "builder/frameworks/opencm3.py"
+    "N4": {
+      "package": "framework-N4",
+      "script": "builder/frameworks/libopencm3/libopencm3.py"
     },
     "arduino": {
       "package": "framework-stm32arduino",
@@ -45,7 +45,7 @@
       "optional": true,
       "version": "https://github.com/OS-Q/N2.git"
     },
-    "framework-opencm3": {
+    "framework-N4": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/N4.git"

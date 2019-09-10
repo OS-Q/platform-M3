@@ -22,7 +22,7 @@
   "frameworks": [
     "arduino",
     "mbed",
-    "libopencm3",
+    "N4",
     "stm32cube"
   ],
   "name": "ST Nucleo F103RB",

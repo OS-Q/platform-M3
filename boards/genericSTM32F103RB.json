@@ -27,7 +27,7 @@
     "arduino",
     "cmsis",
     "mbed",
-    "libopencm3",
+    "N4",
     "stm32cube"
   ],
   "name": "STM32F103RB (20k RAM. 128k Flash)",
