@@ -68,7 +68,7 @@
     },
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.6.0,<1.8.0"
+      "version": ">=1.70000.0,<1.80000.0"
     },
     "tool-stm32duino": {
       "type": "uploader",
