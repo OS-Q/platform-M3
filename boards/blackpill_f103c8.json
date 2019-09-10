@@ -33,7 +33,7 @@
   "frameworks": [
     "arduino",
     "cmsis",
-    "N4",
+    "libopencm3",
     "stm32cube"
   ],
   "name": "BlackPill F103C8",

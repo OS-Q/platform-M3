@@ -22,7 +22,7 @@
       "package": "framework-N2",
       "script": "builder/frameworks/mbed.py"
     },
-    "N4": {
+    "libopencm3": {
       "package": "framework-N4",
       "script": "builder/frameworks/libopencm3/libopencm3.py"
     },
@@ -68,7 +68,7 @@
     },
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": "https://github.com/OS-Q/S1.git"
+      "version": ">=1.6.0,<1.8.0"
     },
     "tool-stm32duino": {
       "type": "uploader",

@@ -34,7 +34,7 @@
     "arduino",
     "mbed",
     "cmsis",
-    "N4",
+    "libopencm3",
     "stm32cube"
   ],
   "name": "BluePill F103C8",
