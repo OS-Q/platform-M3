@@ -6,9 +6,5 @@
 
 [Platform H1](https://github.com/OS-Q/H1)基于PlatformIO开发平台
 
-### [关联资源](https://github.com/OS-Q/)
-
- *  [M1](https://github.com/OS-Q/M1)
-
 ### [OS-Q = Open Solutions | Open Source |  Operating System ](http://www.OS-Q.com/H1)
 ####  2019-9-8
