@@ -1,17 +1,19 @@
-#include "stm32f1xx_ll_bus.h"
-#include "stm32f1xx_ll_rcc.h"
-#include "stm32f1xx_ll_system.h"
-#include "stm32f1xx_ll_utils.h"
-#include "stm32f1xx_ll_gpio.h"
+// #include "stm32f1xx_ll_bus.h"
+// #include "stm32f1xx_ll_rcc.h"
+// #include "stm32f1xx_ll_system.h"
+// #include "stm32f1xx_ll_utils.h"
+// #include "stm32f1xx_ll_gpio.h"
+#include "main.h"
 
-#define LED_PIN                 LL_GPIO_PIN_13
-#define LED_GPIO_PORT           GPIOC
+
+// #define LED_PIN                 LL_GPIO_PIN_13
+// #define LED_GPIO_PORT           GPIOC
 #define LED_GPIO_CLK_ENABLE()   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC)
 
 void Configure_GPIO(void)
 {
   LED_GPIO_CLK_ENABLE();
-  LL_GPIO_SetPinMode(LED_GPIO_PORT, LED_PIN, LL_GPIO_MODE_OUTPUT);
+  LL_GPIO_SetPinMode(LED_GPIO_Port, LED_Pin, LL_GPIO_MODE_OUTPUT);
 }
 
 void SystemClock_Config(void)
@@ -75,7 +77,7 @@ int main(void)
   Configure_GPIO();
   while (1)
   {
-    LL_GPIO_TogglePin(LED_GPIO_PORT, LED_PIN);
+    LL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
     LL_mDelay(1000);
   }
 }
