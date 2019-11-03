@@ -1,0 +1,43 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32F429xx",
+    "f_cpu": "180000000L",
+    "mcu": "stm32f429zit6",
+    "variant": "NUCLEO_F429ZI"
+  },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F429ZI",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_f4",
+    "svd_path": "STM32F429x.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST Nucleo F429ZI",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 2097152,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F429ZI/",
+  "vendor": "ST"
+}

@@ -1,31 +1,26 @@
 {
   "build": {
     "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F303x8",
+    "extra_flags": "-DSTM32F334x8",
     "f_cpu": "72000000L",
-    "mcu": "stm32f303k8t6",
-    "variant": "NUCLEO_F303K8"
+    "mcu": "stm32f334c8t6"
   },
-  "connectivity": [
-    "can"
-  ],
   "debug": {
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32F303K8",
+    "jlink_device": "STM32F334C8",
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_board": "st_nucleo_f3",
-    "svd_path": "STM32F30x.svd"
+    "openocd_board": "stm32f334discovery",
+    "svd_path": "STM32F334x.svd"
   },
   "frameworks": [
-    "arduino",
     "mbed",
     "stm32cube"
   ],
-  "name": "ST Nucleo F303K8",
+  "name": "ST 32F3348DISCOVERY",
   "upload": {
     "maximum_ram_size": 12288,
     "maximum_size": 65536,
@@ -37,6 +32,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F303K8/",
+  "url": "http://www.st.com/web/en/catalog/tools/PF260318",
   "vendor": "ST"
 }

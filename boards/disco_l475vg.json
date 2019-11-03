@@ -1,0 +1,47 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32L475xx",
+    "f_cpu": "80000000L",
+    "framework_extra_flags": {
+      "arduino": "-DARDUINO_DISCO_L475VG_IOT"
+    },
+    "mcu": "stm32l475vgt6",
+    "variant": "DISCO_L475VG_IOT"
+  },
+  "connectivity": [
+    "bluetooth",
+    "can",
+    "wifi"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32L475VG",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32l4discovery",
+    "svd_path": "STM32L4x5.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST DISCO-L475VG-IOT01A",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 1048576,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://developer.mbed.org/platforms/ST-Discovery-L475E-IOT01A/",
+  "vendor": "ST"
+}

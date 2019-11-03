@@ -1,0 +1,41 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32F746xx",
+    "f_cpu": "216000000L",
+    "mcu": "stm32f746zgt6"
+  },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F746ZG",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_f7",
+    "svd_path": "STM32F7x6.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST Nucleo F746ZG",
+  "upload": {
+    "maximum_ram_size": 327680,
+    "maximum_size": 1048576,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F446ZE/",
+  "vendor": "ST"
+}

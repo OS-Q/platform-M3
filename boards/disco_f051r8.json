@@ -1,0 +1,36 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "extra_flags": "-DSTM32F051x8",
+    "f_cpu": "48000000L",
+    "mcu": "stm32f051r8t6"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F051R8",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32f0discovery",
+    "svd_path": "STM32F0xx.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST STM32F0DISCOVERY",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 65536,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic"
+    ]
+  },
+  "url": "http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1848/PF253215",
+  "vendor": "ST"
+}

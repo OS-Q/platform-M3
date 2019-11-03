@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m3",
+    "extra_flags": "-DSTM32F100xB",
+    "f_cpu": "24000000L",
+    "mcu": "stm32f100rbt6",
+    "variant": "DISCO_F100RB"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F100RB",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_target": "stm32f1x",
+    "svd_path": "STM32F100xx.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST STM32VLDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic"
+    ]
+  },
+  "url": "http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1848/PF250863",
+  "vendor": "ST"
+}

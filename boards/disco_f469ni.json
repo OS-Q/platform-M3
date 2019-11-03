@@ -1,0 +1,40 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32F469xx",
+    "f_cpu": "180000000L",
+    "mcu": "stm32f469nih6"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F469NI",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32f469discovery",
+    "svd_path": "STM32F46_79x.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST 32F469IDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 393216,
+    "maximum_size": 1048576,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "http://www.st.com/web/catalog/tools/FM116/CL1620/SC959/SS1532/LN1848/PF262395",
+  "vendor": "ST"
+}

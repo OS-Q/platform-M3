@@ -1,10 +1,10 @@
 {
   "build": {
     "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F303x8",
-    "f_cpu": "72000000L",
-    "mcu": "stm32f303k8t6",
-    "variant": "NUCLEO_F303K8"
+    "extra_flags": "-DSTM32F446xx",
+    "f_cpu": "180000000L",
+    "mcu": "stm32f446ret6",
+    "variant": "NUCLEO_F446RE"
   },
   "connectivity": [
     "can"
@@ -13,22 +13,22 @@
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32F303K8",
+    "jlink_device": "STM32F446RE",
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_board": "st_nucleo_f3",
-    "svd_path": "STM32F30x.svd"
+    "openocd_board": "st_nucleo_f4",
+    "svd_path": "STM32F446x.svd"
   },
   "frameworks": [
     "arduino",
     "mbed",
     "stm32cube"
   ],
-  "name": "ST Nucleo F303K8",
+  "name": "ST Nucleo F446RE",
   "upload": {
-    "maximum_ram_size": 12288,
-    "maximum_size": 65536,
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
     "protocol": "stlink",
     "protocols": [
       "jlink",
@@ -37,6 +37,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F303K8/",
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F446RE/",
   "vendor": "ST"
 }

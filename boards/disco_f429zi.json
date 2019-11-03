@@ -1,0 +1,40 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32F429xx",
+    "f_cpu": "180000000L",
+    "mcu": "stm32f429zit6"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F429ZI",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32f429discovery",
+    "svd_path": "STM32F429x.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "ST 32F429IDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 2097152,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1848/PF259090",
+  "vendor": "ST"
+}

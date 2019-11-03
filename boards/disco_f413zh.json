@@ -1,0 +1,40 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32F413xx",
+    "f_cpu": "100000000L",
+    "mcu": "stm32f413zht6"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F413ZH",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32f4discovery",
+    "svd_path": "STM32F41x.svd"
+  },
+  "frameworks": [
+    "stm32cube",
+    "mbed"
+  ],
+  "name": "ST 32F413HDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://os.mbed.com/platforms/ST-Discovery-F413H/",
+  "vendor": "ST"
+}

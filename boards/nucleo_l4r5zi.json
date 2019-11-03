@@ -1,10 +1,10 @@
 {
   "build": {
     "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F303x8",
-    "f_cpu": "72000000L",
-    "mcu": "stm32f303k8t6",
-    "variant": "NUCLEO_F303K8"
+    "extra_flags": "-DSTM32L4R5xx",
+    "f_cpu": "120000000L",
+    "mcu": "stm32l4r5zit6",
+    "variant": "NUCLEO_L4R5ZI"
   },
   "connectivity": [
     "can"
@@ -13,22 +13,22 @@
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32F303K8",
+    "jlink_device": "STM32L4R5ZI",
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_board": "st_nucleo_f3",
-    "svd_path": "STM32F30x.svd"
+    "openocd_board": "st_nucleo_l4",
+    "svd_path": "STM32L4x5.svd"
   },
   "frameworks": [
     "arduino",
     "mbed",
     "stm32cube"
   ],
-  "name": "ST Nucleo F303K8",
+  "name": "ST Nucleo L4R5ZI",
   "upload": {
-    "maximum_ram_size": 12288,
-    "maximum_size": 65536,
+    "maximum_ram_size": 655360,
+    "maximum_size": 2097152,
     "protocol": "stlink",
     "protocols": [
       "jlink",
@@ -37,6 +37,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F303K8/",
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-l4r5zi.html",
   "vendor": "ST"
 }
