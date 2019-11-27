@@ -2,9 +2,9 @@
   "name": "H1",
   "title": "H1",
   "description": "STM32开发平台",
-  "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
   "homepage": "https://github.com/OS-Q/H1",
-  "license": " ",
+  "license": "MIT",
   "engines": {
     "platformio": "<5"
   },
@@ -14,13 +14,26 @@
   },
   "version": "1.0.0",
   "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json"
+    "http://182.61.61.133/link/toolchain/manifest.json",
+    "http://182.61.61.133/link/framework/manifest.json",
+    "http://182.61.61.133/link/platformio.json",
+    "http://182.61.61.133/link/platform.json",
+    "http://dl.platformio.org/packages/manifest.json",
+    "https://dl.bintray.com/platformio/dl-packages/manifest.json"
+
   ],
   "frameworks": {
+    "stm32cube": {
+      "package": "framework-N1",
+      "script": "builder/frameworks/stm32cube.py"
+    },
     "mbed": {
       "package": "framework-N2",
       "script": "builder/frameworks/mbed.py"
+    },
+    "maple": {
+      "package": "framework-N3",
+      "script": "builder/frameworks/arduino.py"
     },
     "libopencm3": {
       "package": "framework-N4",
@@ -30,10 +43,11 @@
       "package": "framework-N5",
       "script": "builder/frameworks/arduino.py"
     },
-    "stm32cube": {
-      "package": "framework-N1",
-      "script": "builder/frameworks/stm32cube.py"
+    "spl": {
+      "package": "framework-N6",
+      "script": "builder/frameworks/spl.py"
     }
+
   },
   "packages": {
     "framework-N1": {
@@ -60,6 +74,11 @@
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/N5.git"
+    },
+    "framework-N6": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/N6.git"
     },
     "framework-arduinostm32mxchip": {
       "type": "framework",
