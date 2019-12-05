@@ -15,7 +15,7 @@
     "arduino",
     "stm32cube"
   ],
-  "name": "Demo F030F4",
+  "name": "STM32F030F4P6",
   "upload": {
     "maximum_ram_size": 4096,
     "maximum_size": 16384,
@@ -27,6 +27,6 @@
       "serial"
     ]
   },
-  "url": "https://www.hotmcu.com/stm32f030f4p6-minimum-systerm-boardcortexm0-p-208.html",
-  "vendor": "Generic"
+  "url": "http://www.OS-Q.com/boards/H1/STM32F030F4P6",
+  "vendor": "OS-Q"
 }

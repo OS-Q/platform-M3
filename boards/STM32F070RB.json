@@ -1,0 +1,38 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "extra_flags": "-DSTM32F070xB",
+    "f_cpu": "48000000L",
+    "mcu": "stm32f070rbt6"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F070RB",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_f0",
+    "svd_path": "STM32F0xx.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube",
+    "zephyr"
+  ],
+  "name": "STM32F070RB",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "http://www.OS-Q.com/boards/H1/STM32F070RB",
+  "vendor": "OS-Q"
+}

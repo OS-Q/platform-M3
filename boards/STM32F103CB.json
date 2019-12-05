@@ -1,0 +1,63 @@
+{
+  "build": {
+    "core": "maple",
+    "cpu": "cortex-m3",
+    "extra_flags": "-DSTM32F1 -DSTM32F103xB -DARDUINO_BLUEPILL_F103C8",
+    "f_cpu": "72000000L",
+    "hwids": [
+      [
+        "0x1EAF",
+        "0x0003"
+      ],
+      [
+        "0x1EAF",
+        "0x0004"
+      ]
+    ],
+    "ldscript": "ldscript_cb.ld",
+    "mcu": "stm32f103c8t6",
+    "variant": "PILL_F103XX",
+    "zephyr": {
+       "variant": "stm32_min_dev_blue"
+    }
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F103C8",
+    "openocd_target": "stm32f1x",
+    "openocd_extra_args": [
+      "-c",
+      "reset_config none"
+    ],
+    "svd_path": "STM32F103xx.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "mbed",
+    "libopencm3",
+    "zephyr",
+    "stm32cube"
+  ],
+  "name": "STM32F103CB",
+  "upload": {
+    "disable_flushing": false,
+    "maximum_ram_size": 20480,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "stlink",
+      "blackmagic",
+      "serial",
+      "dfu"
+    ],
+    "require_upload_port": true,
+    "use_1200bps_touch": false,
+    "wait_for_upload_port": false
+  },
+  "url": "http://www.OS-Q.com/boards/H1/STM32F103CB",
+  "vendor": "OS-Q"
+}
