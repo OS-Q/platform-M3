@@ -38,14 +38,15 @@ static void gpio_setup(void)
 
 int main(void)
 {
-	int i;
 	gpio_setup();
 	/* Blink the LED on the board. */
-	while (1) {
+	while (1) 
+	{
 		/* Using API function gpio_toggle(): */
 		gpio_toggle(LEDPORT, LEDPIN);	/* LED on/off */
-		for (i = 0; i < 1000000; i++) {	/* Wait a bit. */
-			__asm__("nop");
+		for (int i = 0; i < 1000000; i++) 
+		{	
+			__asm__("nop"); /* Wait a bit. */
 		}
 	}
 

@@ -37,6 +37,7 @@
     "arduino",
     "cmsis",
     "mbed",
+    "spl",
     "libopencm3",
     "zephyr",
     "stm32cube"
