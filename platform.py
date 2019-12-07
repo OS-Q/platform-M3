@@ -1,9 +1,10 @@
+
 from platform import system
 
 from platformio.managers.platform import PlatformBase
+from platformio.util import get_systype
 
-
-class H1Platform(PlatformBase):
+class Ststm32Platform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         board = variables.get("board")
@@ -12,11 +13,13 @@ class H1Platform(PlatformBase):
                 "build.core", "arduino"))
 
         if "arduino" in variables.get("pioframework", []) and build_core == "maple":
-            self.frameworks['arduino']['package'] = "framework-N3"
-            self.packages["framework-N3"]["optional"] = False
-            self.packages["framework-N5"]["optional"] = True
+            self.frameworks['arduino']['package'] = "framework-N07"
+            self.packages["framework-N07"]["optional"] = False
+            self.packages["framework-N06"]["optional"] = True
 
-        if variables.get("upload_protocol", "") == "dfu":
+        default_protocol = self.board_config(variables.get(
+            "board")).get("upload.protocol") or ""
+        if variables.get("upload_protocol", default_protocol) == "dfu":
             self.packages["tool-dfuutil"]["optional"] = False
 
         if board == "mxchip_az3166":
@@ -25,6 +28,13 @@ class H1Platform(PlatformBase):
             self.frameworks['arduino'][
                 'script'] = "builder/frameworks/arduino/mxchip.py"
             self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.60301.0"
+
+        if "zephyr" in variables.get("pioframework", []):
+            for p in ("framework-zephyr-hal-stm32", "tool-cmake", "tool-dtc", "tool-ninja"):
+                self.packages[p]["optional"] = False
+            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
+            if "windows" not in get_systype():
+                self.packages['tool-gperf']['optional'] = False
 
         # configure J-LINK tool
         jlink_conds = [
