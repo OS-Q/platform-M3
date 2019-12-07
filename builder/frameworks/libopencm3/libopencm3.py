@@ -23,8 +23,8 @@ env = DefaultEnvironment()
 
 env.SConscript("../_bare.py")
 
-FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-N4")
-assert isdir(FRAMEWORK_DIR)
+FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-N04")
+# assert isdir(FRAMEWORK_DIR)
 
 
 def find_ldscript(src_dir):
