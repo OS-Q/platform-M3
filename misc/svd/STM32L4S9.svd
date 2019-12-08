@@ -59615,7 +59615,7 @@ xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
           <fields>
             <field>
               <name>H1</name>
-              <description>H01</description>
+              <description>H1</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
             </field>
