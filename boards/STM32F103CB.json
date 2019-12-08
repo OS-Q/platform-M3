@@ -58,6 +58,6 @@
     "use_1200bps_touch": false,
     "wait_for_upload_port": false
   },
-  "url": "http://www.OS-Q.com/boards/H1/STM32F103CB",
+  "url": "http://www.OS-Q.com/boards/H01/STM32F103CB",
   "vendor": "OS-Q"
 }

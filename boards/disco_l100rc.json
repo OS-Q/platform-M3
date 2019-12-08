@@ -21,7 +21,7 @@
     "stm32cube"
   ],
   "name": "ST 32L100DISCOVERY",
-  "platform": "ststm32",
+  "platform": "H01",
   "upload": {
     "maximum_ram_size": 16384,
     "maximum_size": 262144,

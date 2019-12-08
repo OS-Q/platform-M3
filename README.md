@@ -1,5 +1,7 @@
 ﻿# [Platform H01](https://github.com/OS-Q/H01)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/42krhttofvbwnbpj?svg=true)](https://ci.appveyor.com/project/Qitas/h01)
+
 [![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
 
 #### 关于系统架构：[OS-Q](https://github.com/OS-Q)
