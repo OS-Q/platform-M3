@@ -1,3 +1,17 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """
 STM32Cube HAL
 
@@ -22,12 +36,13 @@ from platformio.builder.tools.piolib import PlatformIOLibBuilder
 
 env = DefaultEnvironment()
 platform = env.PioPlatform()
+board = env.BoardConfig()
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-N01")
+FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube")
 assert isdir(FRAMEWORK_DIR)
 
-FRAMEWORK_CORE = env.BoardConfig().get("build.mcu")[5:7].lower()
-MCU_FAMILY = env.BoardConfig().get("build.mcu")[0:7]
+FRAMEWORK_CORE = board.get("build.mcu")[5:7].lower()
+MCU_FAMILY = board.get("build.mcu")[0:7]
 
 STARTUP_FILE_EXCEPTIONS = {
     "stm32f030f4": "startup_stm32f030x6.s",
@@ -105,8 +120,8 @@ def get_linker_script(mcu):
     if isfile(default_ldscript):
         return default_ldscript
 
-    ram = env.BoardConfig().get("upload.maximum_ram_size", 0)
-    flash = env.BoardConfig().get("upload.maximum_size", 0)
+    ram = board.get("upload.maximum_ram_size", 0)
+    flash = board.get("upload.maximum_size", 0)
     template_file = join(FRAMEWORK_DIR, "platformio",
                          "ldscripts", "tpl", "linker.tpl")
     content = ""
@@ -142,9 +157,7 @@ def generate_hal_config_file(mcu):
 
 env.Replace(
     AS="$CC",
-    ASCOM="$ASPPCOM",
-    LDSCRIPT_PATH=env.subst(
-        get_linker_script(env.BoardConfig().get("build.mcu")))
+    ASCOM="$ASPPCOM"
 )
 
 env.Append(
@@ -156,7 +169,7 @@ env.Append(
         "-fdata-sections",
         "-Wall",
         "-mthumb",
-        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
+        "-mcpu=%s" % board.get("build.cpu"),
         "-nostdlib"
     ],
 
@@ -174,7 +187,7 @@ env.Append(
         "-Os",
         "-Wl,--gc-sections,--relax",
         "-mthumb",
-        "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
+        "-mcpu=%s" % board.get("build.cpu"),
         "--specs=nano.specs",
         "--specs=nosys.specs"
     ],
@@ -212,6 +225,10 @@ env.Append(
     ]
 )
 
+if not board.get("build.ldscript", ""):
+    env.Replace(
+        LDSCRIPT_PATH=get_linker_script(board.get("build.mcu")))
+
 variants_remap = util.load_json(
     join(FRAMEWORK_DIR, "platformio", "variants_remap.json"))
 board_type = env.subst("$BOARD")
@@ -222,7 +239,7 @@ variant = variants_remap[
 # Generate framework specific files
 #
 
-generate_hal_config_file(env.BoardConfig().get("build.mcu"))
+generate_hal_config_file(board.get("build.mcu"))
 
 #
 # Process BSP components
@@ -262,7 +279,7 @@ libs.append(env.BuildLibrary(
     join(FRAMEWORK_DIR, FRAMEWORK_CORE, "Drivers", "CMSIS", "Device", "ST",
          MCU_FAMILY.upper() + "xx", "Source", "Templates"),
     src_filter="-<*> +<*.c> +<gcc/%s>" % get_startup_file(
-        env.BoardConfig().get("build.mcu"))
+        board.get("build.mcu"))
 ))
 
 

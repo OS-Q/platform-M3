@@ -72,7 +72,7 @@ if not env.get("PIOFRAMEWORK"):
 if "zephyr" in env.get("PIOFRAMEWORK", []):
     env.SConscript(
         join(platform.get_package_dir(
-            "framework-N03"), "scripts", "platformio", "platformio-build-pre.py"),
+            "framework-zephyr"), "scripts", "platformio", "platformio-build-pre.py"),
         exports={"env": env}
     )
 
@@ -206,7 +206,7 @@ elif upload_protocol == "dfu":
             join("$BUILD_DIR", "${PROGNAME}.bin"),
             env.VerboseAction(
                 " ".join([
-                    join(platform.get_package_dir("tool-dfuutil") or "",
+                    '"%s"' % join(platform.get_package_dir("tool-dfuutil") or "",
                          "bin", "dfu-suffix"),
                     "-v %s" % vid,
                     "-p %s" % pid,
@@ -227,7 +227,7 @@ elif upload_protocol == "serial":
     env.Replace(
         __configure_upload_port=__configure_upload_port,
         UPLOADER=join(
-            platform.get_package_dir("tool-stm32duino") or "",
+            '"%s"' % platform.get_package_dir("tool-stm32duino") or "",
             "stm32flash", "stm32flash"),
         UPLOADERFLAGS=[
             "-g", board.get("upload.offset_address", "0x08000000"),
@@ -287,6 +287,14 @@ else:
     sys.stderr.write("Warning! Unknown upload protocol %s\n" % upload_protocol)
 
 AlwaysBuild(env.Alias("upload", upload_source, upload_actions))
+
+#
+# Information about obsolete method of specifying linker scripts
+#
+
+if any("-Wl,-T" in f for f in env.get("LINKFLAGS", [])):
+    print("Warning! '-Wl,-T' option for specifying linker scripts is deprecated. "
+          "Please use 'board_build.ldscript' option in your 'platformio.ini' file.")
 
 #
 # Default targets
