@@ -1,8 +1,8 @@
 {
   "name": "H01",
   "title": "H01",
-  "description": "基于STM32系列32位Cortex-M MCU平台，广泛应用于各种控制场景，该平台拥有丰富的开发框架，包括官方SDK(spl和stm32cube) ,第三方框架 mbed、arduino、zephyr、libopencm3等，在stm32cubeMX之外提供更丰富的开源资源集成",
-  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
+  "description": "基于STM32系列32位Cortex-M MCU平台，该平台拥有丰富的开发框架，包括官方SDK(SPL和HAL)并支持CubeMX ,第三方框架mbed、arduino、zephyr、libopencm3等，在ST stm32cubeMX工具之外提供更丰富的开源资源集成",
+  "url": "https://www.st.com/zh/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
   "homepage": "http://www.OS-Q.com/H01",
   "license": "Apache-2.0",
   "engines": {
@@ -21,6 +21,7 @@
   "version": "6.1.0",
   "packageRepositories": [
     "http://182.61.61.133/link/toolchain/manifest.json",
+    "http://182.61.61.133/link/toolchain/openocd.json",
     "http://182.61.61.133/link/framework/manifest.json",
     "http://182.61.61.133/link/platformio.json",
     "http://182.61.61.133/link/platform.json"
@@ -94,7 +95,7 @@
     "framework-N33": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/N33.git"
+      "version": "~2.5"
     },
     "framework-arduinostm32mxchip": {
       "type": "framework",
@@ -176,7 +177,7 @@
     },
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.60301.0"
+      "version": ">=1.6"
     },
     "tool-stm32duino": {
       "type": "uploader",
@@ -191,16 +192,16 @@
     "tool-jlink": {
       "type": "uploader",
       "optional": true,
-      "version": "^1.63208.0"
+      "version": "^1.65200.0"
     },
     "tool-dfuutil": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.9.190708"
+      "version": "~1.9.1"
     },
     "tool-cmake": {
       "optional": true,
-      "version": "~3.15.0"
+      "version": "~3.16.0"
     },
     "tool-dtc": {
       "optional": true,

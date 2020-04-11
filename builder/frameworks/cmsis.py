@@ -12,7 +12,7 @@ board = env.BoardConfig()
 env.SConscript("_bare.py")
 
 PLATFORM_NAME = env.get("PIOPLATFORM")
-FRAMEWORK_DIR = platform.get_package_dir("framework-cmsis")
+FRAMEWORK_DIR = platform.get_package_dir("framework-N33")
 assert isdir(FRAMEWORK_DIR)
 
 VARIANT_DIR_EXCEPTIONS = {
