@@ -31,7 +31,7 @@
       "script": "builder/frameworks/mbed.py"
     },
     "cmsis": {
-      "package": "framework-cmsis",
+      "package": "framework-N33",
       "script": "builder/frameworks/cmsis.py"
     },
     "spl": {
@@ -71,10 +71,6 @@
       "optional": true,
       "version": "https://github.com/OS-Q/N03.git"
     },
-    "framework-zephyr-hal-stm32": {
-      "optional": true,
-      "version": "~0.0.190619"
-    },
     "framework-N04": {
       "type": "framework",
       "optional": true,
@@ -95,14 +91,92 @@
       "optional": true,
       "version": "https://github.com/OS-Q/N07.git"
     },
+    "framework-N33": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/N33.git"
+    },
     "framework-arduinostm32mxchip": {
       "type": "framework",
       "optional": true,
       "version": "~1.3.0"
     },
+    "framework-zephyr": {
+      "type": "framework",
+      "optional": true,
+      "version": "~2.20200.0"
+    },
+    "framework-zephyr-hal-stm32": {
+      "optional": true,
+      "version": "~0.20200.200206"
+    },
+    "framework-zephyr-hal-st": {
+      "optional": true,
+      "version": "~0.20200.190924"
+    },
+    "framework-zephyr-civetweb": {
+      "optional": true,
+      "version": "~0.20200.190807"
+    },
+    "framework-zephyr-fatfs": {
+      "optional": true,
+      "version": "~0.20200.191125"
+    },
+    "framework-zephyr-libmetal": {
+      "optional": true,
+      "version": "~0.20200.190530"
+    },
+    "framework-zephyr-lvgl": {
+      "optional": true,
+      "version": "~0.20200.191207"
+    },
+    "framework-zephyr-mbedtls": {
+      "optional": true,
+      "version": "~0.20200.200206"
+    },
+    "framework-zephyr-mcumgr": {
+      "optional": true,
+      "version": "~0.20200.200117"
+    },
+    "framework-zephyr-open-amp": {
+      "optional": true,
+      "version": "~0.20200.190612"
+    },
+    "framework-zephyr-openthread": {
+      "optional": true,
+      "version": "~0.20200.191014"
+    },
+    "framework-zephyr-segger": {
+      "optional": true,
+      "version": "~0.20200.190421"
+    },
+    "framework-zephyr-tinycbor": {
+      "optional": true,
+      "version": "~0.20200.191016"
+    },
+    "framework-zephyr-littlefs": {
+      "optional": true,
+      "version": "~0.20200.190811"
+    },
+    "framework-zephyr-mipi-sys-t": {
+      "optional": true,
+      "version": "~0.20200.191024"
+    },
+    "framework-zephyr-canopennode": {
+      "optional": true,
+      "version": "~0.20200.200115"
+    },
+    "framework-zephyr-loramac-node": {
+      "optional": true,
+      "version": "~0.20200.191220"
+    },
+    "framework-zephyr-mcuboot": {
+      "optional": true,
+      "version": "~0.20200.200219"
+    },
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.60301.0,<1.80000.0"
+      "version": ">=1.60301.0"
     },
     "tool-stm32duino": {
       "type": "uploader",
