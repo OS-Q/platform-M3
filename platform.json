@@ -36,7 +36,7 @@
       "script": "builder/frameworks/cmsis.py"
     },
     "spl": {
-      "package": "framework-N05",
+      "package": "framework-N34",
       "script": "builder/frameworks/spl.py"
     },
     "libopencm3": {
@@ -77,11 +77,6 @@
       "optional": true,
       "version": "https://github.com/OS-Q/N04.git"
     },
-    "framework-N05": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/N05.git"
-    },
     "framework-N06": {
       "type": "framework",
       "optional": true,
@@ -95,7 +90,12 @@
     "framework-N33": {
       "type": "framework",
       "optional": true,
-      "version": "~2.50400.181126"
+      "version": "~2.5.0"
+    },
+    "framework-N34": {
+      "type": "framework",
+      "optional": true,
+      "version": "~2.1.0"
     },
     "framework-arduinostm32mxchip": {
       "type": "framework",
