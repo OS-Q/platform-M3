@@ -1,24 +1,21 @@
 {
   "build": {
     "cpu": "cortex-m0",
-    "extra_flags": "-DSTM32L053xx",
-    "f_cpu": "32000000L",
-    "framework_extra_flags": {
-      "arduino": "-D__CORTEX_SC=0"
-    },
-    "mcu": "stm32l053r8t6",
-    "variant": "NUCLEO_L053R8"
+    "extra_flags": "-DSTM32F030x8",
+    "f_cpu": "48000000L",
+    "mcu": "stm32f030r8t6",
+    "variant": "NUCLEO_F030R8"
   },
   "debug": {
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32L053R8",
+    "jlink_device": "STM32F030R8",
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_target": "stm32l0",
-    "svd_path": "STM32L053x.svd"
+    "openocd_board": "st_nucleo_f0",
+    "svd_path": "STM32F030.svd"
   },
   "frameworks": [
     "arduino",
@@ -26,7 +23,7 @@
     "stm32cube",
     "zephyr"
   ],
-  "name": "ST Nucleo L053R8",
+  "name": "ST Nucleo F030R8",
   "upload": {
     "maximum_ram_size": 8192,
     "maximum_size": 65536,
@@ -38,6 +35,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/ST-Nucleo-L053R8/",
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F030R8/",
   "vendor": "ST"
 }

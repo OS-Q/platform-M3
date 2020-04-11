@@ -1,7 +1,7 @@
 {
   "name": "H01",
   "title": "H01",
-  "description": "STM32 Cortex-M MCU",
+  "description": "基于STM32系列32位Cortex-M MCU平台，广泛应用于各种控制场景，该平台拥有丰富的开发框架，包括官方SDK(spl和stm32cube) ,第三方框架 mbed、arduino、zephyr、libopencm3等，在stm32cubeMX之外提供更丰富的开源资源集成",
   "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
   "homepage": "http://www.OS-Q.com/H01",
   "license": "Apache-2.0",

@@ -1,33 +1,30 @@
 {
   "build": {
-    "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F334x8",
-    "f_cpu": "72000000L",
-    "mcu": "stm32f334r8t6"
+    "cpu": "cortex-m0",
+    "extra_flags": "-DSTM32F070xB",
+    "f_cpu": "48000000L",
+    "mcu": "stm32f070rbt6"
   },
-  "connectivity": [
-    "can"
-  ],
   "debug": {
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32F334R8",
+    "jlink_device": "STM32F070RB",
     "onboard_tools": [
       "stlink"
     ],
-    "openocd_board": "st_nucleo_f3",
-    "svd_path": "STM32F334x.svd"
+    "openocd_board": "st_nucleo_f0",
+    "svd_path": "STM32F0xx.svd"
   },
   "frameworks": [
     "mbed",
     "stm32cube",
     "zephyr"
   ],
-  "name": "ST Nucleo F334R8",
+  "name": "ST Nucleo F070RB",
   "upload": {
     "maximum_ram_size": 16384,
-    "maximum_size": 65536,
+    "maximum_size": 131072,
     "protocol": "stlink",
     "protocols": [
       "jlink",
@@ -36,6 +33,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F334R8/",
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F070RB/",
   "vendor": "ST"
 }
