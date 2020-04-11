@@ -95,7 +95,7 @@
     "framework-N33": {
       "type": "framework",
       "optional": true,
-      "version": "~2.5"
+      "version": "~2.50400.181126"
     },
     "framework-arduinostm32mxchip": {
       "type": "framework",
