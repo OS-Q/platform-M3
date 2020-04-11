@@ -1,10 +1,10 @@
 {
   "name": "H01",
   "title": "H01",
-  "description": "Platform H01 for STM32",
+  "description": "STM32 ARM Cortex-M MCU",
   "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
   "homepage": "http://www.OS-Q.com/H01",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "engines": {
     "platformio": "<5"
   },
@@ -12,14 +12,18 @@
     "type": "git",
     "url": "https://github.com/OS-Q/H01.git"
   },
-  "version": "1.0.0",
+  "authors": [{
+    "name": "qitas",
+    "email": "qitas@qitas.cn",
+    "url": "http://www.qitas.cn"
+  }],
+  "keywords": "H01,STM32,Cortex-M",
+  "version": "6.1.0",
   "packageRepositories": [
     "http://182.61.61.133/link/toolchain/manifest.json",
     "http://182.61.61.133/link/framework/manifest.json",
     "http://182.61.61.133/link/platformio.json",
-    "http://182.61.61.133/link/platform.json",
-    "http://dl.platformio.org/packages/manifest.json",
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json"
+    "http://182.61.61.133/link/platform.json"
   ],
   "frameworks": {
     "stm32cube": {

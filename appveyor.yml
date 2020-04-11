@@ -3,12 +3,15 @@ environment:
 
   matrix:
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-blink"
-    - PLATFORMIO_PROJECT_DIR: "examples/libopencm3"
-    - PLATFORMIO_PROJECT_DIR: "examples/spl-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-external-libs"
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-internal-libs"
-    - PLATFORMIO_PROJECT_DIR: "tests/arduino-blink-different-cores"
-    - PLATFORMIO_PROJECT_DIR: "tests/mbed-filesystem"
+    - PLATFORMIO_PROJECT_DIR: "examples/arduino-mxchip-azureiot"
+    - PLATFORMIO_PROJECT_DIR: "examples/arduino-mxchip-filesystem"
+    - PLATFORMIO_PROJECT_DIR: "examples/arduino-mxchip-sensors"
+    - PLATFORMIO_PROJECT_DIR: "examples/arduino-mxchip-wifiscan"
+    - PLATFORMIO_PROJECT_DIR: "examples/cmsis-blink"
+    - PLATFORMIO_PROJECT_DIR: "examples/libopencm3-1bitsy"
+    - PLATFORMIO_PROJECT_DIR: "examples/libopencm3-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-custom-target"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-dsp"
@@ -20,12 +23,16 @@ environment:
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-rtos-semaphore"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-rtos-mesh-minimal"
     - PLATFORMIO_PROJECT_DIR: "examples/mbed-serial"
+    - PLATFORMIO_PROJECT_DIR: "examples/spl-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-hal-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-ll-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/zephyr-blink"
+    - PLATFORMIO_PROJECT_DIR: "examples/zephyr-cpp-synchronization"
+    - PLATFORMIO_PROJECT_DIR: "examples/zephyr-drivers-can"
+    - PLATFORMIO_PROJECT_DIR: "examples/zephyr-net-https-client"
+    - PLATFORMIO_PROJECT_DIR: "examples/zephyr-subsys-usb-hid-mouse"
     - PLATFORMIO_PROJECT_DIR: "tests/arduino-blink-different-cores"
     - PLATFORMIO_PROJECT_DIR: "tests/mbed-filesystem"
-
 
 install:
   - cmd: git submodule update --init --recursive
@@ -35,4 +42,3 @@ install:
 
 test_script:
   - cmd: platformio run -s -d %PLATFORMIO_PROJECT_DIR%
-
