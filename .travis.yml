@@ -33,8 +33,6 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-drivers-can
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-net-https-client
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-usb-hid-mouse
-  - PLATFORMIO_PROJECT_DIR=tests/arduino-blink-different-cores
-  - PLATFORMIO_PROJECT_DIR=tests/mbed-filesystem
 
 # Zephyr framework doesn't support python 2
 jobs:
