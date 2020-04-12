@@ -1,9 +1,11 @@
 #include "mbed.h"
 
-DigitalOut myled(LED1);
+DigitalOut myled(SPI_MISO);
 
-int main() {
-    while(1) {
+int main() 
+{
+    while(1) 
+    {
         myled = 1;
         wait(1);
         myled = 0;
