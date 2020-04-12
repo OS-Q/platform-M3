@@ -65,7 +65,7 @@
     "framework-N02": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/N02.git"
+      "version": "~1.0.0"
     },
     "framework-N03": {
       "type": "framework",
@@ -177,7 +177,7 @@
     },
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.60301.0,<1.80000.0"
+      "version": ">=1.60301.0"
     },
     "tool-stm32duino": {
       "type": "uploader",
