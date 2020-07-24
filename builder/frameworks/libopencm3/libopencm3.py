@@ -24,7 +24,7 @@ board = env.BoardConfig()
 
 env.SConscript("../_bare.py")
 
-FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-N04")
+FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-libopencm3")
 assert isdir(FRAMEWORK_DIR)
 
 
@@ -129,6 +129,7 @@ def merge_ld_scripts(main_ld_file):
 # Processing ...
 #
 
+
 root_dir = join(FRAMEWORK_DIR, "lib")
 if board.get("build.core") == "tivac":
     env.Append(
@@ -142,7 +143,12 @@ env.Append(
     CPPPATH=[
         FRAMEWORK_DIR,
         join(FRAMEWORK_DIR, "include")
-    ]
+    ],
+    LINKFLAGS=[
+        "-nostartfiles",
+        "-nostdlib"
+    ],
+    LIBS=["nosys"]
 )
 
 if not board.get("build.ldscript", ""):

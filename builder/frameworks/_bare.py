@@ -10,8 +10,7 @@ env.Append(
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-Wall",
-        "-mthumb",
-        "-nostdlib"
+        "-mthumb"
     ],
 
     CXXFLAGS=[
@@ -26,12 +25,10 @@ env.Append(
     LINKFLAGS=[
         "-Os",
         "-Wl,--gc-sections,--relax",
-        "-mthumb",
-        "-nostartfiles",
-        "-nostdlib"
+        "-mthumb"
     ],
 
-    LIBS=["c", "gcc", "m", "stdc++", "nosys"]
+    LIBS=["c", "gcc", "m", "stdc++"]
 )
 
 if "BOARD" in env:

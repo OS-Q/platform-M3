@@ -1,12 +1,3 @@
-"""
-STM32Cube HAL
-
-STM32Cube embedded software libraries, including:
-The HAL hardware abstraction layer, enabling portability between different STM32 devices via standardized API calls
-The Low-Layer (LL) APIs, a light-weight, optimized, expert oriented set of APIs designed for both performance and runtime efficiency.
-
-http://www.st.com/en/embedded-software/stm32cube-embedded-software.html?querycriteria=productId=LN1897
-"""
 
 from glob import glob
 from os import listdir
@@ -24,7 +15,7 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-N01")
+FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube")
 assert isdir(FRAMEWORK_DIR)
 
 FRAMEWORK_CORE = board.get("build.mcu")[5:7].lower()

@@ -21,7 +21,7 @@ core = env.BoardConfig().get("build.core", "")
 
 if core == "maple":
     build_script = join(
-        env.PioPlatform().get_package_dir("framework-N07"),
+        env.PioPlatform().get_package_dir("framework-arduinoststm32-maple"),
         "tools", "platformio-build-%s.py" % mcu[0:7])
     if isfile(build_script):
         SConscript(build_script)
@@ -33,5 +33,5 @@ if core == "maple":
 else:
     SConscript(
         join(env.PioPlatform().get_package_dir(
-            "framework-N06"),
+            "framework-arduinoststm32"),
             "tools", "platformio-build.py"))
