@@ -1,4 +1,4 @@
-name: Examples
+name: H01
 
 on: [push, pull_request]
 
@@ -8,15 +8,11 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-16.04, windows-latest, macos-latest]
-        python-version: [2.7, 3.7]
+        python-version: [3.7]
         example:
           - "examples/arduino-blink"
           - "examples/arduino-external-libs"
           - "examples/arduino-internal-libs"
-          - "examples/arduino-mxchip-azureiot"
-          - "examples/arduino-mxchip-filesystem"
-          - "examples/arduino-mxchip-sensors"
-          - "examples/arduino-mxchip-wifiscan"
           - "examples/cmsis-blink"
           - "examples/libopencm3-1bitsy"
           - "examples/libopencm3-blink"
