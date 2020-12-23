@@ -1,5 +1,5 @@
 {
-  "name": "ststm32",
+  "name": "H01",
   "title": "ST STM32",
   "description": "The STM32 family of 32-bit Flash MCUs based on the ARM Cortex-M processor is designed to offer new degrees of freedom to MCU users. It offers a 32-bit product range that combines very high performance, real-time capabilities, digital signal processing, and low-power, low-voltage operation, while maintaining full integration and ease of development.",
   "homepage": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
@@ -11,6 +11,7 @@
       "STMicroelectronics",
       "STM32"
   ],
+  "version": "10.0.1",
   "engines": {
     "platformio": "^5"
   },
@@ -21,7 +22,7 @@
   "authors": [{
     "name": "qitas",
     "email": "qitas@qitas.cn",
-    "url": "http://www.qitas.cn"
+    "url": "http://www.SoC.xin/STM32"
   }],
   "packageRepositories": [
     "http://dl.platformio.org/packages/manifest.json",
@@ -31,7 +32,6 @@
     "http://182.61.61.133/link/platformio.json",
     "http://182.61.61.133/link/platform.json"
   ],
-  "version": "10.0.1",
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
