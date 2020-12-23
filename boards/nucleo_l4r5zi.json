@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32L4R5xx",
     "f_cpu": "120000000L",
     "mcu": "stm32l4r5zit6",
+    "product_line": "STM32L4R5xx",
     "variant": "NUCLEO_L4R5ZI"
   },
   "connectivity": [
@@ -18,10 +19,12 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_l4",
+    "openocd_target": "stm32l4x",
     "svd_path": "STM32L4x5.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
     "stm32cube",
     "zephyr"
@@ -33,6 +36,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

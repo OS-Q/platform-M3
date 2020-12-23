@@ -1,5 +1,5 @@
 *.pyc
-.pio/
-.vscode/
+*.pio/
+*.vscode/
 misc/svd/*.html
 *.rst

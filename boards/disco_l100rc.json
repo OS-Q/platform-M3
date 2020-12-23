@@ -4,7 +4,8 @@
     "cpu": "cortex-m3",
     "extra_flags": "-DSTM32L100xC",
     "f_cpu": "32000000L",
-    "mcu": "stm32l100rct6"
+    "mcu": "stm32l100rct6",
+    "product_line": "STM32L100xC"
   },
   "debug": {
     "default_tools": [
@@ -15,13 +16,16 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_l1",
+    "openocd_target": "stm32l1",
     "svd_path": "STM32L1xx.svd"
   },
   "frameworks": [
-    "stm32cube"
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "ST 32L100DISCOVERY",
-  "platform": "H01",
+  "platform": "ststm32",
   "upload": {
     "maximum_ram_size": 16384,
     "maximum_size": 262144,

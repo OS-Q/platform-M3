@@ -2,11 +2,14 @@
   "build": {
     "core": "stm32",
     "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F4 -DSTM32F407xx -DSTM32F40_41xxx -DARDUINO_STM32DiscoveryF407 -DBOARD_discovery_f4",
+    "extra_flags": "-DSTM32F4 -DSTM32F407xx -DSTM32F40_41xxx",
     "f_cpu": "168000000L",
-    "ldscript": "stm32f405x6.ld",
     "mcu": "stm32f407vgt6",
-    "variant": "DISCO_F407VG"
+    "variant": "DISCO_F407VG",
+    "product_line": "STM32F407xx",
+    "zephyr": {
+       "variant": "stm32f4_disco"
+    }
   },
   "debug": {
     "default_tools": [
@@ -17,6 +20,7 @@
       "stlink"
     ],
     "openocd_board": "stm32f4discovery",
+    "openocd_target": "stm32f4x",
     "svd_path": "STM32F40x.svd"
   },
   "frameworks": [
@@ -25,7 +29,8 @@
     "cmsis",
     "spl",
     "libopencm3",
-    "stm32cube"
+    "stm32cube",
+    "zephyr"
   ],
   "name": "ST STM32F4DISCOVERY",
   "upload": {
@@ -34,6 +39,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

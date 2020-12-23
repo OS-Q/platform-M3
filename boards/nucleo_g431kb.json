@@ -5,17 +5,22 @@
     "extra_flags": "-DSTM32G4xx -DSTM32G431xx",
     "f_cpu": "170000000L",
     "mcu": "stm32g431kbt6",
-    "variant": "NUCLEO_G431KB"
+    "product_line": "STM32F407xx",
+    "variant": "STM32G431xx"
   },
   "connectivity": [
     "can"
   ],
   "debug": {
     "jlink_device": "STM32G431KB",
+    "openocd_target": "stm32g4x",
     "svd_path": "STM32G431xx.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "cmsis",
+    "libopencm3",
+    "stm32cube"
   ],
   "name": "Nucleo G431KB",
   "upload": {
@@ -24,6 +29,7 @@
     "protocol": "mbed",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "blackmagic",
       "mbed"
     ]

@@ -7,8 +7,8 @@
     "framework_extra_flags": {
       "arduino": "-DARDUINO_BLUE_F407VE_Mini"
     },
-    "ldscript": "stm32f405x6.ld",
     "mcu": "stm32f407vet6",
+    "product_line": "STM32F407xx",
     "variant": "BLUE_F407VE_Mini"
   },
   "connectivity": [
@@ -22,15 +22,17 @@
   "frameworks": [
     "arduino",
     "cmsis",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "Blue STM32F407VE Mini",
   "upload": {
-    "maximum_ram_size": 196608,
+    "maximum_ram_size": 131072,
     "maximum_size": 524288,
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "serial"

@@ -4,7 +4,8 @@
     "extra_flags": "-DSTM32F411xE",
     "f_cpu": "100000000L",
     "mcu": "stm32f411ret6",
-    "variant": "NUCLEO_F411RE"
+    "product_line": "STM32F411xE",
+    "variant": "NUCLEO_F4x1RE"
   },
   "debug": {
     "default_tools": [
@@ -15,12 +16,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f4",
+    "openocd_target": "stm32f4x",
     "svd_path": "STM32F411xx.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo F411RE",
@@ -30,6 +34,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

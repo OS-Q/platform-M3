@@ -3,7 +3,8 @@
     "cpu": "cortex-m4",
     "extra_flags": "-DSTM32F412Zx",
     "f_cpu": "100000000L",
-    "mcu": "stm32f412zgt6"
+    "mcu": "stm32f412zgt6",
+    "product_line": "STM32F412Zx"
   },
   "debug": {
     "default_tools": [
@@ -14,11 +15,14 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f4",
+    "openocd_target": "stm32f4x",
     "svd_path": "STM32F41x.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo F412ZG",
@@ -28,6 +32,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

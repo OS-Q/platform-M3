@@ -3,7 +3,11 @@
     "cpu": "cortex-m7",
     "extra_flags": "-DSTM32F769xx",
     "f_cpu": "216000000L",
-    "mcu": "stm32f769nih6"
+    "mcu": "stm32f769nih6",
+    "product_line": "STM32F769xx",
+    "zephyr": {
+       "variant": "stm32f769i_disco"
+    }
   },
   "connectivity": [
     "can",
@@ -18,11 +22,15 @@
       "stlink"
     ],
     "openocd_board": "stm32f7discovery",
+    "openocd_target": "stm32f7x",
     "svd_path": "STM32F7x9.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
   ],
   "name": "ST 32F769IDISCOVERY",
   "upload": {
@@ -31,6 +39,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

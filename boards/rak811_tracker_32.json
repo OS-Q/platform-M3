@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32L151xB",
     "f_cpu": "32000000L",
     "mcu": "stm32l151rbt6",
+    "product_line": "STM32L151xB",
     "variant": "RAK811_TRACKER"
   },
   "debug": {
@@ -13,7 +14,9 @@
   },
   "frameworks": [
     "arduino",
-    "stm32cube"
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "RAK811 LoRa Tracker",
   "upload": {
@@ -22,6 +25,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "serial"

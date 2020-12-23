@@ -1,9 +1,12 @@
 {
   "build": {
+    "core": "stm32",
     "cpu": "cortex-m4",
     "extra_flags": "-DSTM32L433xx",
     "f_cpu": "80000000L",
-    "mcu": "stm32l433rc"
+    "mcu": "stm32l433rc",
+    "product_line": "STM32L433xx",
+    "variant": "NUCLEO_L433RC_P"
   },
   "debug": {
     "default_tools": [
@@ -14,11 +17,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_l4",
+    "openocd_target": "stm32l4x",
     "svd_path": "STM32L4x3.svd"
   },
   "frameworks": [
+    "arduino",
+    "cmsis",
     "mbed",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "ST Nucleo L433RC-P",
   "upload": {
@@ -27,6 +34,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32F303xE",
     "f_cpu": "72000000L",
     "mcu": "stm32f303ret6",
+    "product_line": "STM32F303xE",
     "variant": "NUCLEO_F303RE"
   },
   "debug": {
@@ -15,12 +16,16 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f3",
+    "openocd_target": "stm32f3x",
     "svd_path": "STM32F303xE.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
   ],
   "name": "ST Nucleo F303RE",
   "upload": {
@@ -29,6 +34,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

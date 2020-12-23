@@ -5,6 +5,7 @@
     "extra_flags": "-DSTM32G4xx -DSTM32G474xx",
     "f_cpu": "170000000L",
     "mcu": "stm32g474ret6",
+    "product_line": "STM32G474xx",
     "variant": "NUCLEO_G474RE"
   },
   "connectivity": [
@@ -12,10 +13,15 @@
   ],
   "debug": {
     "jlink_device": "STM32G474RE",
+    "openocd_target": "stm32g4x",
     "svd_path": "STM32G474xx.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
+    "mbed",
+    "libopencm3",
+    "stm32cube",
     "zephyr"
   ],
   "name": "Nucleo G474RE",
@@ -25,6 +31,7 @@
     "protocol": "mbed",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "blackmagic",
       "mbed"
     ]

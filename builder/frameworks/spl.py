@@ -1,3 +1,28 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+SPL
+
+The ST Standard Peripheral Library provides a set of functions for
+handling the peripherals on the STM32 Cortex-M3 family.
+The idea is to save the user (the new user, in particular) having to deal
+directly with the registers.
+
+http://www.st.com/web/en/catalog/tools/FM147/CL1794/SC961/SS1743?sc=stm32embeddedsoftware
+"""
+
 from os.path import isdir, isfile, join
 from string import Template
 

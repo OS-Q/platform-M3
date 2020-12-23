@@ -1,9 +1,13 @@
 {
   "build": {
     "cpu": "cortex-m4",
-    "extra_flags": "-DSTM32F411xE",
+    "extra_flags": "-DSTM32F4 -DSTM32F411xE",
     "f_cpu": "100000000L",
-    "mcu": "stm32f411vet6"
+    "mcu": "stm32f411vet6",
+    "product_line": "STM32F411xE",
+    "zephyr": {
+       "variant": "stm32f411e_disco"
+    }
   },
   "debug": {
     "default_tools": [
@@ -14,10 +18,14 @@
       "stlink"
     ],
     "openocd_board": "stm32f4discovery",
+    "openocd_target": "stm32f4x",
     "svd_path": "STM32F411xx.svd"
   },
   "frameworks": [
-    "stm32cube"
+    "cmsis",
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
   ],
   "name": "ST 32F411EDISCOVERY",
   "upload": {
@@ -26,6 +34,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic"
     ]

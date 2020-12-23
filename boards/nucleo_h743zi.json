@@ -5,6 +5,7 @@
     "extra_flags": "-DSTM32H7xx -DSTM32H743xx",
     "f_cpu": "400000000L",
     "mcu": "stm32h743zit6",
+    "product_line": "STM32H743xx",
     "variant": "NUCLEO_H743ZI"
   },
   "connectivity": [
@@ -20,12 +21,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_h743zi",
+    "openocd_target": "stm32h7x",
     "svd_path": "STM32H7x3.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "stm32cube",
-    "mbed"
+    "mbed",
+    "zephyr"
   ],
   "name": "ST Nucleo H743ZI",
   "upload": {
@@ -34,6 +38,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

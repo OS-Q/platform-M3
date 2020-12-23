@@ -3,7 +3,8 @@
     "cpu": "cortex-m0plus",
     "extra_flags": "-DSTM32L053xx",
     "f_cpu": "32000000L",
-    "mcu": "stm32l053c8t6"
+    "mcu": "stm32l053c8t6",
+    "product_line": "STM32L053xx"
   },
   "debug": {
     "default_tools": [
@@ -14,11 +15,14 @@
       "stlink"
     ],
     "openocd_board": "stm32l0discovery",
+    "openocd_target": "stm32l0",
     "svd_path": "STM32L053x.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "ST 32L0538DISCOVERY",
   "upload": {
@@ -27,6 +31,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

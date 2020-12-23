@@ -4,8 +4,8 @@
     "cpu": "cortex-m3",
     "extra_flags": "-DSTM32L1 -DSTM32L152xB -DSTM32L1XX_MD",
     "f_cpu": "32000000L",
-    "ldscript": "stm32l15xx6.ld",
     "mcu": "stm32l152rbt6",
+    "product_line": "STM32L152xB",
     "variant": "stm32l152xb"
   },
   "debug": {
@@ -17,6 +17,7 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_l1",
+    "openocd_target": "stm32l1",
     "svd_path": "STM32L1xx.svd"
   },
   "frameworks": [
@@ -32,6 +33,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic"
     ]

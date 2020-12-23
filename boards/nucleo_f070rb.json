@@ -3,7 +3,8 @@
     "cpu": "cortex-m0",
     "extra_flags": "-DSTM32F070xB",
     "f_cpu": "48000000L",
-    "mcu": "stm32f070rbt6"
+    "mcu": "stm32f070rbt6",
+    "product_line": "STM32F070xB"
   },
   "debug": {
     "default_tools": [
@@ -14,11 +15,14 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f0",
+    "openocd_target": "stm32f0x",
     "svd_path": "STM32F0xx.svd"
   },
   "frameworks": [
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo F070RB",
@@ -28,6 +32,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

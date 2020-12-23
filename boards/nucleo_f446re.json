@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32F446xx",
     "f_cpu": "180000000L",
     "mcu": "stm32f446ret6",
+    "product_line": "STM32F446xx",
     "variant": "NUCLEO_F446RE"
   },
   "connectivity": [
@@ -18,12 +19,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f4",
+    "openocd_target": "stm32f4x",
     "svd_path": "STM32F446x.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo F446RE",
@@ -33,6 +37,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

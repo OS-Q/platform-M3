@@ -3,7 +3,8 @@
     "cpu": "cortex-m7",
     "extra_flags": "-DSTM32F722xx",
     "f_cpu": "216000000L",
-    "mcu": "stm32f722zet6"
+    "mcu": "stm32f722zet6",
+    "product_line": "STM32F722xx"
   },
   "connectivity": [
     "can"
@@ -17,10 +18,13 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f7",
+    "openocd_target": "stm32f7x",
     "svd_path": "STM32F7x2.svd"
   },
   "frameworks": [
-    "stm32cube"
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "ST Nucleo F722ZE",
   "upload": {
@@ -29,6 +33,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

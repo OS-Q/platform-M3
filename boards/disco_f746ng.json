@@ -4,7 +4,11 @@
     "extra_flags": "-DSTM32F746xx",
     "f_cpu": "216000000L",
     "mcu": "stm32f746ngh6",
-    "variant": "DISCO_F746NG"
+    "product_line": "STM32F746xx",
+    "variant": "DISCO_F746NG",
+    "zephyr": {
+       "variant": "stm32f746g_disco"
+    }
   },
   "connectivity": [
     "can",
@@ -19,12 +23,16 @@
       "stlink"
     ],
     "openocd_board": "stm32f7discovery",
+    "openocd_target": "stm32f7x",
     "svd_path": "STM32F7x6.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
-    "stm32cube"
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
   ],
   "name": "ST 32F746GDISCOVERY",
   "upload": {
@@ -33,6 +41,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

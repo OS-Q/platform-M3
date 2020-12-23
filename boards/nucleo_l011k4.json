@@ -3,7 +3,8 @@
     "cpu": "cortex-m0plus",
     "extra_flags": "-DSTM32L011xx",
     "f_cpu": "32000000L",
-    "mcu": "stm32l011k4t6"
+    "mcu": "stm32l011k4t6",
+    "product_line": "STM32L011xx"
   },
   "debug": {
     "default_tools": [
@@ -17,7 +18,9 @@
     "svd_path": "STM32L0x1.svd"
   },
   "frameworks": [
-    "stm32cube"
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
   ],
   "name": "ST Nucleo L011K4",
   "upload": {
@@ -26,6 +29,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic"
     ]

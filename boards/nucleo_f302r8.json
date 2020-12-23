@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32F302x8",
     "f_cpu": "72000000L",
     "mcu": "stm32f302r8t6",
+    "product_line": "STM32F302x8",
     "variant": "NUCLEO_F302R8"
   },
   "connectivity": [
@@ -18,12 +19,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_f3",
+    "openocd_target": "stm32f3x",
     "svd_path": "STM32F302x.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo F302R8",
@@ -33,6 +37,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

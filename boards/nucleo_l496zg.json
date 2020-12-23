@@ -4,6 +4,7 @@
     "extra_flags": "-DSTM32L496xx",
     "f_cpu": "80000000L",
     "mcu": "stm32l496zgt6",
+    "product_line": "STM32L496xx",
     "variant": "NUCLEO_L496ZG"
   },
   "connectivity": [
@@ -18,12 +19,15 @@
       "stlink"
     ],
     "openocd_board": "st_nucleo_l4",
+    "openocd_target": "stm32l4x",
     "svd_path": "STM32L4x6.svd"
   },
   "frameworks": [
     "arduino",
+    "cmsis",
     "mbed",
     "stm32cube",
+    "libopencm3",
     "zephyr"
   ],
   "name": "ST Nucleo L496ZG",
@@ -33,6 +37,7 @@
     "protocol": "stlink",
     "protocols": [
       "jlink",
+      "cmsis-dap",
       "stlink",
       "blackmagic",
       "mbed"

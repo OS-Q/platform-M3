@@ -1,3 +1,17 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import sys
 from platform import system
 from os import makedirs
@@ -13,13 +27,13 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 
 env.Replace(
-    AR="arm-none-eabi-ar",
+    AR="arm-none-eabi-gcc-ar",
     AS="arm-none-eabi-as",
     CC="arm-none-eabi-gcc",
     CXX="arm-none-eabi-g++",
     GDB="arm-none-eabi-gdb",
     OBJCOPY="arm-none-eabi-objcopy",
-    RANLIB="arm-none-eabi-ranlib",
+    RANLIB="arm-none-eabi-gcc-ranlib",
     SIZETOOL="arm-none-eabi-size",
 
     ARFLAGS=["rc"],
@@ -159,7 +173,8 @@ elif upload_protocol.startswith("jlink"):
             "-device", board.get("debug", {}).get("jlink_device"),
             "-speed", "4000",
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
-            "-autoconnect", "1"
+            "-autoconnect", "1",
+            "-NoGui", "1"
         ],
         UPLOADCMD='$UPLOADER $UPLOADERFLAGS -CommanderScript "${__jlink_cmd_script(__env__, SOURCE)}"'
     )
@@ -172,9 +187,10 @@ elif upload_protocol == "dfu":
     pid = hwids[0][1]
 
     # default tool for all boards with embedded DFU bootloader over USB
-    _upload_tool = "dfu-util"
+    _upload_tool = '"%s"' % join(platform.get_package_dir(
+        "tool-dfuutil") or "", "bin", "dfu-util"),
     _upload_flags = [
-        "-d", "vid:pid,%s:%s" % (vid, pid),
+        "-d", ",".join(["%s:%s" % (hwid[0], hwid[1]) for hwid in hwids]),
         "-a", "0", "-s",
         "%s:leave" % board.get("upload.offset_address", "0x08000000"), "-D"
     ]
@@ -201,7 +217,7 @@ elif upload_protocol == "dfu":
             0, env.VerboseAction(env.AutodetectUploadPort,
                                  "Looking for upload port..."))
 
-    if _upload_tool == "dfu-util":
+    if "dfu-util" in _upload_tool:
         # Add special DFU header to the binary image
         env.AddPostAction(
             join("$BUILD_DIR", "${PROGNAME}.bin"),
