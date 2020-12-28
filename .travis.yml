@@ -47,10 +47,10 @@ jobs:
       env: PLATFORMIO_PROJECT_DIR=examples/zephyr-net-https-client
     - python: "2.7"
       env: PLATFORMIO_PROJECT_DIR=examples/zephyr-subsys-usb-hid-mouse
-  
+
 
 install:
-  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pip install -U https://github.com/OS-Q/S03/archive/master.zip
   - platformio platform install file://.
 
 script:
