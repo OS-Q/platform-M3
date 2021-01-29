@@ -8,7 +8,7 @@
     "product_line": "STM32F405xx",
     "variant": "Generic_F4x5RG",
     "zephyr": {
-       "variant": "olimex_stm32_p405"
+        "variant": "olimex_stm32_p405"
     }
   },
   "debug": {
@@ -29,6 +29,8 @@
     "maximum_size": 1048576,
     "protocol": "stlink",
     "protocols": [
+      "dfu",
+      "serial",
       "jlink",
       "cmsis-dap",
       "stlink",
