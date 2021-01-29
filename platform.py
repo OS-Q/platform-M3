@@ -57,13 +57,6 @@ class P01Platform(PlatformBase):
         if variables.get("upload_protocol", default_protocol) == "dfu":
             self.packages["tool-dfuutil"]["optional"] = False
 
-        if board == "mxchip_az3166":
-            self.frameworks["arduino"][
-                "package"] = "framework-arduinostm32mxchip"
-            self.frameworks["arduino"][
-                "script"] = "builder/frameworks/arduino/mxchip.py"
-            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.60301.0"
-
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
