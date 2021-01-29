@@ -1,0 +1,7 @@
+{
+    "mark":"P01",
+    "type":"Platform",
+    "name":"STM32",
+    "url":"https://github.com/OS-Q/P01",
+    "version":"11.0.0"
+}
