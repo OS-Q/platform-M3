@@ -1,4 +1,5 @@
 *.pyc
+*__pyc*/
 *.pio/
 *.vscode/
 misc/svd/*.html
