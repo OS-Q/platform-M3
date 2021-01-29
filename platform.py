@@ -1,3 +1,5 @@
+import json
+import os
 
 from platform import system
 
@@ -11,23 +13,42 @@ class P01Platform(PlatformBase):
         board_config = self.board_config(board)
         build_core = variables.get(
             "board_build.core", board_config.get("build.core", "arduino"))
+        build_mcu = variables.get("board_build.mcu", board_config.get("build.mcu", ""))
 
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
             if build_core == "maple":
-                self.frameworks['arduino']['package'] = "framework-arduinoststm32-maple"
+                self.frameworks["arduino"]["package"] = "framework-arduinoststm32-maple"
                 self.packages["framework-arduinoststm32-maple"]["optional"] = False
+                self.packages["framework-arduinoststm32"]["optional"] = True
+            elif build_core == "stm32l0":
+                self.frameworks["arduino"]["package"] = "framework-arduinoststm32l0"
+                self.packages["framework-arduinoststm32l0"]["optional"] = False
                 self.packages["framework-arduinoststm32"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
                 self.packages["framework-cmsis"]["version"] = "~2.50501.0"
                 self.packages["framework-cmsis"]["optional"] = False
+
+        if "mbed" in frameworks:
+            deprecated_boards_file = os.path.join(
+                self.get_dir(), "misc", "mbed_deprecated_boards.json")
+            if os.path.isfile(deprecated_boards_file):
+                with open(deprecated_boards_file) as fp:
+                    if board in json.load(fp):
+                        self.packages["framework-mbed"]["version"] = "~6.51506.0"
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
+
         if "cmsis" in frameworks:
-            assert board_config.get(
-                "build.mcu", ""), ("Missing MCU field for %s" % board)
-            device_package = "framework-cmsis-" + board_config.get("build.mcu")[0:7]
+            assert build_mcu, ("Missing MCU field for %s" % board)
+            device_package = "framework-cmsis-" + build_mcu[0:7]
             if device_package in self.packages:
                 self.packages[device_package]["optional"] = False
+
+        if "stm32cube" in frameworks:
+            assert build_mcu, ("Missing MCU field for %s" % board)
+            device_package = "framework-stm32cube%s" % build_mcu[5:7]
+            self.frameworks["stm32cube"]["package"] = device_package
 
         if any(f in frameworks for f in ("cmsis", "stm32cube")):
             self.packages["tool-ldscripts-ststm32"]["optional"] = False
@@ -37,20 +58,20 @@ class P01Platform(PlatformBase):
             self.packages["tool-dfuutil"]["optional"] = False
 
         if board == "mxchip_az3166":
-            self.frameworks['arduino'][
-                'package'] = "framework-arduinostm32mxchip"
-            self.frameworks['arduino'][
-                'script'] = "builder/frameworks/arduino/mxchip.py"
-            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.60301.0"
+            self.frameworks["arduino"][
+                "package"] = "framework-arduinostm32mxchip"
+            self.frameworks["arduino"][
+                "script"] = "builder/frameworks/arduino/mxchip.py"
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.60301.0"
 
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
                         "tool-cmake", "tool-dtc", "tool-ninja"):
                     self.packages[p]["optional"] = False
-            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.80201.0"
             if "windows" not in get_systype():
-                self.packages['tool-gperf']['optional'] = False
+                self.packages["tool-gperf"]["optional"] = False
 
         # configure J-LINK tool
         jlink_conds = [
@@ -67,7 +88,7 @@ class P01Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                        targets)
+                                                       targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
