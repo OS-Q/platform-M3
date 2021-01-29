@@ -6,12 +6,11 @@
   "license": "Apache-2.0",
   "keywords": [
       "dev-platform",
-      "ARM",
+      "OS-Q",
       "Cortex-M",
       "STMicroelectronics",
       "STM32"
   ],
-  "version": "10.0.1",
   "engines": {
     "platformio": "^5"
   },
@@ -19,13 +18,8 @@
     "type": "git",
     "url": "https://github.com/OS-Q/P01.git"
   },
-  "authors": [{
-    "name": "qitas",
-    "email": "qitas@qitas.cn",
-    "url": "http://www.SoC.xin/STM32"
-  }],
+  "version": "11.0.0",
   "packageRepositories": [
-    "http://dl.platformio.org/packages/manifest.json",
     "http://182.61.61.133/link/toolchain/manifest.json",
     "http://182.61.61.133/link/toolchain/openocd.json",
     "http://182.61.61.133/link/framework/manifest.json",
@@ -69,7 +63,6 @@
       "title": "Arduino"
     },
     "stm32cube": {
-      "package": "framework-stm32cube",
       "script": "builder/frameworks/stm32cube.py",
       "description": "STM32Cube embedded software libraries, including: The HAL hardware abstraction layer, enabling portability between different STM32 devices via standardized API calls; The Low-Layer (LL) APIs, a light-weight, optimized, expert oriented set of APIs designed for both performance and runtime efficiency",
       "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
@@ -87,13 +80,15 @@
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
       "owner": "platformio",
-      "version": ">=1.60301.0,<1.80000.0"
+      "version": ">=1.60301.0,<1.80000.0",
+      "optionalVersions": ["~1.60301.0", "~1.80201.0", "~1.90201.0"]
     },
     "framework-mbed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~6.60200.0"
+      "version": "~6.60600.0",
+      "optionalVersions": ["~6.51506.0"]
     },
     "framework-cmsis": {
       "type": "framework",
