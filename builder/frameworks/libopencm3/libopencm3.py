@@ -1,17 +1,3 @@
-# Copyright 2014-present PlatformIO <contact@platformio.org>
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """
 libOpenCM3
 
@@ -65,8 +51,8 @@ def generate_nvic_files():
 
         exec_command(
             [env.subst("$PYTHONEXE"), join("scripts", "irq2nvic_h"),
-             join("." + root.replace(FRAMEWORK_DIR, ""),
-                  "irq.json").replace("\\", "/")],
+            join("." + root.replace(FRAMEWORK_DIR, ""),
+                "irq.json").replace("\\", "/")],
             cwd=FRAMEWORK_DIR
         )
 
@@ -154,7 +140,7 @@ def generate_ldscript(variant):
 
 def get_ld_device(platform):
     ld_device = MCU
-    if platform == "ststm32":
+    if platform == "P01":
         ld_device = ld_device[0:11]
     # Script cannot generate precise scripts for the following platforms.
     # Instead family and memory sizes from board manifest are used
@@ -175,7 +161,7 @@ variant = MCU
 if platform == "titiva":
     env.Append(CPPDEFINES=["LM4F"])
     root_dir = join(root_dir, "lm4f")
-elif platform == "ststm32":
+elif platform == "P01":
     variant = MCU[0:7]
     root_dir = join(root_dir, "stm32", MCU[5:7])
     env.AppendUnique(CPPDEFINES=[variant.upper()])
