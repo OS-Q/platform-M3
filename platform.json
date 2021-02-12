@@ -286,9 +286,15 @@
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr.git"
     },
+    "framework-zephyr-hal-st": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.5b3ec3e182"
+    },
     "framework-zephyr-hal-stm32": {
       "optional": true,
-      "version": "https://github.com/OS-Q/F21A.git"
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.cea57f86d3"
     },
     "framework-zephyr-cmsis": {
       "optional": true,
@@ -309,11 +315,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.13697783bf"
-    },
-    "framework-zephyr-hal-st": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.5b3ec3e182"
     },
     "framework-zephyr-libmetal": {
       "optional": true,
