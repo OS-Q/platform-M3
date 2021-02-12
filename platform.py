@@ -6,7 +6,7 @@ from platform import system
 from platformio.managers.platform import PlatformBase
 from platformio.util import get_systype
 
-class P01Platform(PlatformBase):
+class P21Platform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         board = variables.get("board")
@@ -81,7 +81,7 @@ class P01Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                       targets)
+                                                    targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)

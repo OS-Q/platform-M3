@@ -18,7 +18,7 @@ from os import makedirs
 from os.path import basename, isdir, join
 
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
-                          Builder, Default, DefaultEnvironment)
+                            Builder, Default, DefaultEnvironment)
 
 
 env = DefaultEnvironment()

@@ -4,6 +4,7 @@
   "description": "The STM32 family of 32-bit Flash MCUs based on the ARM Cortex-M processor is designed to offer new degrees of freedom to MCU users.",
   "homepage": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
   "license": "Apache-2.0",
+  "version": "11.0.0",
   "keywords": [
       "dev-platform",
       "OS-Q",
@@ -17,7 +18,6 @@
     "type": "git",
     "url": "https://github.com/OS-Q/P21.git"
   },
-  "version": "11.0.0",
   "packageRepositories": [
     "http://182.61.61.133/link/toolchain/manifest.json",
     "http://182.61.61.133/link/toolchain/openocd.json",
@@ -286,6 +286,10 @@
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr.git"
     },
+    "framework-zephyr-hal-stm32": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/F21A.git"
+    },
     "framework-zephyr-cmsis": {
       "optional": true,
       "owner": "platformio",
@@ -310,10 +314,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.5b3ec3e182"
-    },
-    "framework-zephyr-hal-stm32": {
-      "optional": true,
-      "version": "https://github.com/OS-Q/F01.git"
     },
     "framework-zephyr-libmetal": {
       "optional": true,
