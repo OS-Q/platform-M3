@@ -1,4 +1,4 @@
-name: P01
+name: P21
 
 on: [push, pull_request]
 
@@ -20,6 +20,7 @@ jobs:
           - "examples/stm32cube-ll-blink"
           - "examples/zephyr-blink"
           - "tests/arduino-blink-different-cores"
+
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -34,6 +35,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -U https://github.com/OS-Q/S03/archive/master.zip
           platformio platform install file://.
-      - name: Build P01
+      - name: Build P21
         run: |
           platformio run -d ${{ matrix.example }}

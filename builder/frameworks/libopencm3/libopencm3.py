@@ -140,7 +140,7 @@ def generate_ldscript(variant):
 
 def get_ld_device(platform):
     ld_device = MCU
-    if platform == "P01":
+    if platform == "P21":
         ld_device = ld_device[0:11]
     # Script cannot generate precise scripts for the following platforms.
     # Instead family and memory sizes from board manifest are used
@@ -161,7 +161,7 @@ variant = MCU
 if platform == "titiva":
     env.Append(CPPDEFINES=["LM4F"])
     root_dir = join(root_dir, "lm4f")
-elif platform == "P01":
+elif platform == "P21":
     variant = MCU[0:7]
     root_dir = join(root_dir, "stm32", MCU[5:7])
     env.AppendUnique(CPPDEFINES=[variant.upper()])
