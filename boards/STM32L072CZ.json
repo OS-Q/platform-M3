@@ -10,7 +10,7 @@
     "product_line": "STM32L072xx",
     "variant": "DISCO_L072CZ_LRWAN1",
     "zephyr": {
-       "variant": "b_l072z_lrwan1"
+      "variant": "b_l072z_lrwan1"
     }
   },
   "debug": {
