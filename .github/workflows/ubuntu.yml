@@ -17,7 +17,6 @@ jobs:
           - "examples/stm32cube-hal-blink"
           - "examples/stm32cube-ll-blink"
           - "examples/zephyr-blink"
-          - "tests/arduino-blink-different-cores"
 
     steps:
       - uses: actions/checkout@v2
