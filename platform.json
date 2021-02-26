@@ -195,11 +195,10 @@
       "optional": true,
       "version": "https://github.com/OS-Q/A21B.git"
     },
-    "framework-arduinoststm32l0": {
+    "A21C": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~2.10.0"
+      "version": "https://github.com/OS-Q/A21C.git"
     },
     "framework-stm32cubef0": {
       "type": "framework",

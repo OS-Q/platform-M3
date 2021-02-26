@@ -20,11 +20,11 @@ core = env.BoardConfig().get("build.core", "")
 if core == "maple":
     build_script = join(
         env.PioPlatform().get_package_dir("A21B"),
-        "tools", "platformio-build-%s.py" % mcu[0:7])
+        "tools", "build-%s.py" % mcu[0:7])
 elif core == "stm32l0":
     build_script = join(
-        env.PioPlatform().get_package_dir("framework-arduinoststm32l0"),
-        "tools", "platformio-build.py")
+        env.PioPlatform().get_package_dir("A21C"),
+        "tools", "build.py")
 else:
     build_script = join(env.PioPlatform().get_package_dir(
         "A21"), "tools", "build.py")

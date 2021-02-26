@@ -22,8 +22,8 @@ class P21Platform(PlatformBase):
                 self.packages["A21B"]["optional"] = False
                 self.packages["A21"]["optional"] = True
             elif build_core == "stm32l0":
-                self.frameworks["arduino"]["package"] = "framework-arduinoststm32l0"
-                self.packages["framework-arduinoststm32l0"]["optional"] = False
+                self.frameworks["arduino"]["package"] = "A21C"
+                self.packages["A21C"]["optional"] = False
                 self.packages["A21"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
