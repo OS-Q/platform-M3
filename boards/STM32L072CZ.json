@@ -8,7 +8,7 @@
     },
     "mcu": "stm32l072cz",
     "product_line": "STM32L072xx",
-    "variant": "DISCO_L072CZ_LRWAN1",
+    "variant": "STM32L072CZ",
     "zephyr": {
       "variant": "b_l072z_lrwan1"
     }
