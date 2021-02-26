@@ -29,7 +29,7 @@
     "libopencm3",
     "stm32cube"
   ],
-  "name": "Maple",
+  "name": "Maple Std",
   "upload": {
     "boot_version": 1,
     "maximum_ram_size": 17408,

@@ -29,7 +29,7 @@
     "libopencm3",
     "stm32cube"
   ],
-  "name": "Maple (RET6)",
+  "name": "Maple Pro",
   "upload": {
     "boot_version": 1,
     "maximum_ram_size": 49152,

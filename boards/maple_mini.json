@@ -32,7 +32,7 @@
     "libopencm3",
     "stm32cube"
   ],
-  "name": "Maple Mini Original",
+  "name": "Maple Mini",
   "upload": {
     "boot_version": 1,
     "maximum_ram_size": 17408,
