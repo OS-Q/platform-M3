@@ -6,8 +6,6 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
   - PLATFORMIO_PROJECT_DIR=examples/cmsis-blink
   - PLATFORMIO_PROJECT_DIR=examples/libopencm3-blink
-  - PLATFORMIO_PROJECT_DIR=examples/mbed-blink
-  - PLATFORMIO_PROJECT_DIR=examples/mbed-rtos-blink-baremetal
   - PLATFORMIO_PROJECT_DIR=examples/spl-blink
   - PLATFORMIO_PROJECT_DIR=examples/stm32cube-hal-blink
   - PLATFORMIO_PROJECT_DIR=examples/stm32cube-ll-blink
