@@ -13,8 +13,6 @@ jobs:
           - "examples/arduino-blink"
           - "examples/cmsis-blink"
           - "examples/libopencm3-blink"
-          - "examples/mbed-rtos-blink-baremetal"
-          - "examples/mbed-blink"
           - "examples/spl-blink"
           - "examples/stm32cube-hal-blink"
           - "examples/stm32cube-ll-blink"

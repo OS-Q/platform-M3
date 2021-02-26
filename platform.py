@@ -124,8 +124,8 @@ class P21Platform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                       if system() == "Windows" else
-                                       "JLinkGDBServer")
+                                    if system() == "Windows" else
+                                    "JLinkGDBServer")
                     }
                 }
             else:
