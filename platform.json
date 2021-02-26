@@ -291,15 +291,17 @@
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.5b3ec3e182"
     },
-    "framework-zephyr-hal-stm32": {
+    "zephyr-hal-stm32": {
       "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.cea57f86d3"
+      "version": "https://github.com/OS-Q/F21Z.git"
     },
-    "framework-zephyr-cmsis": {
+    "zephyr-cmsis": {
       "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.542b2296e6"
+      "version": "https://github.com/OS-Q/zephyr-cmsis.git"
+    },
+    "zephyr-trusted-firmware-m": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-trusted-firmware-m.git"
     },
     "framework-zephyr-canopennode": {
       "optional": true,
