@@ -41,7 +41,7 @@
       "title": "CMSIS"
     },
     "spl": {
-      "package": "framework-spl",
+      "package": "N21",
       "script": "builder/frameworks/spl.py",
       "description": "The ST Standard Peripheral Library provides a set of functions for handling the peripherals on the STM32 family of microcontrollers.",
       "homepage": "https://www.st.com/en/embedded-software/stsw-stm8069.html",
@@ -173,11 +173,10 @@
       "owner": "platformio",
       "version": "~1.0.2"
     },
-    "framework-spl": {
+    "N21": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~2.10201.0"
+      "version": "https://github.com/OS-Q/N21.git"
     },
     "framework-libopencm3": {
       "type": "framework",
