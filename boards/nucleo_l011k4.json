@@ -1,6 +1,7 @@
 {
   "build": {
     "cpu": "cortex-m0plus",
+    "core": "stm32l0",
     "extra_flags": "-DSTM32L011xx",
     "f_cpu": "32000000L",
     "mcu": "stm32l011k4t6",
@@ -18,6 +19,7 @@
     "svd_path": "STM32L0x1.svd"
   },
   "frameworks": [
+    "arduino",
     "cmsis",
     "stm32cube",
     "libopencm3"
