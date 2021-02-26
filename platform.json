@@ -286,10 +286,9 @@
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr.git"
     },
-    "framework-zephyr-hal-st": {
+    "zephyr-hal-st": {
       "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.5b3ec3e182"
+      "version": "https://github.com/OS-Q/zephyr-hal-st.git"
     },
     "zephyr-hal-stm32": {
       "optional": true,
@@ -382,11 +381,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.957d46bc3c"
-    },
-    "framework-zephyr-trusted-firmware-m": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "0.0.0-alpha+sha.143df67555"
     },
     "tool-stm32duino": {
       "type": "uploader",

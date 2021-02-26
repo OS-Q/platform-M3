@@ -6,7 +6,7 @@ def after_build(source, target, env):
 	isExists=os.path.exists('build')
 	if not isExists:
 		os.mkdir('build')
-	shutil.copy(firmware_source, 'build/zephyr_blink_blackpill_f103c8.hex')
+	shutil.copy(firmware_source, 'build/zephyr_blink_f103c8.hex')
 
 env.AddPostAction("buildprog", after_build)
 
