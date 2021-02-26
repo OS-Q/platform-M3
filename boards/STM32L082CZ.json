@@ -17,7 +17,7 @@
     "mcu": "stm32l082czy6",
     "usb_product": "Cricket",
     "product_line": "STM32L082xx",
-    "variant": "Cricket-L082CZ"
+    "variant": "STM32L082CZ"
   },
   "debug": {
     "jlink_device": "STM32L082CZ",
@@ -28,7 +28,7 @@
     "arduino",
     "stm32cube"
   ],
-  "name": "Cricket-L082CZ",
+  "name": "STM32L082CZ",
   "upload": {
     "maximum_ram_size": 20480,
     "maximum_size": 196608,
