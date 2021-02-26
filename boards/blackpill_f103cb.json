@@ -18,7 +18,7 @@
     "product_line": "STM32F103xB",
     "variant": "PILL_F103XX",
     "zephyr": {
-       "variant": "stm32_min_dev_black"
+        "variant": "stm32_min_dev_black"
     }
   },
   "debug": {
@@ -40,7 +40,7 @@
     "stm32cube",
     "zephyr"
   ],
-  "name": "BlackPill F103C8 (128k)",
+  "name": "BlackPill F103CB",
   "upload": {
     "maximum_ram_size": 20480,
     "maximum_size": 131072,

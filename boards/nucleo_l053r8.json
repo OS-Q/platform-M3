@@ -8,7 +8,7 @@
     },
     "mcu": "stm32l053r8t6",
     "product_line": "STM32L053xx",
-    "variant": "STM32L053R8"
+    "variant": "NUCLEO_L053R8"
   },
   "debug": {
     "default_tools": [

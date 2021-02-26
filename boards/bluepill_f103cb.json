@@ -18,7 +18,7 @@
     "product_line": "STM32F103xB",
     "variant": "PILL_F103XX",
     "zephyr": {
-       "variant": "stm32_min_dev_blue"
+      "variant": "stm32_min_dev_blue"
     }
   },
   "debug": {
