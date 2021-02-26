@@ -59,7 +59,7 @@ class P21Platform(PlatformBase):
 
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
-                if p.startswith("framework-zephyr-") or p in (
+                if p.startswith("framework-zephyr-") or p.startswith("zephyr-") or p in (
                         "tool-cmake", "tool-dtc", "tool-ninja"):
                     self.packages[p]["optional"] = False
             self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.80201.0"

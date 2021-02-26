@@ -72,8 +72,7 @@ if not env.get("PIOFRAMEWORK"):
 
 if "zephyr" in env.get("PIOFRAMEWORK", []):
     env.SConscript(
-        join(platform.get_package_dir(
-            "zephyr"), "scripts", "OSQ", "build-pre.py"),
+        join(platform.get_package_dir( "zephyr"), "scripts", "OSQ", "build-pre.py"),
         exports={"env": env}
     )
 
