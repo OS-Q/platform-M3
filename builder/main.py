@@ -200,7 +200,7 @@ elif upload_protocol == "dfu":
 
         upload_actions.insert(
             0, env.VerboseAction(env.AutodetectUploadPort,
-                                 "Looking for upload port..."))
+                                "Looking for upload port..."))
 
     if "dfu-util" in _upload_tool:
         # Add special DFU header to the binary image
@@ -209,7 +209,7 @@ elif upload_protocol == "dfu":
             env.VerboseAction(
                 " ".join([
                     '"%s"' % join(platform.get_package_dir("tool-dfuutil") or "",
-                         "bin", "dfu-suffix"),
+                        "bin", "dfu-suffix"),
                     "-v %s" % vid,
                     "-p %s" % pid,
                     "-d 0xffff", "-a", "$TARGET"
@@ -269,7 +269,7 @@ elif upload_protocol in debug_tools:
     ])
     openocd_args = [
         f.replace("$PACKAGE_DIR",
-                  platform.get_package_dir("tool-openocd") or "")
+                platform.get_package_dir("tool-openocd") or "")
         for f in openocd_args
     ]
     env.Replace(
@@ -296,7 +296,7 @@ AlwaysBuild(env.Alias("upload", upload_source, upload_actions))
 
 if any("-Wl,-T" in f for f in env.get("LINKFLAGS", [])):
     print("Warning! '-Wl,-T' option for specifying linker scripts is deprecated. "
-          "Please use 'board_build.ldscript' option in your 'platformio.ini' file.")
+        "Please use 'board_build.ldscript' option in your 'platformio.ini' file.")
 
 #
 # Default targets

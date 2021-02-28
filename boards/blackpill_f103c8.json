@@ -36,6 +36,7 @@
   "frameworks": [
     "arduino",
     "cmsis",
+    "spl",
     "libopencm3",
     "stm32cube",
     "zephyr"
