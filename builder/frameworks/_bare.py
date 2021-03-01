@@ -3,7 +3,7 @@ from SCons.Script import DefaultEnvironment
 env = DefaultEnvironment()
 
 env.Append(
-    ASFLAGS=["assembler-with-cpp"],
+    ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
         "-Os",  # optimize for size
