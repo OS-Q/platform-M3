@@ -47,7 +47,7 @@ class P21Platform(PlatformBase):
 
         if "stm32cube" in frameworks:
             assert build_mcu, ("Missing MCU field for %s" % board)
-            device_package = "framework-stm32cube%s" % build_mcu[5:7]
+            device_package = "stm32cube%s" % build_mcu[5:7]
             self.frameworks["stm32cube"]["package"] = device_package
 
         if any(f in frameworks for f in ("cmsis", "stm32cube")):

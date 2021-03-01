@@ -198,83 +198,70 @@
       "optional": true,
       "version": "https://github.com/OS-Q/A21C.git"
     },
-    "framework-stm32cubef0": {
+    "stm32cubef0": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.11.0"
+      "version": "https://github.com/OS-Q/stm32cubef0.git"
     },
-    "framework-stm32cubef1": {
+    "stm32cubef1": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.8.0"
+      "version": "https://github.com/OS-Q/stm32cubef1.git"
     },
-    "framework-stm32cubef2": {
+    "stm32cubef2": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.9.0"
+      "version": "https://github.com/OS-Q/stm32cubef2.git"
     },
-    "framework-stm32cubef3": {
+    "stm32cubef3": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.11.0"
+      "version": "https://github.com/OS-Q/stm32cubef3.git"
     },
-    "framework-stm32cubef4": {
+    "stm32cubef4": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.25.0"
+      "version": "https://github.com/OS-Q/stm32cubef4.git"
     },
-    "framework-stm32cubef7": {
+    "stm32cubef7": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.16.0"
+      "version": "https://github.com/OS-Q/stm32cubef7.git"
     },
-    "framework-stm32cubeg0": {
+    "stm32cubeg0": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.3.0"
+      "version": "https://github.com/OS-Q/stm32cubeg0.git"
     },
-    "framework-stm32cubeg4": {
+    "stm32cubeg4": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.3.0"
+      "version": "https://github.com/OS-Q/stm32cubeg4.git"
     },
-    "framework-stm32cubeh7": {
+    "stm32cubeh7": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.8.0"
+      "version": "https://github.com/OS-Q/stm32cubeh7.git"
     },
-    "framework-stm32cubel0": {
+    "stm32cubel0": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.11.0"
+      "version": "https://github.com/OS-Q/stm32cubel0.git"
     },
-    "framework-stm32cubel1": {
+    "stm32cubel1": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.10.0"
+      "version": "https://github.com/OS-Q/stm32cubel1.git"
     },
-    "framework-stm32cubel4": {
+    "stm32cubel4": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.16.0"
+      "version": "https://github.com/OS-Q/stm32cubel4.git"
     },
-    "framework-stm32cubel5": {
+    "stm32cubel5": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.3.0"
+      "version": "https://github.com/OS-Q/stm32cubel5.git"
     },
     "zephyr": {
       "type": "framework",
