@@ -58,12 +58,12 @@ def get_linker_script(mcu):
 env.Append(
     CPPPATH=[
         join(FRAMEWORK_DIR, board.get("build.core"),
-            "cmsis", "cores", board.get("build.core")),
+            "cmsis", "cores"),
         join(FRAMEWORK_DIR, board.get("build.core"), "cmsis",
             "variants", board.get("build.mcu")[0:7]),
-        join(FRAMEWORK_DIR, board.get("build.core"), "spl",
+        join(FRAMEWORK_DIR, board.get("build.core"),
             "variants", board.get("build.mcu")[0:7], "inc"),
-        join(FRAMEWORK_DIR, board.get("build.core"), "spl",
+        join(FRAMEWORK_DIR, board.get("build.core"),
             "variants", board.get("build.mcu")[0:7], "src")
     ]
 )
@@ -75,8 +75,7 @@ env.Append(
 )
 
 if not board.get("build.ldscript", ""):
-    env.Replace(
-        LDSCRIPT_PATH=get_linker_script(board.get("build.mcu")))
+    env.Replace(LDSCRIPT_PATH=get_linker_script(board.get("build.mcu")))
 
 #
 # Target: Build SPL Library
@@ -86,12 +85,12 @@ extra_flags = board.get("build.extra_flags", "")
 src_filter_patterns = ["+<*>"]
 if "STM32F40_41xxx" in extra_flags:
     src_filter_patterns += ["-<stm32f4xx_fmc.c>"]
-    src_filter_patterns += ["-<startup_stm32f42x.s>"]
-    src_filter_patterns += ["-<startup_stm32f401x.s>"]
+    src_filter_patterns += ["-<startup_stm32f42xx.S>"]
+    src_filter_patterns += ["-<startup_stm32f401x.S>"]
 if "STM32F427_437xx" in extra_flags:
     src_filter_patterns += ["-<stm32f4xx_fsmc.c>"]
-    src_filter_patterns += ["-<startup_stm32f40x.s>"]
-    src_filter_patterns += ["-<startup_stm32f401x.s>"]
+    src_filter_patterns += ["-<startup_stm32f40xx.S>"]
+    src_filter_patterns += ["-<startup_stm32f401x.S>"]
 elif "STM32F303xC" in extra_flags:
     src_filter_patterns += ["-<stm32f30x_hrtim.c>"]
 elif "STM32L1XX_MD" in extra_flags:
@@ -110,8 +109,7 @@ libs.append(env.BuildLibrary(
 libs.append(env.BuildLibrary(
     join("$BUILD_DIR", "FrameworkSPL"),
     join(FRAMEWORK_DIR, board.get("build.core"),
-        "spl", "variants",
-        board.get("build.mcu")[0:7], "src"),
+        "variants", board.get("build.mcu")[0:7], "src"),
     src_filter=" ".join(src_filter_patterns)
 ))
 
