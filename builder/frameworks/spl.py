@@ -32,8 +32,8 @@ def get_linker_script(mcu):
 
     default_ldscript = join(FRAMEWORK_DIR, "ldscripts", mcu[0:11].upper() + "_DEFAULT.ld")
 
-    print("Warning! Cannot find a linker script for the required board! "
-            "Firmware will be linked with a default linker script!")
+    print("Warning! Cannot find a linker script for " + mcu[0:11].upper() + " with " + ldscript +
+            ", Firmware will be linked with a default linker  " + default_ldscript)
 
     if isfile(default_ldscript):
         return default_ldscript
