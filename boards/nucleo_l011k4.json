@@ -20,6 +20,7 @@
   "frameworks": [
     "arduino",
     "cmsis",
+    "spl",
     "stm32cube",
     "libopencm3"
   ],
