@@ -21,6 +21,7 @@
   "frameworks": [
     "cmsis",
     "mbed",
+    "spl",
     "stm32cube",
     "libopencm3"
   ],

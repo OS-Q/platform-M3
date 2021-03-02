@@ -86,8 +86,12 @@ extra_flags = board.get("build.extra_flags", "")
 src_filter_patterns = ["+<*>"]
 if "STM32F40_41xxx" in extra_flags:
     src_filter_patterns += ["-<stm32f4xx_fmc.c>"]
+    src_filter_patterns += ["-<startup_stm32f42x.s>"]
+    src_filter_patterns += ["-<startup_stm32f401x.s>"]
 if "STM32F427_437xx" in extra_flags:
     src_filter_patterns += ["-<stm32f4xx_fsmc.c>"]
+    src_filter_patterns += ["-<startup_stm32f40x.s>"]
+    src_filter_patterns += ["-<startup_stm32f401x.s>"]
 elif "STM32F303xC" in extra_flags:
     src_filter_patterns += ["-<stm32f30x_hrtim.c>"]
 elif "STM32L1XX_MD" in extra_flags:
