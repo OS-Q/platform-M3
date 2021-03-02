@@ -258,11 +258,6 @@
       "optional": true,
       "version": "https://github.com/OS-Q/stm32cubel4.git"
     },
-    "stm32cubel5": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubel5.git"
-    },
     "zephyr": {
       "type": "framework",
       "optional": true,
@@ -410,8 +405,7 @@
     },
     "tool-ldscripts-ststm32": {
       "optional": true,
-      "owner": "platformio",
-      "version": "~0.1.0"
+      "version": "https://github.com/OS-Q/tool-ldscripts-ststm32.git"
     }
   }
 }

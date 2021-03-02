@@ -32,11 +32,11 @@ jobs:
           pip3 install adafruit-nrfutil uritemplate requests intelhex
           python -m pip install --upgrade pip
           pip install -U https://github.com/OS-Q/S03/archive/master.zip
-          platformio platform install file://.
+          qio platform install file://.
 
       - name: Build
         run: |
-          platformio run -d ${{ matrix.examples }}
+          qio run -d ${{ matrix.examples }}
 
       - uses: actions/upload-artifact@v2
         with:

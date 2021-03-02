@@ -35,7 +35,7 @@ jobs:
 
       - name: Build
         run: |
-          platformio run -d ${{ matrix.examples }}
+          qio run -d ${{ matrix.examples }}
 
       - uses: actions/upload-artifact@v2
         with:
