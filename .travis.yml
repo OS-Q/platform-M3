@@ -14,10 +14,14 @@ env:
 
 install:
   - pip install -U https://github.com/OS-Q/S03/archive/master.zip
-  - platformio platform install file://.
+  - qio platform install file://.
 
 script:
-  - platformio run -s -d $PLATFORMIO_PROJECT_DIR
+  - qio run -s -d $PLATFORMIO_PROJECT_DIR
 
 notifications:
-  email: false
+  email:
+    recipients:
+      - tang@qitas.cn
+    on_success: never # default: change
+    on_failure: always # default: always

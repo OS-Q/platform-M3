@@ -1,6 +1,17 @@
 name: macos
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+      - github_actions
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - master
+      - github_actions
+
 
 jobs:
   build:
