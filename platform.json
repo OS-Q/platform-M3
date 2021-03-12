@@ -126,6 +126,12 @@
       "owner": "platformio",
       "version": "~2.6.4"
     },
+    "framework-cmsis-stm32f7": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.2.5"
+    },
     "framework-cmsis-stm32g0": {
       "type": "framework",
       "optional": true,
@@ -137,6 +143,12 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.1.1"
+    },
+    "framework-cmsis-stm32h7": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.8.0"
     },
     "framework-cmsis-stm32l0": {
       "type": "framework",
