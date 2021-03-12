@@ -27,7 +27,7 @@ elif core == "stm32l0":
         "tools", "build.py")
 else:
     build_script = join(env.PioPlatform().get_package_dir(
-        "A21"), "tools", "build.py")
+        "A21A"), "tools", "build.py")
 
 if not isfile(build_script):
     sys.stderr.write("Error: Missing PlatformIO build script %s!\n" % build_script)

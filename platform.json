@@ -18,13 +18,6 @@
     "type": "git",
     "url": "https://github.com/OS-Q/P21.git"
   },
-  "packageRepositories": [
-    "http://182.61.61.133/link/toolchain/manifest.json",
-    "http://182.61.61.133/link/toolchain/openocd.json",
-    "http://182.61.61.133/link/framework/manifest.json",
-    "http://182.61.61.133/link/platformio.json",
-    "http://182.61.61.133/link/platform.json"
-  ],
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
@@ -41,7 +34,7 @@
       "title": "CMSIS"
     },
     "spl": {
-      "package": "N21",
+      "package": "E21A",
       "script": "builder/frameworks/spl.py",
       "description": "The ST Standard Peripheral Library provides a set of functions for handling the peripherals on the STM32 family of microcontrollers.",
       "homepage": "https://www.st.com/en/embedded-software/stsw-stm8069.html",
@@ -55,7 +48,7 @@
       "title": "libopencm3"
     },
     "arduino": {
-      "package": "A21",
+      "package": "A21A",
       "script": "builder/frameworks/arduino.py",
       "description": "Arduino Wiring-based Framework allows writing cross-platform software to control devices attached to a wide range of Arduino boards to create all kinds of creative coding, interactive objects, spaces or physical experiences",
       "homepage": "http://arduino.cc/en/Reference/HomePage",
@@ -173,20 +166,20 @@
       "owner": "platformio",
       "version": "~1.0.2"
     },
-    "N21": {
+    "E21A": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/N21.git"
+      "version": "https://github.com/OS-Q/E21A.git"
     },
     "libopencm3": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/libopencm3.git"
     },
-    "A21": {
+    "A21A": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/A21.git"
+      "version": "https://github.com/OS-Q/A21A.git"
     },
     "A21B": {
       "type": "framework",

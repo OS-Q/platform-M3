@@ -20,7 +20,7 @@ board = env.BoardConfig()
 
 env.SConscript("_bare.py")
 
-FRAMEWORK_DIR = platform.get_package_dir("N21")
+FRAMEWORK_DIR = platform.get_package_dir("E21A")
 assert isdir(FRAMEWORK_DIR)
 
 

@@ -20,11 +20,11 @@ class P21Platform(PlatformBase):
             if build_core == "maple":
                 self.frameworks["arduino"]["package"] = "A21B"
                 self.packages["A21B"]["optional"] = False
-                self.packages["A21"]["optional"] = True
+                self.packages["A21A"]["optional"] = True
             elif build_core == "stm32l0":
                 self.frameworks["arduino"]["package"] = "A21C"
                 self.packages["A21C"]["optional"] = False
-                self.packages["A21"]["optional"] = True
+                self.packages["A21A"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
                 self.packages["framework-cmsis"]["version"] = "~2.50501.0"
