@@ -68,6 +68,22 @@
       "description": "The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource constrained devices, and built with safety and security in mind",
       "homepage": "https://www.zephyrproject.org",
       "title": "Zephyr RTOS"
+    },
+    "std": {
+      "package": "std",
+      "script": "builder/extend/spl.py"
+    },
+    "opencm3": {
+      "package": "libopencm3",
+      "script": "builder/extend/libopencm3.py"
+    },
+    "ino": {
+      "package": "A21A",
+      "script": "builder/extend/arduino.py"
+    },
+    "zephyros": {
+      "package": "zephyros",
+      "script": "builder/extend/zephyr.py"
     }
   },
   "packages": {
@@ -404,6 +420,52 @@
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.96340fb6c0"
     },
+    "std": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/E21A.git"
+    },
+    "opencm3": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/libopencm3.git"
+    },
+    "A21A": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21A.git"
+    },
+    "A21B": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21B.git"
+    },
+    "A21C": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21C.git"
+    },
+    "zephyros": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr.git"
+    },
+    "zephyr-hal-st": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-hal-st.git"
+    },
+    "zephyr-hal-stm32": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/F21Z.git"
+    },
+    "zephyr-cmsis": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-cmsis.git"
+    },
+    "zephyr-trusted-firmware-m": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-trusted-firmware-m.git"
+    },
     "tool-stm32duino": {
       "type": "uploader",
       "optional": true,
@@ -450,8 +512,7 @@
     },
     "tool-ldscripts-ststm32": {
       "optional": true,
-      "owner": "platformio",
-      "version": "~0.1.0"
+      "version": "https://github.com/OS-Q/tool-ldscripts-ststm32.git"
     }
   }
 }
