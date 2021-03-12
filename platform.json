@@ -420,7 +420,7 @@
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.96340fb6c0"
     },
-    "std": {
+    "E21A": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/E21A.git"
