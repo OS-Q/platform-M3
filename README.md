@@ -9,11 +9,4 @@
 
 [P21](https://github.com/OS-Q/P21)用于[STM32](https://www.st.com/zh/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) 开发
 
-#### 关联工程
-
-* [A21](https://github.com/OS-Q/A21)
-* [N21](https://github.com/OS-Q/N21)
-* [B21](https://github.com/OS-Q/B21)
-* [T21](https://github.com/OS-Q/T21)
-
-### [Q = (OpenSource & OperatingSystem) ](http://www.OS-Q.com)
+### [源圈 OS-Q (Open Source & QA) ](http://www.OS-Q.com)
