@@ -1,3 +1,17 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """
 STM32Cube HAL
 
@@ -28,7 +42,7 @@ MCU_FAMILY = MCU[0:7]
 PRODUCT_LINE = board.get("build.product_line", "")
 assert PRODUCT_LINE, "Missing MCU or Product Line field"
 
-FRAMEWORK_DIR = platform.get_package_dir("stm32cube%s" % MCU[5:7])
+FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU[5:7])
 LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-ststm32")
 assert all(os.path.isdir(d) for d in (FRAMEWORK_DIR, LDSCRIPTS_DIR))
 
@@ -147,7 +161,7 @@ def build_usb_libs(usb_libs_root):
             "flags": ["-I $PROJECT_SRC_DIR", "-I $PROJECT_INCLUDE_DIR"],
             "includeDir": "Inc",
             "srcDir": "Src",
-            "srcFilter": ["+<*>", "-<Src/*_template*>"],
+            "srcFilter": ["+<*>", "-<*_template*>"],
         }
     }
 

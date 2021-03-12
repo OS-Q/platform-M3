@@ -1,10 +1,24 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import sys
 from platform import system
 from os import makedirs
 from os.path import basename, isdir, join
 
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
-                            Builder, Default, DefaultEnvironment)
+                          Builder, Default, DefaultEnvironment)
 
 
 env = DefaultEnvironment()
@@ -72,7 +86,8 @@ if not env.get("PIOFRAMEWORK"):
 
 if "zephyr" in env.get("PIOFRAMEWORK", []):
     env.SConscript(
-        join(platform.get_package_dir( "zephyr"), "scripts", "OSQ", "build-pre.py"),
+        join(platform.get_package_dir(
+            "framework-zephyr"), "scripts", "platformio", "platformio-build-pre.py"),
         exports={"env": env}
     )
 
@@ -156,7 +171,7 @@ elif upload_protocol.startswith("jlink"):
         UPLOADER="JLink.exe" if system() == "Windows" else "JLinkExe",
         UPLOADERFLAGS=[
             "-device", board.get("debug", {}).get("jlink_device"),
-            "-speed", "4000",
+            "-speed", env.GetProjectOption("debug_speed", "4000"),
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1",
             "-NoGui", "1"
@@ -200,7 +215,7 @@ elif upload_protocol == "dfu":
 
         upload_actions.insert(
             0, env.VerboseAction(env.AutodetectUploadPort,
-                                "Looking for upload port..."))
+                                 "Looking for upload port..."))
 
     if "dfu-util" in _upload_tool:
         # Add special DFU header to the binary image
@@ -209,7 +224,7 @@ elif upload_protocol == "dfu":
             env.VerboseAction(
                 " ".join([
                     '"%s"' % join(platform.get_package_dir("tool-dfuutil") or "",
-                        "bin", "dfu-suffix"),
+                         "bin", "dfu-suffix"),
                     "-v %s" % vid,
                     "-p %s" % pid,
                     "-d 0xffff", "-a", "$TARGET"
@@ -263,13 +278,17 @@ elif upload_protocol in debug_tools:
     ]
     openocd_args.extend(
         debug_tools.get(upload_protocol).get("server").get("arguments", []))
+    if env.GetProjectOption("debug_speed"):
+        openocd_args.extend(
+            ["-c", "adapter speed %s" % env.GetProjectOption("debug_speed")]
+        )
     openocd_args.extend([
         "-c", "program {$SOURCE} %s verify reset; shutdown;" %
         board.get("upload.offset_address", "")
     ])
     openocd_args = [
         f.replace("$PACKAGE_DIR",
-                platform.get_package_dir("tool-openocd") or "")
+                  platform.get_package_dir("tool-openocd") or "")
         for f in openocd_args
     ]
     env.Replace(
@@ -296,7 +315,7 @@ AlwaysBuild(env.Alias("upload", upload_source, upload_actions))
 
 if any("-Wl,-T" in f for f in env.get("LINKFLAGS", [])):
     print("Warning! '-Wl,-T' option for specifying linker scripts is deprecated. "
-        "Please use 'board_build.ldscript' option in your 'platformio.ini' file.")
+          "Please use 'board_build.ldscript' option in your 'platformio.ini' file.")
 
 #
 # Default targets

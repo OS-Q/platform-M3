@@ -1,3 +1,31 @@
+# Copyright 2014-present PlatformIO <contact@platformio.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+CMSIS
+
+The ARM Cortex Microcontroller Software Interface Standard (CMSIS) is a
+vendor-independent hardware abstraction layer for the Cortex-M processor
+series and specifies debugger interfaces. The CMSIS enables consistent and
+simple software interfaces to the processor for interface peripherals,
+real-time operating systems, and middleware. It simplifies software
+re-use, reducing the learning curve for new microcontroller developers
+and cutting the time-to-market for devices.
+
+http://www.arm.com/products/processors/cortex-m/cortex-microcontroller-software-interface-standard.php
+"""
+
 import glob
 import os
 import string
@@ -46,7 +74,7 @@ def get_linker_script():
         LDSCRIPTS_DIR, mcu[0:7], mcu[0:11].upper() + "_DEFAULT.ld")
 
     print("Warning! Cannot find a linker script for the required board! "
-        "An auto-generated script will be used to link firmware!")
+          "An auto-generated script will be used to link firmware!")
 
     if not os.path.isfile(default_ldscript):
         generate_ldscript(default_ldscript)
@@ -61,7 +89,7 @@ def prepare_startup_file(src_path):
         os.rename(startup_file[:-2] + ".s", startup_file)
     if not os.path.isfile(startup_file):
         print("Warning! Cannot find the default startup file for %s. "
-            "Ignore this warning if the startup code is part of your project." % mcu)
+              "Ignore this warning if the startup code is part of your project." % mcu)
 
 
 #
