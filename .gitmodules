@@ -1,3 +1,6 @@
 [submodule "builder/extend"]
 	path = builder/extend
 	url = https://github.com/OS-Q/E21.git
+[submodule "boards"]
+	path = boards
+	url = https://github.com/OS-Q/B21.git
