@@ -71,11 +71,11 @@
     },
     "std": {
       "package": "std",
-      "script": "builder/extend/spl.py"
+      "script": "builder/extend/std.py"
     },
     "opencm3": {
-      "package": "libopencm3",
-      "script": "builder/extend/libopencm3.py"
+      "package": "E21B",
+      "script": "builder/extend/E21B.py"
     },
     "ino": {
       "package": "A21A",
@@ -425,10 +425,10 @@
       "optional": true,
       "version": "https://github.com/OS-Q/E21A.git"
     },
-    "opencm3": {
+    "E21B": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/libopencm3.git"
+      "version": "https://github.com/OS-Q/E21B.git"
     },
     "A21A": {
       "type": "framework",
