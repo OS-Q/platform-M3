@@ -70,8 +70,8 @@
       "title": "Zephyr RTOS"
     },
     "std": {
-      "package": "std",
-      "script": "builder/extend/std.py"
+      "package": "E21A",
+      "script": "builder/extend/E21A.py"
     },
     "opencm3": {
       "package": "E21B",

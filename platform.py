@@ -31,6 +31,20 @@ class P21Platform(PlatformBase):
                 self.packages["framework-cmsis"]["version"] = "~2.50501.0"
                 self.packages["framework-cmsis"]["optional"] = False
 
+        if "ino" in frameworks:
+            if build_core == "maple":
+                self.frameworks["ino"]["package"] = "A21B"
+                self.packages["A21B"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
+            elif build_core == "stm32l0":
+                self.frameworks["ino"]["package"] = "A21C"
+                self.packages["A21C"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
+            else:
+                self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
+                self.packages["framework-cmsis"]["version"] = "~2.50501.0"
+                self.packages["framework-cmsis"]["optional"] = False
+
         if "mbed" in frameworks:
             deprecated_boards_file = os.path.join(
                 self.get_dir(), "misc", "mbed_deprecated_boards.json")
