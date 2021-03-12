@@ -1,23 +1,25 @@
 {
   "name": "P21",
   "title": "Platform 21",
-  "description": "The STM32 family of 32-bit Flash MCUs based on the ARM Cortex-M processor is designed to offer new degrees of freedom to MCU users.",
+  "description": "The STM32 family of 32-bit Flash MCUs based on the ARM Cortex-M processor is designed to offer new degrees of freedom to MCU users. It offers a 32-bit product range that combines very high performance, real-time capabilities, digital signal processing, and low-power, low-voltage operation, while maintaining full integration and ease of development.",
   "homepage": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169?sc=stm32",
   "license": "Apache-2.0",
-  "version": "11.0.0",
+  "keywords": [
+    "dev-platform",
+    "OS-Q",
+    "ARM",
+    "Cortex-M",
+    "STMicroelectronics",
+    "STM32"
+  ],
   "engines": {
     "platformio": "^5"
   },
-  "keywords": [
-      "dev-platform",
-      "OS-Q",
-      "Cortex-M",
-      "STM32"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/OS-Q/P21.git"
   },
+  "version": "12.0.0",
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
@@ -34,21 +36,21 @@
       "title": "CMSIS"
     },
     "spl": {
-      "package": "E21A",
+      "package": "framework-spl",
       "script": "builder/frameworks/spl.py",
       "description": "The ST Standard Peripheral Library provides a set of functions for handling the peripherals on the STM32 family of microcontrollers.",
       "homepage": "https://www.st.com/en/embedded-software/stsw-stm8069.html",
       "title": "Standard Peripheral Library"
     },
     "libopencm3": {
-      "package": "libopencm3",
-      "script": "builder/frameworks/libopencm3.py",
+      "package": "framework-libopencm3",
+      "script": "builder/frameworks/libopencm3/libopencm3.py",
       "description": "The libOpenCM3 framework aims to create a free and open-source firmware library for various ARM Cortex-M0(+)/M3/M4 microcontrollers, including ST STM32, Ti Tiva and Stellaris, NXP LPC, Atmel SAM3, Energy Micro EFM32 and others",
       "homepage": "http://www.libopencm3.org",
       "title": "libopencm3"
     },
     "arduino": {
-      "package": "A21A",
+      "package": "framework-arduinoststm32",
       "script": "builder/frameworks/arduino.py",
       "description": "Arduino Wiring-based Framework allows writing cross-platform software to control devices attached to a wide range of Arduino boards to create all kinds of creative coding, interactive objects, spaces or physical experiences",
       "homepage": "http://arduino.cc/en/Reference/HomePage",
@@ -61,7 +63,7 @@
       "title": "STM32Cube"
     },
     "zephyr": {
-      "package": "zephyr",
+      "package": "framework-zephyr",
       "script": "builder/frameworks/zephyr.py",
       "description": "The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource constrained devices, and built with safety and security in mind",
       "homepage": "https://www.zephyrproject.org",
@@ -73,14 +75,20 @@
       "type": "toolchain",
       "owner": "platformio",
       "version": ">=1.60301.0,<1.80000.0",
-      "optionalVersions": ["~1.60301.0", "~1.80201.0", "~1.90201.0"]
+      "optionalVersions": [
+        "~1.60301.0",
+        "~1.80201.0",
+        "~1.90201.0"
+      ]
     },
     "framework-mbed": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
       "version": "~6.60600.0",
-      "optionalVersions": ["~6.51506.0"]
+      "optionalVersions": [
+        "~6.51506.0"
+      ]
     },
     "framework-cmsis": {
       "type": "framework",
@@ -118,12 +126,6 @@
       "owner": "platformio",
       "version": "~2.6.4"
     },
-    "framework-cmsis-stm32f7": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.2.5"
-    },
     "framework-cmsis-stm32g0": {
       "type": "framework",
       "optional": true,
@@ -135,12 +137,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.1.1"
-    },
-    "framework-cmsis-stm32h7": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.8.0"
     },
     "framework-cmsis-stm32l0": {
       "type": "framework",
@@ -166,111 +162,130 @@
       "owner": "platformio",
       "version": "~1.0.2"
     },
-    "E21A": {
+    "framework-spl": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/E21A.git"
+      "owner": "platformio",
+      "version": "~2.10201.0"
     },
-    "libopencm3": {
+    "framework-libopencm3": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/libopencm3.git"
+      "owner": "platformio",
+      "version": "~1.10000.0"
     },
-    "A21A": {
+    "framework-arduinoststm32": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/A21A.git"
+      "owner": "platformio",
+      "version": "~4.10900.0"
     },
-    "A21B": {
+    "framework-arduinoststm32-maple": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/A21B.git"
+      "owner": "platformio",
+      "version": "~3.10000.0"
     },
-    "A21C": {
+    "framework-arduinostm32mxchip": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/A21C.git"
+      "owner": "platformio",
+      "version": "~2.0.0"
     },
-    "stm32cubef0": {
+    "framework-arduinoststm32l0": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef0.git"
+      "owner": "platformio",
+      "version": "~2.10.0"
     },
-    "stm32cubef1": {
+    "framework-stm32cubef0": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef1.git"
+      "owner": "platformio",
+      "version": "~1.11.0"
     },
-    "stm32cubef2": {
+    "framework-stm32cubef1": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef2.git"
+      "owner": "platformio",
+      "version": "~1.8.0"
     },
-    "stm32cubef3": {
+    "framework-stm32cubef2": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef3.git"
+      "owner": "platformio",
+      "version": "~1.9.0"
     },
-    "stm32cubef4": {
+    "framework-stm32cubef3": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef4.git"
+      "owner": "platformio",
+      "version": "~1.11.0"
     },
-    "stm32cubef7": {
+    "framework-stm32cubef4": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef7.git"
+      "owner": "platformio",
+      "version": "~1.25.0"
     },
-    "stm32cubeg0": {
+    "framework-stm32cubef7": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubeg0.git"
+      "owner": "platformio",
+      "version": "~1.16.0"
     },
-    "stm32cubeg4": {
+    "framework-stm32cubeg0": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubeg4.git"
+      "owner": "platformio",
+      "version": "~1.3.0"
     },
-    "stm32cubeh7": {
+    "framework-stm32cubeg4": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubeh7.git"
+      "owner": "platformio",
+      "version": "~1.3.0"
     },
-    "stm32cubel0": {
+    "framework-stm32cubeh7": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubel0.git"
+      "owner": "platformio",
+      "version": "~1.8.0"
     },
-    "stm32cubel1": {
+    "framework-stm32cubel0": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubel1.git"
+      "owner": "platformio",
+      "version": "~1.11.0"
     },
-    "stm32cubel4": {
+    "framework-stm32cubel1": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubel4.git"
+      "owner": "platformio",
+      "version": "~1.10.0"
     },
-    "zephyr": {
+    "framework-stm32cubel4": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/zephyr.git"
+      "owner": "platformio",
+      "version": "~1.16.0"
     },
-    "zephyr-hal-st": {
+    "framework-stm32cubel5": {
+      "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/zephyr-hal-st.git"
+      "owner": "platformio",
+      "version": "~1.3.0"
     },
-    "zephyr-hal-stm32": {
+    "framework-zephyr": {
+      "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/F21Z.git"
+      "owner": "platformio",
+      "version": "~2.20500.0"
     },
-    "zephyr-cmsis": {
+    "framework-zephyr-cmsis": {
       "optional": true,
-      "version": "https://github.com/OS-Q/zephyr-cmsis.git"
-    },
-    "zephyr-trusted-firmware-m": {
-      "optional": true,
-      "version": "https://github.com/OS-Q/zephyr-trusted-firmware-m.git"
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.c3bd2094f9"
     },
     "framework-zephyr-canopennode": {
       "optional": true,
@@ -280,42 +295,52 @@
     "framework-zephyr-civetweb": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.99129c5efc"
+      "version": "0.0.0-alpha+sha.e6903b80c0"
     },
     "framework-zephyr-fatfs": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.13697783bf"
+      "version": "0.0.0-alpha+sha.1d1fcc725a"
+    },
+    "framework-zephyr-hal-st": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.b52fdbf4b6"
+    },
+    "framework-zephyr-hal-stm32": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.cc8731dba4"
     },
     "framework-zephyr-libmetal": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.0b23894a04"
+      "version": "0.0.0-alpha+sha.9d4ee2c3cf"
     },
     "framework-zephyr-lvgl": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.928b61c7c8"
+      "version": "0.0.0-alpha+sha.31acbaa36e"
     },
     "framework-zephyr-mbedtls": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.aef137b1af"
+      "version": "0.0.0-alpha+sha.24d84ecff1"
     },
     "framework-zephyr-mcuboot": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.a5d79cf8cc"
+      "version": "0.0.0-alpha+sha.3fc59410b6"
     },
     "framework-zephyr-mcumgr": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.5051f9d900"
+      "version": "0.0.0-alpha+sha.43845e883f"
     },
     "framework-zephyr-open-amp": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.724f7e2a45"
+      "version": "0.0.0-alpha+sha.de1b85a130"
     },
     "framework-zephyr-loramac-node": {
       "optional": true,
@@ -325,12 +350,17 @@
     "framework-zephyr-openthread": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.07f430dac6"
+      "version": "0.0.0-alpha+sha.1d668284a0"
     },
     "framework-zephyr-segger": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.874d9e9696"
+      "version": "0.0.0-alpha+sha.38c79a447e"
+    },
+    "framework-zephyr-sof": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.b5b772dd61"
     },
     "framework-zephyr-tinycbor": {
       "optional": true,
@@ -350,7 +380,17 @@
     "framework-zephyr-mipi-sys-t": {
       "optional": true,
       "owner": "platformio",
-      "version": "0.0.0-alpha+sha.957d46bc3c"
+      "version": "0.0.0-alpha+sha.75e671550a"
+    },
+    "framework-zephyr-tfm-mcuboot": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "1.7.0-rc1"
+    },
+    "framework-zephyr-trusted-firmware-m": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.96340fb6c0"
     },
     "tool-stm32duino": {
       "type": "uploader",
@@ -398,7 +438,8 @@
     },
     "tool-ldscripts-ststm32": {
       "optional": true,
-      "version": "https://github.com/OS-Q/tool-ldscripts-ststm32.git"
+      "owner": "platformio",
+      "version": "~0.1.0"
     }
   }
 }
