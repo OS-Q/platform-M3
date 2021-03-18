@@ -9,8 +9,8 @@ jobs:
           name: "Git"
           command: |
             apt update
-            apt install -y git
-            git submodule update --init
+            apt install -y git python3 python3-pip
+            git submodule update --init --recursive
       - run: |
           python3 -m pip install --upgrade pip
           pip3 install -U https://github.com/platformio/platformio/archive/develop.zip
