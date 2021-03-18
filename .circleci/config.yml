@@ -6,12 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Git"
+          name: "System"
           command: |
             apt update
             apt install -y git
             git submodule update --init --recursive
-      - run: |
+      - run:
+        name: "Install"
+        command: |
           python -m pip install --upgrade pip
           pip install -U https://github.com/platformio/platformio/archive/develop.zip
           platformio platform install file://.
@@ -19,7 +21,6 @@ jobs:
           name: "Build"
           command: |
             platformio run -d examples/arduino-blink
-
       - run:
           name: "Test"
           command: |

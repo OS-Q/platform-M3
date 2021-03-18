@@ -1,17 +1,3 @@
-# Copyright 2014-present PlatformIO <contact@platformio.org>
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import copy
 import json
 import os
@@ -33,13 +19,27 @@ class P21Platform(PlatformBase):
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
             if build_core == "maple":
-                self.frameworks["arduino"]["package"] = "framework-arduinoststm32-maple"
-                self.packages["framework-arduinoststm32-maple"]["optional"] = False
-                self.packages["framework-arduinoststm32"]["optional"] = True
+                self.frameworks["ino"]["package"] = "A21B"
+                self.packages["A21B"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
             elif build_core == "stm32l0":
-                self.frameworks["arduino"]["package"] = "framework-arduinoststm32l0"
-                self.packages["framework-arduinoststm32l0"]["optional"] = False
-                self.packages["framework-arduinoststm32"]["optional"] = True
+                self.frameworks["ino"]["package"] = "A21C"
+                self.packages["A21C"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
+            else:
+                self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
+                self.packages["framework-cmsis"]["version"] = "~2.50501.0"
+                self.packages["framework-cmsis"]["optional"] = False
+
+        if "ino" in frameworks:
+            if build_core == "maple":
+                self.frameworks["ino"]["package"] = "A21B"
+                self.packages["A21B"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
+            elif build_core == "stm32l0":
+                self.frameworks["ino"]["package"] = "A21C"
+                self.packages["A21C"]["optional"] = False
+                self.packages["A21A"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
                 self.packages["framework-cmsis"]["version"] = "~2.50501.0"
@@ -72,13 +72,6 @@ class P21Platform(PlatformBase):
         if variables.get("upload_protocol", default_protocol) == "dfu":
             self.packages["tool-dfuutil"]["optional"] = False
 
-        if board == "mxchip_az3166":
-            self.frameworks["arduino"][
-                "package"] = "framework-arduinostm32mxchip"
-            self.frameworks["arduino"][
-                "script"] = "builder/frameworks/arduino/mxchip.py"
-            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.60301.0"
-
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
@@ -103,7 +96,7 @@ class P21Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                       targets)
+                                                        targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
@@ -146,8 +139,8 @@ class P21Platform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                       if system() == "Windows" else
-                                       "JLinkGDBServer")
+                                        if system() == "Windows" else
+                                        "JLinkGDBServer")
                     }
                 }
             else:

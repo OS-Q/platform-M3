@@ -35,39 +35,27 @@
       "homepage": "https://developer.arm.com/tools-and-software/embedded/cmsis",
       "title": "CMSIS"
     },
-    "spl": {
-      "package": "framework-spl",
-      "script": "builder/frameworks/spl.py",
-      "description": "The ST Standard Peripheral Library provides a set of functions for handling the peripherals on the STM32 family of microcontrollers.",
-      "homepage": "https://www.st.com/en/embedded-software/stsw-stm8069.html",
-      "title": "Standard Peripheral Library"
-    },
-    "libopencm3": {
-      "package": "framework-libopencm3",
-      "script": "builder/frameworks/libopencm3/libopencm3.py",
-      "description": "The libOpenCM3 framework aims to create a free and open-source firmware library for various ARM Cortex-M0(+)/M3/M4 microcontrollers, including ST STM32, Ti Tiva and Stellaris, NXP LPC, Atmel SAM3, Energy Micro EFM32 and others",
-      "homepage": "http://www.libopencm3.org",
-      "title": "libopencm3"
-    },
-    "arduino": {
-      "package": "framework-arduinoststm32",
-      "script": "builder/frameworks/arduino.py",
-      "description": "Arduino Wiring-based Framework allows writing cross-platform software to control devices attached to a wide range of Arduino boards to create all kinds of creative coding, interactive objects, spaces or physical experiences",
-      "homepage": "http://arduino.cc/en/Reference/HomePage",
-      "title": "Arduino"
-    },
     "stm32cube": {
       "script": "builder/frameworks/stm32cube.py",
       "description": "STM32Cube embedded software libraries, including: The HAL hardware abstraction layer, enabling portability between different STM32 devices via standardized API calls; The Low-Layer (LL) APIs, a light-weight, optimized, expert oriented set of APIs designed for both performance and runtime efficiency",
       "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
       "title": "STM32Cube"
     },
+    "spl": {
+      "package": "E21A",
+      "script": "builder/extend/E21A.py"
+    },
+    "libopencm3": {
+      "package": "E21B",
+      "script": "builder/extend/E21B.py"
+    },
+    "arduino": {
+      "package": "A21A",
+      "script": "builder/extend/arduino.py"
+    },
     "zephyr": {
-      "package": "framework-zephyr",
-      "script": "builder/frameworks/zephyr.py",
-      "description": "The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource constrained devices, and built with safety and security in mind",
-      "homepage": "https://www.zephyrproject.org",
-      "title": "Zephyr RTOS"
+      "package": "zephyr",
+      "script": "builder/extend/zephyr.py"
     }
   },
   "packages": {
@@ -85,7 +73,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~6.60800.0",
+      "version": "~6.60600.0",
       "optionalVersions": [
         "~6.51506.0"
       ]
@@ -404,6 +392,52 @@
       "owner": "platformio",
       "version": "0.0.0-alpha+sha.96340fb6c0"
     },
+    "E21A": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/E21A.git"
+    },
+    "E21B": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/E21B.git"
+    },
+    "A21A": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21A.git"
+    },
+    "A21B": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21B.git"
+    },
+    "A21C": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/A21C.git"
+    },
+    "zephyr": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr.git"
+    },
+    "zephyr-hal-st": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-hal-st.git"
+    },
+    "zephyr-hal-stm32": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/F21Z.git"
+    },
+    "zephyr-cmsis": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-cmsis.git"
+    },
+    "zephyr-trusted-firmware-m": {
+      "optional": true,
+      "version": "https://github.com/OS-Q/zephyr-trusted-firmware-m.git"
+    },
     "tool-stm32duino": {
       "type": "uploader",
       "optional": true,
@@ -450,8 +484,7 @@
     },
     "tool-ldscripts-ststm32": {
       "optional": true,
-      "owner": "platformio",
-      "version": "~0.1.0"
+      "version": "https://github.com/OS-Q/tool-ldscripts-ststm32.git"
     }
   }
 }
