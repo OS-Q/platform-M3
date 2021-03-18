@@ -218,6 +218,11 @@
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr-trusted-firmware-m.git"
     },
+    "framework-zephyr-trusted-firmware-m": {
+      "optional": true,
+      "owner": "platformio",
+      "version": "0.0.0-alpha+sha.96340fb6c0"
+    },
     "framework-zephyr-canopennode": {
       "optional": true,
       "owner": "platformio",
