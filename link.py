@@ -19,11 +19,11 @@ class P21Platform(PlatformBase):
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
             if build_core == "maple":
-                self.frameworks["ino"]["package"] = "A21B"
+                self.frameworks["arduino"]["package"] = "A21B"
                 self.packages["A21B"]["optional"] = False
                 self.packages["A21A"]["optional"] = True
             elif build_core == "stm32l0":
-                self.frameworks["ino"]["package"] = "A21C"
+                self.frameworks["arduino"]["package"] = "A21C"
                 self.packages["A21C"]["optional"] = False
                 self.packages["A21A"]["optional"] = True
             else:
@@ -48,7 +48,7 @@ class P21Platform(PlatformBase):
 
         if "stm32cube" in frameworks:
             assert build_mcu, ("Missing MCU field for %s" % board)
-            device_package = "framework-stm32cube%s" % build_mcu[5:7]
+            device_package = "stm32cube%s" % build_mcu[5:7]
             self.frameworks["stm32cube"]["package"] = device_package
 
         if any(f in frameworks for f in ("cmsis", "stm32cube")):
@@ -82,7 +82,7 @@ class P21Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                        targets)
+                                                    targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
@@ -100,21 +100,21 @@ class P21Platform(PlatformBase):
         upload_protocols = board.manifest.get("upload", {}).get(
             "protocols", [])
         if "tools" not in debug:
-            debug["tools"] = {}
+            debug['tools'] = {}
 
         # BlackMagic, J-Link, ST-Link
         for link in ("blackmagic", "jlink", "stlink", "cmsis-dap"):
-            if link not in upload_protocols or link in debug["tools"]:
+            if link not in upload_protocols or link in debug['tools']:
                 continue
             if link == "blackmagic":
-                debug["tools"]["blackmagic"] = {
+                debug['tools']['blackmagic'] = {
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
             elif link == "jlink":
                 assert debug.get("jlink_device"), (
                     "Missed J-Link Device ID for %s" % board.id)
-                debug["tools"][link] = {
+                debug['tools'][link] = {
                     "server": {
                         "package": "tool-jlink",
                         "arguments": [
@@ -125,8 +125,8 @@ class P21Platform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                        if system() == "Windows" else
-                                        "JLinkGDBServer")
+                                    if system() == "Windows" else
+                                    "JLinkGDBServer")
                     }
                 }
             else:
@@ -146,17 +146,17 @@ class P21Platform(PlatformBase):
                     ])
                     server_args.extend(debug.get("openocd_extra_args", []))
 
-                debug["tools"][link] = {
+                debug['tools'][link] = {
                     "server": {
                         "package": "tool-openocd",
                         "executable": "bin/openocd",
                         "arguments": server_args
                     }
                 }
-            debug["tools"][link]["onboard"] = link in debug.get("onboard_tools", [])
-            debug["tools"][link]["default"] = link in debug.get("default_tools", [])
+            debug['tools'][link]['onboard'] = link in debug.get("onboard_tools", [])
+            debug['tools'][link]['default'] = link in debug.get("default_tools", [])
 
-        board.manifest["debug"] = debug
+        board.manifest['debug'] = debug
         return board
 
     def configure_debug_options(self, initial_debug_options, ide_data):
