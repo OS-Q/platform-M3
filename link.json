@@ -53,8 +53,8 @@
       "package": "A21A",
       "script": "builder/extend/arduino.py"
     },
-    "zephyr": {
-      "package": "zephyr",
+    "zephyros": {
+      "package": "zephyros",
       "script": "builder/extend/zephyr.py"
     }
   },
@@ -417,7 +417,7 @@
       "optional": true,
       "version": "https://github.com/OS-Q/A21C.git"
     },
-    "zephyr": {
+    "zephyros": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr.git"

@@ -91,6 +91,13 @@ if "zephyr" in env.get("PIOFRAMEWORK", []):
         exports={"env": env}
     )
 
+if "zephyros" in env.get("PIOFRAMEWORK", []):
+    env.SConscript(
+        join(platform.get_package_dir(
+            "zephyr"), "scripts", "OSQ", "build-pre.py"),
+        exports={"env": env}
+    )
+
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
     target_elf = join("$BUILD_DIR", "${PROGNAME}.elf")
