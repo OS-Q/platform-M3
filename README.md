@@ -6,6 +6,7 @@
 [![Build Status](https://github.com/OS-Q/P21/workflows/PlatformIO/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/platformio.yml)
 [![Build Status](https://travis-ci.com/OS-Q/P21.svg?branch=master)](https://travis-ci.com/OS-Q/P21)
 [![Build status](https://ci.appveyor.com/api/projects/status/3n82nq856e58o89g?svg=true)](https://ci.appveyor.com/project/Qitas/p21)
+[![CircleCI](https://circleci.com/gh/OS-Q/P21.svg?style=svg)](https://circleci.com/gh/OS-Q/P21)
 
 ### [简介](https://github.com/OS-Q/P21/wiki)
 
