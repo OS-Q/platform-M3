@@ -228,7 +228,7 @@
     "zephyros": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/zephyr.git"
+      "version": "https://github.com/OS-Q/zephyros.git"
     },
     "zephyr-hal-st": {
       "optional": true,
