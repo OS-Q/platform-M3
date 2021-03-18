@@ -54,7 +54,7 @@ class P21Platform(PlatformBase):
         if variables.get("upload_protocol", default_protocol) == "dfu":
             self.packages["tool-dfuutil"]["optional"] = False
 
-        if "zephyr" in variables.get("pioframework", []):
+        if "zephyros" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p.startswith("zephyr-") or p in (
                         "tool-cmake", "tool-dtc", "tool-ninja"):
