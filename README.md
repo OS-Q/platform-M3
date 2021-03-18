@@ -7,10 +7,10 @@
 [![Build Status](https://github.com/OS-Q/P21/workflows/windows/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/windows.yml)
 [![Build Status](https://github.com/OS-Q/P21/workflows/PlatformIO/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/platformio.yml)
 
-[![travis-ci](https://travis-ci.com/OS-Q/P21.svg?branch=master)](https://travis-ci.com/OS-Q/P21)
-[![appveyor](https://ci.appveyor.com/api/projects/status/3n82nq856e58o89g?svg=true)](https://ci.appveyor.com/project/Qitas/p21)
-[![CircleCI](https://circleci.com/gh/OS-Q/P21.svg?style=svg)](https://circleci.com/gh/OS-Q/P21)
+[![Build Status](https://travis-ci.com/OS-Q/P21.svg?branch=master)](https://travis-ci.com/OS-Q/P21)
+[![Build Status](https://ci.appveyor.com/api/projects/status/3n82nq856e58o89g?svg=true)](https://ci.appveyor.com/project/Qitas/p21)
 [![Build Status](https://cloud.drone.io/api/badges/OS-Q/P21/status.svg)](https://cloud.drone.io/OS-Q/P21)
+[![Build Status](https://circleci.com/gh/OS-Q/P21.svg?style=svg)](https://circleci.com/gh/OS-Q/P21)
 
 ### [简介](https://github.com/OS-Q/P21/wiki)
 
