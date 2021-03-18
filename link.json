@@ -27,11 +27,11 @@
       "package": "framework-cmsis",
       "script": "builder/frameworks/cmsis.py"
     },
-    "spl": {
+    "std": {
       "package": "E21A",
       "script": "builder/extend/E21A.py"
     },
-    "libopencm3": {
+    "opencm3": {
       "package": "E21B",
       "script": "builder/extend/E21B.py"
     },
@@ -97,12 +97,6 @@
       "owner": "platformio",
       "version": "~2.6.4"
     },
-    "framework-cmsis-stm32f7": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.2.5"
-    },
     "framework-cmsis-stm32g0": {
       "type": "framework",
       "optional": true,
@@ -133,18 +127,6 @@
       "owner": "platformio",
       "version": "~2.3.0"
     },
-    "framework-cmsis-stm32l4": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.6.1"
-    },
-    "framework-cmsis-stm32l5": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.0.2"
-    },
     "E21A": {
       "type": "framework",
       "optional": true,
@@ -153,7 +135,7 @@
     "E21B": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/OS-Q/libopencm3.git"
+      "version": "https://github.com/OS-Q/E21B.git"
     },
     "A21A": {
       "type": "framework",
@@ -190,11 +172,6 @@
       "optional": true,
       "version": "https://github.com/OS-Q/stm32cubef4.git"
     },
-    "stm32cubef7": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubef7.git"
-    },
     "stm32cubeg0": {
       "type": "framework",
       "optional": true,
@@ -220,11 +197,6 @@
       "optional": true,
       "version": "https://github.com/OS-Q/stm32cubel1.git"
     },
-    "stm32cubel4": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/stm32cubel4.git"
-    },
     "zephyros": {
       "type": "framework",
       "optional": true,
@@ -236,7 +208,7 @@
     },
     "zephyr-hal-stm32": {
       "optional": true,
-      "version": "https://github.com/OS-Q/F21Z.git"
+      "version": "https://github.com/OS-Q/E21Z.git"
     },
     "zephyr-cmsis": {
       "optional": true,
