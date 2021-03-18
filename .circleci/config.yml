@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu
+    steps:
+      - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule sync
+            git submodule update --init
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+          platformio platform install file://.
+      - run:
+          name: "Build"
+          command: |
+            platformio run -d examples/zephyr-blink
+            platformio run -d examples/arduino-blink
+
+      - run:
+          name: "Test"
+          command: |
+            platformio run -d examples/cmsis-blink
+            platformio run -d examples/spl-blink
+
+
+workflows:
+    version: 2
+    run_ci:
+        jobs:
+            - build
+              #- mbedCI

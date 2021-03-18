@@ -103,7 +103,7 @@ class P21Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                       targets)
+                                                        targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
@@ -146,8 +146,8 @@ class P21Platform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                       if system() == "Windows" else
-                                       "JLinkGDBServer")
+                                        if system() == "Windows" else
+                                        "JLinkGDBServer")
                     }
                 }
             else:
