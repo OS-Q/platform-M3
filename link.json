@@ -21,51 +21,30 @@
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
-      "script": "builder/frameworks/mbed.py",
-      "description": "Arm Mbed OS is an open source embedded operating system designed specifically for the 'things' in the Internet of Things. It includes all the features you need to develop a connected product based on an Arm Cortex-M microcontroller, including security, connectivity, an RTOS and drivers for sensors and I/O devices",
-      "homepage": "https://os.mbed.com/",
-      "title": "Mbed"
+      "script": "builder/frameworks/mbed.py"
     },
     "cmsis": {
       "package": "framework-cmsis",
-      "script": "builder/frameworks/cmsis.py",
-      "description": "The ARM Cortex Microcontroller Software Interface Standard (CMSIS) is a vendor-independent hardware abstraction layer for the Cortex-M processor series and specifies debugger interfaces. The CMSIS enables consistent and simple software interfaces to the processor for interface peripherals, real-time operating systems, and middleware. It simplifies software re-use, reducing the learning curve for new microcontroller developers and cutting the time-to-market for devices",
-      "homepage": "https://developer.arm.com/tools-and-software/embedded/cmsis",
-      "title": "CMSIS"
+      "script": "builder/frameworks/cmsis.py"
     },
     "spl": {
       "package": "E21A",
-      "script": "builder/frameworks/spl.py",
-      "description": "The ST Standard Peripheral Library provides a set of functions for handling the peripherals on the STM32 family of microcontrollers.",
-      "homepage": "https://www.st.com/en/embedded-software/stsw-stm8069.html",
-      "title": "Standard Peripheral Library"
+      "script": "builder/extend/E21A.py"
     },
     "libopencm3": {
-      "package": "libopencm3",
-      "script": "builder/frameworks/libopencm3.py",
-      "description": "The libOpenCM3 framework aims to create a free and open-source firmware library for various ARM Cortex-M0(+)/M3/M4 microcontrollers, including ST STM32, Ti Tiva and Stellaris, NXP LPC, Atmel SAM3, Energy Micro EFM32 and others",
-      "homepage": "http://www.libopencm3.org",
-      "title": "libopencm3"
+      "package": "E21B",
+      "script": "builder/extend/E21B.py"
     },
     "arduino": {
       "package": "A21A",
-      "script": "builder/frameworks/arduino.py",
-      "description": "Arduino Wiring-based Framework allows writing cross-platform software to control devices attached to a wide range of Arduino boards to create all kinds of creative coding, interactive objects, spaces or physical experiences",
-      "homepage": "http://arduino.cc/en/Reference/HomePage",
-      "title": "Arduino"
+      "script": "builder/extend/arduino.py"
     },
     "stm32cube": {
-      "script": "builder/frameworks/stm32cube.py",
-      "description": "STM32Cube embedded software libraries, including: The HAL hardware abstraction layer, enabling portability between different STM32 devices via standardized API calls; The Low-Layer (LL) APIs, a light-weight, optimized, expert oriented set of APIs designed for both performance and runtime efficiency",
-      "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
-      "title": "STM32Cube"
+      "script": "builder/extend/stm32cube.py"
     },
-    "zephyr": {
-      "package": "zephyr",
-      "script": "builder/frameworks/zephyr.py",
-      "description": "The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource constrained devices, and built with safety and security in mind",
-      "homepage": "https://www.zephyrproject.org",
-      "title": "Zephyr RTOS"
+    "zephyros": {
+      "package": "zephyros",
+      "script": "builder/extend/zephyros.py"
     }
   },
   "packages": {
@@ -171,7 +150,7 @@
       "optional": true,
       "version": "https://github.com/OS-Q/E21A.git"
     },
-    "libopencm3": {
+    "E21B": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/libopencm3.git"
@@ -185,11 +164,6 @@
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/A21B.git"
-    },
-    "A21C": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/A21C.git"
     },
     "stm32cubef0": {
       "type": "framework",
@@ -251,7 +225,7 @@
       "optional": true,
       "version": "https://github.com/OS-Q/stm32cubel4.git"
     },
-    "zephyr": {
+    "zephyros": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/zephyr.git"
