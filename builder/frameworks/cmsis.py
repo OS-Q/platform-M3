@@ -43,7 +43,7 @@ env.SConscript("_bare.py")
 
 CMSIS_DIR = platform.get_package_dir("framework-cmsis")
 CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:7])
-LDSCRIPTS_DIR = platform.get_package_dir("E21L")
+LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-ststm32")
 assert all(os.path.isdir(d) for d in (CMSIS_DIR, CMSIS_DEVICE_DIR, LDSCRIPTS_DIR))
 
 

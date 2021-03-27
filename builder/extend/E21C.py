@@ -14,7 +14,7 @@ assert product_line, "Missing MCU or Product Line field"
 env.SConscript("_common.py")
 
 CMSIS_DIR = platform.get_package_dir("E21C")
-CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:7])
+CMSIS_DEVICE_DIR = platform.get_package_dir("cmsis-" + mcu[0:7])
 LDSCRIPTS_DIR = platform.get_package_dir("E21L")
 assert all(os.path.isdir(d) for d in (CMSIS_DIR, CMSIS_DEVICE_DIR, LDSCRIPTS_DIR))
 
