@@ -19,13 +19,9 @@
     "url": "https://github.com/OS-Q/P21.git"
   },
   "frameworks": {
-    "mbed": {
-      "package": "framework-mbed",
-      "script": "builder/frameworks/mbed.py"
-    },
-    "cmsis": {
-      "package": "framework-cmsis",
-      "script": "builder/frameworks/cmsis.py"
+    "arduino": {
+      "package": "A21A",
+      "script": "builder/extend/A21A.py"
     },
     "std": {
       "package": "E21A",
@@ -35,16 +31,20 @@
       "package": "E21B",
       "script": "builder/extend/E21B.py"
     },
-    "arduino": {
-      "package": "A21A",
-      "script": "builder/extend/A21A.py"
-    },
-    "stm32cube": {
+    "cmsis": {
+      "package": "E21C",
       "script": "builder/extend/E21C.py"
+    },
+    "mbed": {
+      "package": "E21D",
+      "script": "builder/extend/E21D.py"
     },
     "zephyros": {
       "package": "zephyros",
       "script": "builder/extend/zephyros.py"
+    },
+    "stm32cube": {
+      "script": "builder/extend/E21H.py"
     }
   },
   "packages": {
