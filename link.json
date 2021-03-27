@@ -61,11 +61,10 @@
       "version": "~6.60600.0",
       "optionalVersions": ["~6.51506.0"]
     },
-    "framework-cmsis": {
+    "E21C": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~2.50501.0"
+      "version": "https://github.com/OS-Q/E21C.git"
     },
     "framework-cmsis-stm32f0": {
       "type": "framework",

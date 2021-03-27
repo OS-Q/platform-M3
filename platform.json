@@ -448,7 +448,7 @@
       "owner": "platformio",
       "version": "^3.0.0"
     },
-    "E21L": {
+    "tool-ldscripts-ststm32": {
       "optional": true,
       "owner": "platformio",
       "version": "~0.1.0"
