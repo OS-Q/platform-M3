@@ -27,7 +27,6 @@ jobs:
           - "examples/spl-blink"
           - "examples/stm32cube-hal-blink"
           - "examples/stm32cube-ll-blink"
-          - "examples/zephyr-blink"
 
     steps:
       - uses: actions/checkout@v2

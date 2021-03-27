@@ -37,10 +37,10 @@
     },
     "arduino": {
       "package": "A21A",
-      "script": "builder/extend/arduino.py"
+      "script": "builder/extend/A21A.py"
     },
     "stm32cube": {
-      "script": "builder/extend/stm32cube.py"
+      "script": "builder/extend/E21C.py"
     },
     "zephyros": {
       "package": "zephyros",
@@ -127,16 +127,6 @@
       "owner": "platformio",
       "version": "~2.3.0"
     },
-    "E21A": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/E21A.git"
-    },
-    "E21B": {
-      "type": "framework",
-      "optional": true,
-      "version": "https://github.com/OS-Q/E21B.git"
-    },
     "A21A": {
       "type": "framework",
       "optional": true,
@@ -146,6 +136,16 @@
       "type": "framework",
       "optional": true,
       "version": "https://github.com/OS-Q/A21B.git"
+    },
+    "E21A": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/E21A.git"
+    },
+    "E21B": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/OS-Q/E21B.git"
     },
     "stm32cubef0": {
       "type": "framework",
@@ -357,9 +357,9 @@
       "owner": "platformio",
       "version": "^3.0.0"
     },
-    "tool-ldscripts-ststm32": {
+    "E21L": {
       "optional": true,
-      "version": "https://github.com/OS-Q/tool-ldscripts-ststm32.git"
+      "version": "https://github.com/OS-Q/E21L.git"
     }
   }
 }

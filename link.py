@@ -48,7 +48,7 @@ class P21Platform(PlatformBase):
             self.frameworks["stm32cube"]["package"] = device_package
 
         if any(f in frameworks for f in ("cmsis", "stm32cube")):
-            self.packages["tool-ldscripts-ststm32"]["optional"] = False
+            self.packages["E21L"]["optional"] = False
 
         default_protocol = board_config.get("upload.protocol") or ""
         if variables.get("upload_protocol", default_protocol) == "dfu":
