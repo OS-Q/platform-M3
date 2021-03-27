@@ -24,8 +24,7 @@ class P21Platform(PlatformBase):
                 self.packages["A21A"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
-                self.packages["framework-cmsis"]["version"] = "~2.50501.0"
-                self.packages["framework-cmsis"]["optional"] = False
+                self.packages["E21C"]["optional"] = False
 
         if "mbed" in frameworks:
             deprecated_boards_file = os.path.join(
@@ -38,7 +37,7 @@ class P21Platform(PlatformBase):
 
         if "cmsis" in frameworks:
             assert build_mcu, ("Missing MCU field for %s" % board)
-            device_package = "framework-cmsis-" + build_mcu[0:7]
+            device_package = "cmsis-" + build_mcu[0:7]
             if device_package in self.packages:
                 self.packages[device_package]["optional"] = False
 

@@ -66,11 +66,10 @@
       "optional": true,
       "version": "https://github.com/OS-Q/E21C.git"
     },
-    "framework-cmsis-stm32f0": {
+    "cmsis-stm32f0": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~2.3.4"
+      "version": "https://github.com/OS-Q/cmsis-stm32f0.git"
     },
     "framework-cmsis-stm32f1": {
       "type": "framework",
