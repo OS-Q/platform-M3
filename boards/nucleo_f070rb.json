@@ -1,0 +1,45 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "extra_flags": "-DSTM32F070xB",
+    "f_cpu": "48000000L",
+    "mcu": "stm32f070rbt6",
+    "product_line": "STM32F070xB"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F070RB",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_f0",
+    "openocd_target": "stm32f0x",
+    "svd_path": "STM32F0xx.svd"
+  },
+  "frameworks": [
+    "cmsis",
+    "mbed",
+    "stm32cube",
+    "opencm3",
+    "libopencm3",
+    "zephyros",
+    "zephyr"
+  ],
+  "name": "ST Nucleo F070RB",
+  "upload": {
+    "maximum_ram_size": 16384,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-F070RB/",
+  "vendor": "ST"
+}

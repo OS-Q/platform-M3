@@ -1,0 +1,42 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DSTM32G0xx -DSTM32G071xx",
+    "f_cpu": "64000000L",
+    "framework_extra_flags": {
+      "arduino": "-D__CORTEX_SC=0"
+    },
+    "mcu": "stm32g071rbt6",
+    "product_line": "STM32G071xx",
+    "variant": "NUCLEO_G071RB"
+  },
+  "debug": {
+    "jlink_device": "STM32G071RB",
+    "openocd_target": "stm32g0x",
+    "svd_path": "STM32G071.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "opencm3",
+    "libopencm3",
+    "stm32cube",
+    "zephyros",
+    "zephyr"
+  ],
+  "name": "Nucleo G071RB",
+  "upload": {
+    "maximum_ram_size": 36864,
+    "maximum_size": 131072,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-g071rb.html",
+  "vendor": "ST"
+}

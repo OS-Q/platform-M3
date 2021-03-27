@@ -1,0 +1,45 @@
+{
+  "build": {
+    "cpu": "cortex-m3",
+    "extra_flags": "-DSTM32L152xE",
+    "f_cpu": "32000000L",
+    "mcu": "stm32l152ret6",
+    "product_line": "STM32L152xE",
+    "variant": "NUCLEO_L152RE"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32L152RE",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_l1",
+    "openocd_target": "stm32l1",
+    "svd_path": "STM32L15xxE.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "mbed",
+    "stm32cube",
+    "opencm3",
+    "libopencm3"
+  ],
+  "name": "ST Nucleo L152RE",
+  "upload": {
+    "maximum_ram_size": 81920,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://developer.mbed.org/platforms/ST-Nucleo-L152RE/",
+  "vendor": "ST"
+}
