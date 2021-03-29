@@ -32,7 +32,12 @@ class P21Platform(PlatformBase):
 
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
-            if build_core == "maple":
+            if board.startswith("portenta"):
+                self.frameworks["arduino"]["package"] = "framework-arduino-mbed"
+                self.frameworks["arduino"][
+                    "script"
+                ] = "builder/frameworks/arduino/mbed-core/arduino-core-mbed.py"
+            elif build_core == "maple":
                 self.frameworks["arduino"]["package"] = "framework-arduinoststm32-maple"
                 self.packages["framework-arduinoststm32-maple"]["optional"] = False
                 self.packages["framework-arduinoststm32"]["optional"] = True
