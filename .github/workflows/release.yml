@@ -1,0 +1,103 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    if: github.repository == 'OS-Q/P21'
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: [3.9]
+        examples:
+          - "examples/arduino-blink"
+          - "examples/cmsis-blink"
+          - "examples/libopencm3-blink"
+          - "examples/spl-blink"
+          - "examples/stm32cube-hal-blink"
+          - "examples/stm32cube-ll-blink"
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/OS-Q/S03/archive/master.zip
+          qio platform install file://.
+
+      - name: Build
+        run: |
+          qio run -d ${{ matrix.examples }}
+
+  release:
+    needs:
+      - build
+    if: success() && startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.OSQ }}
+        with:
+          tag_name: ${{ github.ref }} # (tag)标签名称
+          release_name: release ${{ github.ref }}
+          draft: false # 是否是草稿
+          prerelease: false # 是否是预发布
+
+      - name: clone
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: package
+        run: |
+          zip -r P21.zip boards builder link.json
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.OSQ }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: P21.zip
+          asset_name: P21.zip
+          asset_content_type: application/x-zip
+
+  deploy:
+    needs:
+      - release
+    if: success() && needs.release.result != 'skipped'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: download
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: ${{ secrets.DEPLOY_SSHPORT }}
+          script: |
+            cd /home/www/html/package
+            wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip

@@ -1,0 +1,43 @@
+name: nightly
+
+on:
+  schedule:
+    - cron: '0 15 * * *' # run every day at 3AM
+
+jobs:
+  build:
+    if: github.repository == 'OS-Q/P21'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.7,3.8,3.9]
+        examples:
+          - "examples/arduino-blink"
+          - "examples/cmsis-blink"
+          - "examples/libopencm3-blink"
+          - "examples/spl-blink"
+          - "examples/stm32cube-hal-blink"
+          - "examples/stm32cube-ll-blink"
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/OS-Q/S03/archive/master.zip
+          qio platform install file://.
+
+      - name: Build
+        run: |
+          qio run -d ${{ matrix.examples }}
