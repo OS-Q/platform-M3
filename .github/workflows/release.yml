@@ -77,7 +77,7 @@ jobs:
         id: upload-release-asset
         uses: actions/upload-release-asset@master
         env:
-          GITHUB_TOKEN: ${{ secrets.OSQ }}
+          GITHUB_TOKEN: ${{ secrets.OSQ_REPO_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: P21.zip
@@ -91,13 +91,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: download
-        uses: appleboy/ssh-action@master
+      - name: upload
+        uses: stopstopstop/ssh-action@master
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_PASSWORD }}
-          port: ${{ secrets.DEPLOY_SSHPORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.SSHPORT }}
           script: |
             cd /home/www/html/package
             wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip

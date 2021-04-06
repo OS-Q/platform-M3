@@ -18,13 +18,24 @@ class P21Platform(PlatformBase):
 
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
-            if build_core == "maple":
-                self.frameworks["arduino"]["package"] = "A21B"
-                self.packages["A21B"]["optional"] = False
-                self.packages["A21A"]["optional"] = True
+            if board.startswith("portenta"):
+                self.frameworks["arduino"]["package"] = "framework-arduino-mbed"
+                self.frameworks["arduino"][
+                    "script"
+                ] = "builder/frameworks/arduino/mbed-core/arduino-core-mbed.py"
+                self.packages["framework-arduinoststm32"]["optional"] = True
+            elif build_core == "maple":
+                self.frameworks["arduino"]["package"] = "framework-arduinoststm32-maple"
+                self.packages["framework-arduinoststm32-maple"]["optional"] = False
+                self.packages["framework-arduinoststm32"]["optional"] = True
+            elif build_core == "stm32l0":
+                self.frameworks["arduino"]["package"] = "framework-arduinoststm32l0"
+                self.packages["framework-arduinoststm32l0"]["optional"] = False
+                self.packages["framework-arduinoststm32"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
-                self.packages["E21C"]["optional"] = False
+                self.packages["framework-cmsis"]["version"] = "~2.50501.0"
+                self.packages["framework-cmsis"]["optional"] = False
 
         if "mbed" in frameworks:
             deprecated_boards_file = os.path.join(
@@ -77,7 +88,7 @@ class P21Platform(PlatformBase):
             del self.packages[jlink_pkgname]
 
         return PlatformBase.configure_default_packages(self, variables,
-                                                    targets)
+                                                       targets)
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
@@ -95,21 +106,21 @@ class P21Platform(PlatformBase):
         upload_protocols = board.manifest.get("upload", {}).get(
             "protocols", [])
         if "tools" not in debug:
-            debug['tools'] = {}
+            debug["tools"] = {}
 
         # BlackMagic, J-Link, ST-Link
         for link in ("blackmagic", "jlink", "stlink", "cmsis-dap"):
-            if link not in upload_protocols or link in debug['tools']:
+            if link not in upload_protocols or link in debug["tools"]:
                 continue
             if link == "blackmagic":
-                debug['tools']['blackmagic'] = {
+                debug["tools"]["blackmagic"] = {
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
             elif link == "jlink":
                 assert debug.get("jlink_device"), (
                     "Missed J-Link Device ID for %s" % board.id)
-                debug['tools'][link] = {
+                debug["tools"][link] = {
                     "server": {
                         "package": "tool-jlink",
                         "arguments": [
@@ -120,8 +131,8 @@ class P21Platform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                    if system() == "Windows" else
-                                    "JLinkGDBServer")
+                                       if system() == "Windows" else
+                                       "JLinkGDBServer")
                     }
                 }
             else:
@@ -141,17 +152,17 @@ class P21Platform(PlatformBase):
                     ])
                     server_args.extend(debug.get("openocd_extra_args", []))
 
-                debug['tools'][link] = {
+                debug["tools"][link] = {
                     "server": {
                         "package": "tool-openocd",
                         "executable": "bin/openocd",
                         "arguments": server_args
                     }
                 }
-            debug['tools'][link]['onboard'] = link in debug.get("onboard_tools", [])
-            debug['tools'][link]['default'] = link in debug.get("default_tools", [])
+            debug["tools"][link]["onboard"] = link in debug.get("onboard_tools", [])
+            debug["tools"][link]["default"] = link in debug.get("default_tools", [])
 
-        board.manifest['debug'] = debug
+        board.manifest["debug"] = debug
         return board
 
     def configure_debug_options(self, initial_debug_options, ide_data):
