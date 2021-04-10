@@ -2,7 +2,7 @@ name: nightly
 
 on:
   schedule:
-    - cron: '0 15 * * *' # run every day at 3AM
+    - cron: '0 15 * * *'
 
 jobs:
   build:
