@@ -10,5 +10,4 @@ steps:
   - git submodule update --init --recursive
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip
   - platformio platform install file://.
-  - platformio run -d examples/zephyr-blink
   - platformio run -d examples/arduino-blink
