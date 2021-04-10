@@ -189,7 +189,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~4.10900.0"
+      "version": "*"
     },
     "framework-arduinoststm32-maple": {
       "type": "framework",
