@@ -23,27 +23,27 @@ jobs:
           - "examples/stm32cube-ll-blink"
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-          fetch-depth: 1
+    - uses: actions/checkout@v2
+      with:
+        submodules: "recursive"
+        fetch-depth: 1
 
-      - name: Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Install
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-          python -m pip install --upgrade pip
-          pip install -U https://github.com/OS-Q/S03/archive/master.zip
-          qio platform install file://.
+    - name: Install
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y sshpass
+        python -m pip install --upgrade pip
+        pip install -U https://github.com/OS-Q/S03/archive/master.zip
+        qio platform install file://.
 
-      - name: Build
-        run: |
-          qio run -d ${{ matrix.examples }}
+    - name: Build
+      run: |
+        qio run -d ${{ matrix.examples }}
 
   release:
     needs:
@@ -90,21 +90,22 @@ jobs:
     if: success() && needs.release.result != 'skipped'
     runs-on: ubuntu-latest
     steps:
-      - name: upload_server
-        uses: stopstopstop/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.SSHPORT }}
-          script: |
-            cd /home/www/html/package
-            wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
+    - name: upload_server
+      uses: stopstopstop/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.SSHPORT }}
+        script: |
+          cd /home/www/html/package
+          wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
 
-      - name: upload_oss
-        uses: stopstopstop/ossutil-action@master
-        with:
-          endpoint: ${{ secrets.OSS_ENDPOINT }}
-          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-        run: ossutil cp P21.zip ${{ secrets.OSS_BUCKET }}
+    - name: setup_oss
+      uses: stopstopstop/ossutil-action@master
+      with:
+        endpoint: ${{ secrets.OSS_ENDPOINT }}
+        access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+        access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+    - name: upload_oss
+      run: ossutil cp P21.zip ${{ secrets.OSS_BUCKET }}
