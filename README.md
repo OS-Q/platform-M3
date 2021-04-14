@@ -2,9 +2,9 @@
 
 [![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
 
-[![Build Status](https://github.com/OS-Q/P21/workflows/build/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/build.yml)
+[![Build Status](https://github.com/OS-Q/P21/workflows/CI/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/CI.yml)
+[![Build Status](https://github.com/OS-Q/P21/workflows/CD/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/CD.yml)
 [![Build Status](https://github.com/OS-Q/P21/workflows/nightly/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/nightly.yml)
-[![Build Status](https://github.com/OS-Q/P21/workflows/release/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/release.yml)
 
 [![Build Status](https://travis-ci.com/OS-Q/P21.svg?branch=master)](https://travis-ci.com/OS-Q/P21)
 [![Build Status](https://ci.appveyor.com/api/projects/status/3n82nq856e58o89g?svg=true)](https://ci.appveyor.com/project/Qitas/p21)

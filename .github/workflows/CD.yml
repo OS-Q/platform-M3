@@ -68,7 +68,10 @@ jobs:
       - name: package
         id: package
         run: |
-          zip -r P21.zip boards builder link.json
+          echo "# matismart firmware release : " >> CHANGELOG.txt
+          echo ${{ github.ref }} >> CHANGELOG.txt
+          echo ${{ github.sha }} >> CHANGELOG.txt
+          zip -r P21.zip boards builder link.json CHANGELOG.txt
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
       - name: Upload Release
@@ -87,9 +90,8 @@ jobs:
       - release
     if: success() && needs.release.result != 'skipped'
     runs-on: ubuntu-latest
-
     steps:
-      - name: upload
+      - name: upload_server
         uses: stopstopstop/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -99,3 +101,11 @@ jobs:
           script: |
             cd /home/www/html/package
             wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
+
+      - name: upload_oss
+      - uses: stopstopstop/ossutil-action@master
+        with:
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+        run: ossutil cp P21.zip ${{ secrets.OSS_BUCKET }}
