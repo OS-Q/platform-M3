@@ -11,7 +11,10 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [3.7,3.8,3.9]
+        python: [3.7,3.8,3.9]
+        tool:
+          - "PIO"
+          - "QIO"
         examples:
           - "examples/arduino-blink"
           - "examples/cmsis-blink"
@@ -27,17 +30,26 @@ jobs:
           submodules: "recursive"
           fetch-depth: 1
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python }}
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ matrix.python }}
 
-      - name: Install
+      - name: Install PIO
+        if: matrix.tool == 'PIO'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+          pio platform install file://.
+
+      - name: Install QIO
+        if: matrix.tool == 'QIO'
         run: |
           python -m pip install --upgrade pip
           pip install -U https://github.com/OS-Q/S03/archive/master.zip
           qio platform install file://.
 
       - name: Build
+        if: success()
         run: |
-          qio run -d ${{ matrix.examples }}
+          pio run -d ${{ matrix.examples }}

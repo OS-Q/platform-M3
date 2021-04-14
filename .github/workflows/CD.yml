@@ -1,4 +1,4 @@
-name: release
+name: CD
 
 on:
   push:
@@ -52,37 +52,35 @@ jobs:
     if: success() && startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.OSQ }}
-        with:
-          tag_name: ${{ github.ref }} # (tag)标签名称
-          release_name: release ${{ github.ref }}
-          draft: false # 是否是草稿
-          prerelease: false # 是否是预发布
-
       - name: clone
         uses: actions/checkout@v2
         with:
           submodules: "recursive"
           fetch-depth: 1
 
+      - name: Generate tag
+        id: tag
+        if: startsWith(github.ref, 'refs/tags/') && steps.build.outputs.status == 'success' && !cancelled()
+        run: |
+          echo "::set-output name=release_tag::Release_${GITHUB_REF/refs\/tags\//}_$(date +"%Y.%m.%d")"
+          echo "::set-output name=status::success"
+
       - name: package
+        id: package
         run: |
           zip -r P21.zip boards builder link.json
+          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@master
+      - name: Upload Release
+        id: upload-release
+        uses: stopstopstop/release-action@master
+        if: steps.tag.outputs.status == 'success' && !cancelled()
         env:
           GITHUB_TOKEN: ${{ secrets.OSQ_REPO_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: P21.zip
-          asset_name: P21.zip
-          asset_content_type: application/x-zip
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          files: |
+            ${{ env.FIRMWARE }}/P21.zip
 
   deploy:
     needs:
