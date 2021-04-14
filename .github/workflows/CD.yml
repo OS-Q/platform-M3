@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
     if: github.repository == 'OS-Q/P21'
     strategy:
       fail-fast: true
@@ -85,7 +84,7 @@ jobs:
           files: |
             ${{ env.FIRMWARE }}/P21.zip
 
-  deploy:
+  upload:
     needs:
       - release
     if: success() && needs.release.result != 'skipped'
@@ -103,7 +102,7 @@ jobs:
             wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
 
       - name: upload_oss
-      - uses: stopstopstop/ossutil-action@master
+        uses: stopstopstop/ossutil-action@master
         with:
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
