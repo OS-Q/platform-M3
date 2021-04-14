@@ -19,7 +19,6 @@ jobs:
           - "examples/cmsis-blink"
           - "examples/libopencm3-blink"
           - "examples/spl-blink"
-          - "examples/stm32cube-hal-blink"
           - "examples/stm32cube-ll-blink"
 
     steps:
@@ -64,14 +63,22 @@ jobs:
           echo "::set-output name=release_tag::Release_${GITHUB_REF/refs\/tags\//}_$(date +"%Y.%m.%d")"
           echo "::set-output name=status::success"
 
-      - name: package
+      - name: Package Src
         id: package
         run: |
-          echo "# matismart firmware release : " >> CHANGELOG.txt
+          echo "#package release : " >> CHANGELOG.txt
           echo ${{ github.ref }} >> CHANGELOG.txt
           echo ${{ github.sha }} >> CHANGELOG.txt
           zip -r P21.zip boards builder link.json CHANGELOG.txt
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+          echo "::set-output name=status::success"
+
+      - name: Upload Firmware
+        if: steps.package.outputs.status == 'success' && !cancelled()
+        uses: actions/upload-artifact@v2
+        with:
+          name: P21
+          path: ${{ env.FIRMWARE }}/P21.zip
 
       - name: Upload Release
         id: upload-release
@@ -84,7 +91,7 @@ jobs:
           files: |
             ${{ env.FIRMWARE }}/P21.zip
 
-      - name: upload_server
+      - name: Upload To server
         uses: stopstopstop/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -95,13 +102,13 @@ jobs:
             cd /home/www/html/package
             wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
 
-      - name: setup_oss
+      - name: Setup OSS
         uses: stopstopstop/ossutil-action@master
         with:
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      - name: upload_oss
+      - name: Upload To OSS
         run: ossutil cp P21.zip ${{ secrets.OSS_BUCKET }}
 
       - name: Send mail
