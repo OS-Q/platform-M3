@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: Drone
+- name: OSQ
   image: python:3
   commands:
   - apt update
@@ -13,4 +13,6 @@ steps:
   - qio run -d examples/arduino-blink
   - qio run -d examples/cmsis-blink
   - qio run -d examples/spl-blink
+  - qio run -d examples/libopencm3-blink
   - qio run -d examples/stm32cube-hal-blink
+  - qio run -d examples/stm32cube-ll-blink

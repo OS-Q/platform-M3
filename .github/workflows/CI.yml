@@ -11,8 +11,8 @@ env:
   UPLOAD_BUILD: true
 
 jobs:
-  build:
-    name: QIO Build
+  check1:
+    name: release
     strategy:
       fail-fast: false
       matrix:
@@ -23,11 +23,8 @@ jobs:
           - "spl-blink"
           - "stm32cube-hal-blink"
           - "stm32cube-ll-blink"
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        package:
-          - "release"
-          - "latest"
 
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -41,14 +38,51 @@ jobs:
           python-version: 3.9
 
       - name: Install release
-        if: matrix.package == 'release'
         run: |
           python -m pip install --upgrade pip
           pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
           pio platform install https://github.com/OS-Q/P21/releases/latest/download/P21.zip
 
+      - name: Build
+        id: build
+        if: success() && github.repository == 'OS-Q/P21'
+        run: |
+          pio run -d examples/${{ matrix.examples }} > log.txt
+
+      - uses: actions/upload-artifact@v2
+        if: failure() &&  env.UPLOAD_BUILD
+        with:
+          name: check1_${{ matrix.examples }}_${{ matrix.os }}
+          path: log.txt
+
+  check2:
+    name: latest
+    strategy:
+      fail-fast: false
+      matrix:
+        examples:
+          - "arduino-blink"
+          - "cmsis-blink"
+          - "libopencm3-blink"
+          - "spl-blink"
+          - "stm32cube-hal-blink"
+          - "stm32cube-ll-blink"
+
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
       - name: Install latest
-        if: matrix.package == 'latest'
         run: |
           python -m pip install --upgrade pip
           pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
@@ -63,5 +97,50 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: failure() &&  env.UPLOAD_BUILD
         with:
-          name: ${{ matrix.examples }}_${{ matrix.os }}
+          name: check2_${{ matrix.examples }}_${{ matrix.os }}
+          path: log.txt
+
+  check3:
+    name: check S
+    strategy:
+      fail-fast: false
+      matrix:
+        examples:
+          - "arduino-blink"
+          - "cmsis-blink"
+          - "libopencm3-blink"
+          - "spl-blink"
+          - "stm32cube-hal-blink"
+          - "stm32cube-ll-blink"
+
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install latest
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/OS-Q/S03/archive/master.zip
+          qio platform install file://.
+
+      - name: Build
+        id: build
+        if: success() && github.repository == 'OS-Q/P21'
+        run: |
+          pio run -d examples/${{ matrix.examples }} > log.txt
+
+      - uses: actions/upload-artifact@v2
+        if: failure() &&  env.UPLOAD_BUILD
+        with:
+          name: check3_${{ matrix.examples }}_${{ matrix.os }}
           path: log.txt
