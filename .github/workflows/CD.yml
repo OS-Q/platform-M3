@@ -3,8 +3,10 @@ name: CD
 on:
   push:
     tags:
-      - 'v*'
+      - "v[0-9]+.[0-9]+.[0-9]+*"
 
+env:
+  UPLOAD_BUILD: true
 
 jobs:
   build:
@@ -13,13 +15,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        python-version: [3.9]
         examples:
-          - "examples/arduino-blink"
-          - "examples/cmsis-blink"
-          - "examples/libopencm3-blink"
-          - "examples/spl-blink"
-          - "examples/stm32cube-ll-blink"
+          - "arduino-blink"
+          - "cmsis-blink"
+          - "libopencm3-blink"
+          - "spl-blink"
+          - "stm32cube-hal-blink"
+          - "stm32cube-ll-blink"
 
     steps:
     - uses: actions/checkout@v2
@@ -27,22 +29,20 @@ jobs:
         submodules: "recursive"
         fetch-depth: 1
 
-    - name: Python ${{ matrix.python-version }}
+    - name: Python
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.9
 
     - name: Install
       run: |
-        sudo apt-get update
-        sudo apt-get install -y sshpass
         python -m pip install --upgrade pip
-        pip install -U https://github.com/OS-Q/S03/archive/master.zip
+        pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
         qio platform install file://.
 
     - name: Build
       run: |
-        qio run -d ${{ matrix.examples }}
+        qio run -d examples/${{ matrix.examples }}
 
   release:
     needs:
@@ -60,21 +60,23 @@ jobs:
         id: tag
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          echo "::set-output name=release_tag::Release_${GITHUB_REF/refs\/tags\//}_$(date +"%Y.%m.%d")"
+          echo "::set-output name=release_tag::release_package_$(date +"%Y.%m.%d")_${GITHUB_REF/refs\/tags\//}"
           echo "::set-output name=status::success"
 
       - name: Package Src
         id: package
         run: |
-          echo "#package release : " >> CHANGELOG.txt
-          echo ${{ github.ref }} >> CHANGELOG.txt
-          echo ${{ github.sha }} >> CHANGELOG.txt
-          zip -r P21.zip boards builder link.json CHANGELOG.txt
+          echo "Platform P21 for STM32 MCU" >> README.txt
+          echo $(date +"%Y.%m.%d") >> README.txt
+          echo ${GITHUB_REF/refs\/tags\//} >> README.txt
+          echo -e "www.OS-Q.com\n" >> README.txt
+          git log --stat -1 >> README.txt
+          zip -r P21.zip misc ldscripts boards extend link.json link.py
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
       - name: Upload Firmware
-        if: steps.package.outputs.status == 'success' && !cancelled()
+        if: steps.package.outputs.status == 'success' &&  env.UPLOAD_BUILD
         uses: actions/upload-artifact@v2
         with:
           name: P21
@@ -90,17 +92,7 @@ jobs:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
             ${{ env.FIRMWARE }}/P21.zip
-
-      - name: Upload To server
-        uses: stopstopstop/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.SSHPORT }}
-          script: |
-            cd /home/www/html/package
-            wget https://github.com/OS-Q/P21/releases/latest/download/P21.zip -O P21.zip
+            ${{ env.FIRMWARE }}/README.txt
 
       - name: Setup OSS
         uses: stopstopstop/ossutil-action@master
@@ -108,22 +100,73 @@ jobs:
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      - name: Upload To OSS
-        run: ossutil cp P21.zip ${{ secrets.OSS_BUCKET }}
 
-      - name: Send mail
+      - name: Upload To OSS
+        id: OSS
+        run: |
+          ossutil cp ${{ env.FIRMWARE }}/P21.zip ${{ secrets.OSS_BUCKET }} -rf
+          echo "::set-output name=status::success"
+
+
+  rebuild:
+    needs:
+      - release
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Python ${{ matrix.python }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install
+        id: getgh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
+          pio platform install https://github.com/OS-Q/P21/releases/latest/download/P21.zip
+          echo "::set-output name=status::success"
+
+      - name: ReBuild
+        id: rebuild
+        if: steps.getgh.outputs.status == 'success' && !cancelled()
+        run: |
+          qio run -d examples/cmsis-blink
+          qio run -d examples/arduino-blink
+          qio run -d examples/spl-blink
+          qio run -d examples/stm32cube-hal-blink
+          qio run -d examples/libopencm3-blink
+          echo "::set-output name=status::success"
+
+      - name: Send Mail
+        if: steps.rebuild.outputs.status == 'success' && !cancelled()
         uses: stopstopstop/mail-action@master
         with:
           server_address:  smtp.gmail.com
           server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
-          subject: package P21
-          body: file://README.md
+          subject: OS-Q P21 Released
           to: ${{secrets.MAIL_TO}}
           from: Qitas
           cc: ${{github.event.pusher.email}}
           content_type: text/html
           convert_markdown: true
           attachments: P21.zip
+          body: file://README.md
 
+      - name: notification
+        uses: stopstopstop/mqtt-action@master
+        with:
+          protocol: mqtt
+          host: ${{secrets.MQTT_SERVER}}
+          port: 1883
+          username: ${{secrets.MQTT_USERNAME}}
+          password: ${{secrets.MQTT_PASSWORD}}
+          topic: ${{github.repository}}/${{github.workflow}}
+          message: ${{steps.rebuild.outputs.status}}
