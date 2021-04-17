@@ -157,7 +157,6 @@ jobs:
           cc: ${{github.event.pusher.email}}
           content_type: text/html
           convert_markdown: true
-          attachments: P21.zip
           body: file://README.md
 
       - name: notification

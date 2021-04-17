@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  PIO:
+  release:
     docker:
       - image: python:3
     steps:
@@ -16,18 +16,16 @@ jobs:
           command: |
             python -m pip install --upgrade pip
             pip install -U https://github.com/platformio/platformio/archive/develop.zip
-            platformio platform install file://.
+            platformio platform install https://github.com/OS-Q/P21/releases/latest/download/P21.zip
       - run:
           name: "Build"
           command: |
-            platformio run -d examples/arduino-blink
-      - run:
-          name: "Test"
-          command: |
-            platformio run -d examples/cmsis-blink
-            platformio run -d examples/spl-blink
+            qio run -d examples/arduino-blink
+            qio run -d examples/cmsis-blink
+            qio run -d examples/spl-blink
+            qio run -d examples/stm32cube-hal-blink
 
-  QIO:
+  latest:
     docker:
       - image: python:3
     steps:
@@ -42,7 +40,7 @@ jobs:
           name: "Install"
           command: |
             python -m pip install --upgrade pip
-            pip install -U https://github.com/OS-Q/S03/archive/master.zip
+            pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
             qio platform install file://.
       - run:
           name: "Build"
@@ -50,10 +48,11 @@ jobs:
             qio run -d examples/arduino-blink
             qio run -d examples/cmsis-blink
             qio run -d examples/spl-blink
+            qio run -d examples/stm32cube-hal-blink
 
 workflows:
     version: 2
     run_ci:
         jobs:
-            - PIO
-            - QIO
+            - release
+            - latest

@@ -12,15 +12,15 @@ env:
 
 
 install:
-  - pip install -U https://github.com/OS-Q/S03/archive/master.zip
+  - pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
   - qio platform install file://.
 
 script:
   - qio run -s -d $PLATFORMIO_PROJECT_DIR
 
-notifications:
-  email:
-    recipients:
-      - tang@qitas.cn
-    on_success: never # default: change
-    on_failure: always # default: always
+# notifications:
+#   email:
+#     recipients:
+#       - tang@qitas.cn
+#     on_success: never # default: change
+#     on_failure: always # default: always
