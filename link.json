@@ -22,30 +22,30 @@
   "frameworks": {
     "arduino": {
       "package": "A21A",
-      "script": "builder/extend/A21A.py"
+      "script": "extend/A21A.py"
     },
     "std": {
       "package": "E21A",
-      "script": "builder/extend/E21A.py"
+      "script": "extend/E21A.py"
     },
     "opencm3": {
       "package": "E21B",
-      "script": "builder/extend/E21B.py"
+      "script": "extend/E21B.py"
     },
     "cmsis": {
       "package": "E21C",
-      "script": "builder/extend/E21C.py"
+      "script": "extend/E21C.py"
     },
     "mbed": {
       "package": "E21D",
-      "script": "builder/extend/E21D.py"
+      "script": "extend/E21D.py"
     },
     "zephyros": {
       "package": "zephyros",
-      "script": "builder/extend/zephyros.py"
+      "script": "extend/zephyros.py"
     },
     "stm32cube": {
-      "script": "builder/extend/E21H.py"
+      "script": "extend/E21H.py"
     }
   },
   "packages": {
