@@ -89,11 +89,10 @@ int main()
         return error;
     }
 
-    SocketAddress sockAddr;
-    while (NSAPI_ERROR_OK != mesh->get_ip_address(&sockAddr))
+    while (NULL == mesh->get_ip_address())
         ThisThread::sleep_for(500);
 
-    printf("Connected. IP = %s\n", sockAddr.get_ip_address());
+    printf("Connected. IP = %s\n", mesh->get_ip_address());
 
 #if MBED_CONF_APP_ENABLE_LED_CONTROL_EXAMPLE
     // Network found, start socket example
