@@ -16,5 +16,3 @@ LICENSE*
 *.rst
 # *.md
 **/*/README*
-platform*
-builder/
