@@ -4,7 +4,6 @@ environment:
   matrix:
     - PLATFORMIO_PROJECT_DIR: "examples/arduino-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/cmsis-blink"
-    # - PLATFORMIO_PROJECT_DIR: "examples/libopencm3-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/spl-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-hal-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-ll-blink"
@@ -13,8 +12,11 @@ platform:
 install:
   - cmd: git submodule update --init --recursive
   - cmd: SET PATH=C:\Python37\Scripts;%PATH%
-  - cmd: pip3 install -U https://github.com/platformio/platformio/archive/develop.zip
+  - cmd: pip3 install -U https://github.com/OS-Q/M03/releases/latest/download/qio.zip
   - cmd: pio platform install file://.
 
+build_script:
+  - cmd: pio run -d %PLATFORMIO_PROJECT_DIR%
+
 test_script:
-  - cmd: pio run -s -d %PLATFORMIO_PROJECT_DIR%
+  - cmd: qio run -d %PLATFORMIO_PROJECT_DIR%

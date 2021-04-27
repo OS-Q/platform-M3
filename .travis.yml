@@ -9,14 +9,12 @@ git:
 env:
   - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
   - PLATFORMIO_PROJECT_DIR=examples/cmsis-blink
-  # - PLATFORMIO_PROJECT_DIR=examples/libopencm3-blink
   - PLATFORMIO_PROJECT_DIR=examples/spl-blink
   - PLATFORMIO_PROJECT_DIR=examples/stm32cube-hal-blink
   - PLATFORMIO_PROJECT_DIR=examples/stm32cube-ll-blink
 
-
 install:
-  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pip install -U https://github.com/OS-Q/M03/releases/latest/download/qio.zip
   - pio platform install file://.
 
 script:
