@@ -13,6 +13,6 @@ steps:
   - pio run -d examples/arduino-blink
   - pio run -d examples/cmsis-blink
   - pio run -d examples/spl-blink
-  - pio run -d examples/libopencm3-blink
+  # - pio run -d examples/libopencm3-blink
   - pio run -d examples/stm32cube-hal-blink
   - pio run -d examples/stm32cube-ll-blink

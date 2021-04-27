@@ -21,7 +21,9 @@ jobs:
             pio run -d examples/arduino-blink
             pio run -d examples/cmsis-blink
             pio run -d examples/spl-blink
+            pio run -d examples/mbed-blink
             pio run -d examples/stm32cube-hal-blink
+            pio run -d examples/stm32cube-ll-blink
 
 workflows:
     version: 2
