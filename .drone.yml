@@ -14,3 +14,17 @@ steps:
   - pio run -d examples/spl-blink
   - pio run -d examples/stm32cube-hal-blink
   - pio run -d examples/stm32cube-ll-blink
+
+- name: PIO
+  image: python:3
+  commands:
+  - apt update
+  - apt install -y git
+  - git submodule update --init --recursive
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pio platform install file://.
+  - pio run -d examples/arduino-blink
+  - pio run -d examples/cmsis-blink
+  - pio run -d examples/spl-blink
+  - pio run -d examples/stm32cube-hal-blink
+  - pio run -d examples/stm32cube-ll-blink
