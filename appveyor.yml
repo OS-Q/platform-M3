@@ -8,12 +8,13 @@ environment:
     - PLATFORMIO_PROJECT_DIR: "examples/spl-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-hal-blink"
     - PLATFORMIO_PROJECT_DIR: "examples/stm32cube-ll-blink"
-
+platform:
+  - x64
 install:
   - cmd: git submodule update --init --recursive
   - cmd: SET PATH=C:\Python37\Scripts;%PATH%
-  - cmd: pip3 install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
-  - cmd: qio platform install file://.
+  - cmd: pip3 install -U https://github.com/platformio/platformio/archive/develop.zip
+  - cmd: pio platform install file://.
 
 test_script:
-  - cmd: qio run -s -d %PLATFORMIO_PROJECT_DIR%
+  - cmd: pio run -s -d %PLATFORMIO_PROJECT_DIR%

@@ -8,11 +8,11 @@ steps:
   - apt update
   - apt install -y git
   - git submodule update --init --recursive
-  - pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
-  - qio platform install file://.
-  - qio run -d examples/arduino-blink
-  - qio run -d examples/cmsis-blink
-  - qio run -d examples/spl-blink
-  - qio run -d examples/libopencm3-blink
-  - qio run -d examples/stm32cube-hal-blink
-  - qio run -d examples/stm32cube-ll-blink
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pio platform install file://.
+  - pio run -d examples/arduino-blink
+  - pio run -d examples/cmsis-blink
+  - pio run -d examples/spl-blink
+  - pio run -d examples/libopencm3-blink
+  - pio run -d examples/stm32cube-hal-blink
+  - pio run -d examples/stm32cube-ll-blink

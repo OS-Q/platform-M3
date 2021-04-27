@@ -1,6 +1,10 @@
 language: python
 python:
-  - "3.7"
+  - "3.9"
+os:
+  - linux
+git:
+  depth: 1
 
 env:
   - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
@@ -12,15 +16,11 @@ env:
 
 
 install:
-  - pip install -U https://github.com/OS-Q/S03/releases/latest/download/S03.zip
-  - qio platform install file://.
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - pio platform install file://.
 
 script:
-  - qio run -s -d $PLATFORMIO_PROJECT_DIR
+  - pio run -s -d $PLATFORMIO_PROJECT_DIR
 
-# notifications:
-#   email:
-#     recipients:
-#       - tang@qitas.cn
-#     on_success: never # default: change
-#     on_failure: always # default: always
+notifications:
+  email: false
