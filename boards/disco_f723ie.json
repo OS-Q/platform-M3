@@ -1,0 +1,48 @@
+{
+  "build": {
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32F723xx",
+    "f_cpu": "216000000L",
+    "mcu": "stm32f723iek6",
+    "product_line": "STM32F723xx",
+    "zephyr": {
+       "variant": "stm32f723e_disco"
+    }
+  },
+  "connectivity": [
+    "can",
+    "wifi"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F723IE",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32f7discovery",
+    "openocd_target": "stm32f7x",
+    "svd_path": "STM32F7x3.svd"
+  },
+  "frameworks": [
+    "cmsis",
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
+  ],
+  "name": "32F723EDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 196608,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/32f723ediscovery.html",
+  "vendor": "ST"
+}

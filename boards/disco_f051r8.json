@@ -6,7 +6,7 @@
     "mcu": "stm32f051r8t6",
     "product_line": "STM32F051x8",
     "zephyr": {
-      "variant": "stm32f0_disco"
+       "variant": "stm32f0_disco"
     }
   },
   "debug": {
@@ -25,9 +25,7 @@
     "cmsis",
     "mbed",
     "stm32cube",
-    "opencm3",
     "libopencm3",
-    "zephyros",
     "zephyr"
   ],
   "name": "ST STM32F0DISCOVERY",

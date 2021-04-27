@@ -21,10 +21,7 @@
   "frameworks": [
     "cmsis",
     "mbed",
-    "spl",
-    "std",
     "stm32cube",
-    "opencm3",
     "libopencm3"
   ],
   "name": "ST 32F401CDISCOVERY",

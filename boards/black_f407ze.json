@@ -21,10 +21,8 @@
   },
   "frameworks": [
     "arduino",
-    "ino",
     "cmsis",
     "stm32cube",
-    "opencm3",
     "libopencm3"
   ],
   "name": "Black STM32F407ZE",

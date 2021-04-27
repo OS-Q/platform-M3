@@ -1,0 +1,46 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32F413xx",
+    "f_cpu": "100000000L",
+    "mcu": "stm32f413zht6",
+    "product_line": "STM32F413xx"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32F413ZH",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_f4",
+    "openocd_target": "stm32f4x",
+    "svd_path": "STM32F413.svd"
+  },
+  "frameworks": [
+    "cmsis",
+    "stm32cube",
+    "libopencm3",
+    "mbed",
+    "zephyr"
+  ],
+  "name": "ST Nucleo F413ZH",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://os.mbed.com/platforms/ST-Nucleo-F413ZH/",
+  "vendor": "ST"
+}

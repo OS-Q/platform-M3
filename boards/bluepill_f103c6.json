@@ -33,10 +33,7 @@
   "frameworks": [
     "arduino",
     "cmsis",
-    "spl",
-    "std",
     "stm32cube",
-    "opencm3",
     "libopencm3"
   ],
   "name": "BluePill F103C6",

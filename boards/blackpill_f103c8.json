@@ -2,7 +2,7 @@
   "build": {
     "core": "stm32",
     "cpu": "cortex-m3",
-    "extra_flags": "-DSTM32F1 -DSTM32F103xB -DSTM32F10X_MD",
+    "extra_flags": "-DSTM32F1 -DSTM32F103xB",
     "f_cpu": "72000000L",
     "hwids": [
       [
@@ -18,7 +18,7 @@
     "product_line": "STM32F103xB",
     "variant": "PILL_F103XX",
     "zephyr": {
-      "variant": "stm32_min_dev_black"
+       "variant": "stm32_min_dev_black"
     }
   },
   "debug": {
@@ -35,14 +35,9 @@
   },
   "frameworks": [
     "arduino",
-    "ino",
     "cmsis",
-    "spl",
-    "std",
-    "opencm3",
     "libopencm3",
     "stm32cube",
-    "zephyros",
     "zephyr"
   ],
   "name": "BlackPill F103C8",
@@ -55,9 +50,7 @@
       "cmsis-dap",
       "stlink",
       "blackmagic",
-      "serial",
-      "mbed",
-      "dfu"
+      "serial"
     ]
   },
   "url": "http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32f1-series/stm32f103/stm32f103c8.html",

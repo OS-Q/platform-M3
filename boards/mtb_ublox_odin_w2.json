@@ -1,0 +1,40 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "168000000L",
+    "mcu": "stm32f439ziy6",
+    "product_line": "STM32F439xx"
+  },
+  "connectivity": [
+    "bluetooth",
+    "can",
+    "ethernet",
+    "wifi"
+  ],
+  "debug": {
+    "jlink_device": "STM32F439ZI",
+    "onboard_tools": [
+      "cmsis-dap"
+    ],
+    "openocd_target": "stm32f4x",
+    "svd_path": "STM32F439x.svd"
+  },
+  "frameworks": [
+    "mbed",
+    "stm32cube"
+  ],
+  "name": "u-blox ODIN-W2",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 2097152,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic"
+    ]
+  },
+  "url": "https://os.mbed.com/modules/u-blox-odin-w2/",
+  "vendor": "u-blox"
+}

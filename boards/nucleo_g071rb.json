@@ -12,25 +12,30 @@
     "variant": "NUCLEO_G071RB"
   },
   "debug": {
+    "default_tools": [
+      "stlink"
+    ],
     "jlink_device": "STM32G071RB",
+    "onboard_tools": [
+      "stlink"
+    ],
     "openocd_target": "stm32g0x",
     "svd_path": "STM32G071.svd"
   },
   "frameworks": [
     "arduino",
     "cmsis",
-    "opencm3",
     "libopencm3",
     "stm32cube",
-    "zephyros",
     "zephyr"
   ],
   "name": "Nucleo G071RB",
   "upload": {
     "maximum_ram_size": 36864,
     "maximum_size": 131072,
-    "protocol": "mbed",
+    "protocol": "stlink",
     "protocols": [
+      "stlink",
       "jlink",
       "cmsis-dap",
       "blackmagic",

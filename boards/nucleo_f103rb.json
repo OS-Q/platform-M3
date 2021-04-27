@@ -24,10 +24,8 @@
     "arduino",
     "cmsis",
     "mbed",
-    "opencm3",
     "libopencm3",
     "stm32cube",
-    "zephyros",
     "zephyr"
   ],
   "name": "ST Nucleo F103RB",

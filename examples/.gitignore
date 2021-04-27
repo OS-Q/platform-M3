@@ -1,9 +1,0 @@
-*.pyc
-*__pyc*/
-*.pio/
-*.vscode/
-*/.travis.yml
-*/*.rst
-README
-*.yml
-arduino-mxchip*/

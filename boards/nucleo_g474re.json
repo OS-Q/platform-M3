@@ -12,7 +12,13 @@
     "can"
   ],
   "debug": {
+    "default_tools": [
+      "stlink"
+    ],
     "jlink_device": "STM32G474RE",
+    "onboard_tools": [
+      "stlink"
+    ],
     "openocd_target": "stm32g4x",
     "svd_path": "STM32G474xx.svd"
   },
@@ -20,18 +26,17 @@
     "arduino",
     "cmsis",
     "mbed",
-    "opencm3",
     "libopencm3",
     "stm32cube",
-    "zephyros",
     "zephyr"
   ],
   "name": "Nucleo G474RE",
   "upload": {
     "maximum_ram_size": 131072,
     "maximum_size": 524288,
-    "protocol": "mbed",
+    "protocol": "stlink",
     "protocols": [
+      "stlink",
       "jlink",
       "cmsis-dap",
       "blackmagic",

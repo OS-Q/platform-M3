@@ -1,0 +1,49 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "extra_flags": "-DSTM32L496xx",
+    "f_cpu": "80000000L",
+    "mcu": "stm32l496agi6",
+    "product_line": "STM32L496xx",
+    "zephyr": {
+       "variant": "stm32l496g_disco"
+    }
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32L496AG",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "stm32l4discovery",
+    "openocd_target": "stm32l4x",
+    "svd_path": "STM32L4x6.svd"
+  },
+  "frameworks": [
+    "cmsis",
+    "mbed",
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
+  ],
+  "name": "ST 32L496GDISCOVERY",
+  "upload": {
+    "maximum_ram_size": 327680,
+    "maximum_size": 1048576,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/32l496gdiscovery.html",
+  "vendor": "ST"
+}

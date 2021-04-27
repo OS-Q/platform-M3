@@ -17,7 +17,6 @@
     "arduino",
     "cmsis",
     "stm32cube",
-    "opencm3",
     "libopencm3"
   ],
   "name": "STM32F401CB (64k RAM. 128k Flash)",

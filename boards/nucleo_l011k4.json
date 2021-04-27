@@ -18,13 +18,10 @@
     "svd_path": "STM32L0x1.svd"
   },
   "frameworks": [
-    "arduino",
     "cmsis",
-    "spl",
-    "std",
     "stm32cube",
-    "opencm3",
-    "libopencm3"
+    "libopencm3",
+    "zephyr"
   ],
   "name": "ST Nucleo L011K4",
   "upload": {

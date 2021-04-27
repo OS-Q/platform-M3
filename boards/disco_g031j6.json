@@ -19,7 +19,6 @@
   "frameworks": [
     "arduino",
     "cmsis",
-    "opencm3",
     "libopencm3",
     "stm32cube"
   ],

@@ -1,6 +1,5 @@
 {
   "build": {
-    "core": "stm32",
     "cpu": "cortex-m0",
     "extra_flags": "-DSTM32F030x8",
     "f_cpu": "48000000L",
@@ -24,12 +23,8 @@
     "arduino",
     "cmsis",
     "mbed",
-    "spl",
-    "std",
     "stm32cube",
-    "opencm3",
     "libopencm3",
-    "zephyros",
     "zephyr"
   ],
   "name": "ST Nucleo F030R8",

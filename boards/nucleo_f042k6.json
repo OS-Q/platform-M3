@@ -25,7 +25,6 @@
     "cmsis",
     "mbed",
     "stm32cube",
-    "opencm3",
     "libopencm3"
   ],
   "name": "ST Nucleo F042K6",
