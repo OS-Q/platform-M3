@@ -99,7 +99,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
-          # fetch-depth: 1
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -117,7 +117,7 @@ jobs:
         if: success()
         working-directory: examples
         run: |
-          pio run -d ${{ matrix.example }} >> ${{ matrix.example }}/log.txt
+          pio run -d ${{ matrix.example }}
           echo "::set-output name=status::success"
 
       - name: Upload
@@ -129,7 +129,7 @@ jobs:
 
   QIO_fail:
     needs:
-      - PIO
+      - QIO
     if: failure()
     runs-on: ubuntu-latest
     steps:
@@ -142,4 +142,4 @@ jobs:
           username: ${{secrets.MQTT_USERNAME}}
           password: ${{secrets.MQTT_PASSWORD}}
           topic: ${{github.repository}}/${{github.workflow}}
-          message: "PIO failure"
+          message: "QIO failure"
