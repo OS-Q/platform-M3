@@ -1,9 +1,9 @@
-name: PIO
+name: QIO
 
 on:
   push:
     branches:
-      - pio
+      - qio
     paths-ignore:
       - '**.md'
       - 'CD.yml'
@@ -48,7 +48,7 @@ jobs:
         name: code_check_report
         path: codecheck.txt
 
-  PIO:
+  QIO:
     strategy:
       fail-fast: false
       matrix:
@@ -63,9 +63,6 @@ jobs:
           - "arduino-mxchip-sensors"
           - "arduino-mxchip-wifiscan"
           - "cmsis-blink"
-          # - "libopencm3-1bitsy"
-          # - "libopencm3-blink"
-          # - "libopencm3-usb-cdcacm"
           - "mbed-rtos-blink-baremetal"
           - "mbed-rtos-custom-target"
           - "mbed-rtos-ethernet-tls"
@@ -93,12 +90,6 @@ jobs:
           - "stm32cube-hal-usb-device-dfu"
           - "stm32cube-hal-wifi-client"
           - "stm32cube-ll-blink"
-          # - "zephyr-blink"
-          # - "zephyr-cpp-synchronization"
-          # - "zephyr-drivers-can"
-          # - "zephyr-net-civetweb"
-          # - "zephyr-net-https-client"
-          # - "zephyr-subsys-usb-hid-mouse"
           - "arduino-blink-different-cores"
 
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -118,7 +109,7 @@ jobs:
       - name: Install PIO
         run: |
           python -m pip install --upgrade pip
-          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+          pip install -U https://github.com/OS-Q/M03/releases/latest/download/qio.zip
           pio platform install file://.
 
       - name: Build examples
@@ -133,10 +124,10 @@ jobs:
         if: env.UPLOAD_BUILD
         uses: actions/upload-artifact@v2
         with:
-          name: pio_${{ matrix.example }}_${{ matrix.os }}
-          path: examples/${{ matrix.example }}/.pio
+          name: qio_${{ matrix.example }}_${{ matrix.os }}
+          path: examples/${{ matrix.example }}/.pio/build/
 
-  PIO_fail:
+  QIO_fail:
     needs:
       - PIO
     if: failure()
