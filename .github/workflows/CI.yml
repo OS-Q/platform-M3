@@ -3,7 +3,6 @@ name: CI
 on:
   push:
     branches:
-<<<<<<< HEAD:.github/workflows/CI.yml
       - master
       - main
     paths:
@@ -11,19 +10,10 @@ on:
       - 'builder/**'
       - 'extend/**'
       - 'examples/**'
+      - 'ldscripts/**'
+      - 'misc/**'
       - '**.json'
       - '**.py'
-=======
-      - pio
-    paths:
-      - 'boards/**'
-      - 'misc/**'
-      - 'builder/**'
-      - 'ldscripts/**'
-      - 'examples/**'
-      - 'platform.json'
-      - 'platform.py'
->>>>>>> pio:.github/workflows/PIO.yml
 
 env:
   UPLOAD_BUILD: true
@@ -225,22 +215,14 @@ jobs:
         working-directory: examples
         run: |
           pio run -d ${{ matrix.example }}
-<<<<<<< HEAD:.github/workflows/CI.yml
-=======
           echo "::set-output name=status::success"
->>>>>>> pio:.github/workflows/PIO.yml
 
       - name: Upload
         if: env.UPLOAD_BUILD
         uses: actions/upload-artifact@v2
         with:
-<<<<<<< HEAD:.github/workflows/CI.yml
           name: pio_ci_build_${{ matrix.example }}_${{ matrix.os }}
-          path: examples/${{ matrix.example }}/.pio/build/
-=======
-          name: pio_${{ matrix.example }}_${{ matrix.os }}
           path: examples/${{ matrix.example }}/.pio/build
->>>>>>> pio:.github/workflows/PIO.yml
 
   PIO_fail:
     needs:
