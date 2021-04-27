@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - pio
-    paths-ignore:
-      - '**.md'
-      - 'CD.yml'
-      - 'nightly.yml'
+    paths:
+      - 'boards/**'
+      - 'misc/**'
+      - 'builder/**'
+      - 'ldscripts/**'
+      - 'examples/**'
+      - 'platform.json'
+      - 'platform.py'
 
 env:
   UPLOAD_BUILD: true
@@ -126,7 +130,7 @@ jobs:
         if: success()
         working-directory: examples
         run: |
-          pio run -d ${{ matrix.example }} >> ${{ matrix.example }}/log.txt
+          pio run -d ${{ matrix.example }}
           echo "::set-output name=status::success"
 
       - name: Upload
@@ -134,7 +138,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: pio_${{ matrix.example }}_${{ matrix.os }}
-          path: examples/${{ matrix.example }}/.pio
+          path: examples/${{ matrix.example }}/.pio/build
 
   PIO_fail:
     needs:
