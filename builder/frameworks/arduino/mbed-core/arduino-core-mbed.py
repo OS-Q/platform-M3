@@ -75,7 +75,7 @@ env.Append(
 )
 
 if board.get("build.mcu", "").startswith("nrf52"):
-    env.Append(["cc_310_core", "cc_310_ext", "cc_310_trng"])
+    env.Append(LIBS=["cc_310_core", "cc_310_ext", "cc_310_trng"])
 
 env.Append(
     ASFLAGS=env.get("CCFLAGS", [])[:],
@@ -111,7 +111,7 @@ env.Prepend(_LIBFLAGS="-Wl,--whole-archive ")
 env.Append(_LIBFLAGS=" -Wl,--no-whole-archive -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys")
 
 if not board.get("build.ldscript", ""):
-    env.Replace(LDSCRIPT_PATH=board.get("build.arduino.ldscript", ""))
+    env.Replace(LDSCRIPT_PATH=board.get("build.arduino.ldscript", "linker_script.ld"))
 
 libs = []
 

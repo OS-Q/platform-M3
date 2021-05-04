@@ -107,8 +107,6 @@ if "STM32F427_437xx" in extra_flags:
     src_filter_patterns += ["-<stm32f4xx_fsmc.c>"]
 elif "STM32F303xC" in extra_flags:
     src_filter_patterns += ["-<stm32f30x_hrtim.c>"]
-elif "STM32L1XX_MD" in extra_flags:
-    src_filter_patterns += ["-<stm32l1xx_flash_ramfunc.c>"]
 
 libs = []
 
