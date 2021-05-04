@@ -55,19 +55,16 @@ jobs:
       matrix:
         example:
           - "arduino-blink"
+          - "arduino-external-libs"
+          - "arduino-internal-libs"
+          - "arduino-blink-different-cores"
           - "cmsis-blink"
           # - "libopencm3-blink"
-          - "mbed-rtos-custom-target"
-          - "mbed-rtos-events"
-          - "mbed-rtos-filesystem"
-          - "mbed-rtos-mesh-minimal"
-          - "mbed-rtos-serial"
-          - "mbed-blink"
-          - "mbed-events"
+          - "mbed-rtos-blink-baremetal"
+          - "mbed-serial"
           - "spl-blink"
           - "stm32cube-hal-blink"
-          - "stm32cube-hal-lcd"
-          - "arduino-blink-different-cores"
+          - "stm32cube-ll-blink"
 
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
