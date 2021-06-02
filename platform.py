@@ -21,7 +21,7 @@ from platform import system
 from platformio.managers.platform import PlatformBase
 from platformio.util import get_systype
 
-class P21Platform(PlatformBase):
+class P211Platform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         board = variables.get("board")
@@ -42,9 +42,13 @@ class P21Platform(PlatformBase):
                 self.frameworks["arduino"]["package"] = "framework-arduinoststm32-maple"
                 self.packages["framework-arduinoststm32-maple"]["optional"] = False
                 self.packages["framework-arduinoststm32"]["optional"] = True
+            elif build_core == "stm32l0":
+                self.frameworks["arduino"]["package"] = "framework-arduinoststm32l0"
+                self.packages["framework-arduinoststm32l0"]["optional"] = False
+                self.packages["framework-arduinoststm32"]["optional"] = True
             else:
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
-                self.packages["framework-cmsis"]["version"] = "~2.50501.0"
+                self.packages["framework-cmsis"]["version"] = "~2.50700.0"
                 self.packages["framework-cmsis"]["optional"] = False
 
         if "mbed" in frameworks:
