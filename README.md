@@ -1,16 +1,13 @@
-﻿# [P21](https://github.com/OS-Q/P21)
+﻿# [P211](https://github.com/OS-Q/P211)
 
 [![sites](http://182.61.61.133/link/resources/OSQ.png)](http://www.OS-Q.com)
 
-[![Build Status](https://github.com/OS-Q/P21/workflows/CI/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/CI.yml)
-[![Build Status](https://github.com/OS-Q/P21/workflows/CD/badge.svg)](https://github.com/OS-Q/P21/actions/workflows/CD.yml)
-[![Build Status](https://circleci.com/gh/OS-Q/P21.svg?style=svg)](https://circleci.com/gh/OS-Q/P21)
-[![Build Status](https://travis-ci.com/OS-Q/P21.svg?branch=master)](https://travis-ci.com/OS-Q/P21)
-[![Build Status](https://cloud.drone.io/api/badges/OS-Q/P21/status.svg)](https://cloud.drone.io/OS-Q/P21)
-[![Build Status](https://ci.appveyor.com/api/projects/status/3n82nq856e58o89g?svg=true)](https://ci.appveyor.com/project/Qitas/p21)
+[![Build Status](https://github.com/OS-Q/P211/workflows/CI/badge.svg)](https://github.com/OS-Q/P211/actions/workflows/CI.yml)
+[![Build Status](https://circleci.com/gh/OS-Q/P211.svg?style=svg)](https://circleci.com/gh/OS-Q/P211)
+[![Build Status](https://cloud.drone.io/api/badges/OS-Q/P211/status.svg)](https://cloud.drone.io/OS-Q/P211)
 
-### [简介](https://github.com/OS-Q/P21/wiki)
+### [简介](https://github.com/OS-Q/P211/wiki)
 
-[P21](https://github.com/OS-Q/P21) 用于 [STM32](https://www.st.com/zh/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) 平台开发
+[P211](https://github.com/OS-Q/P211) 用于 [STM32](https://www.st.com/zh/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) 平台开发
 
-### [源圈 OS-Q (Open Source & QA) ](http://www.OS-Q.com)
+#### [源圈OS-Q: 起点决定收益](http://www.OS-Q.com)
