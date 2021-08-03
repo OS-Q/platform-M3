@@ -15,5 +15,3 @@ LICENSE*
 *.jpg
 *.rst
 # *.md
-**/*/README*
-README

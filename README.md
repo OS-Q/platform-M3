@@ -8,6 +8,12 @@
 
 ### [简介](https://github.com/OS-Q/P211/wiki)
 
-[P211](https://github.com/OS-Q/P211) 用于 [STM32](https://www.st.com/zh/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) 平台开发
+[P211](https://github.com/OS-Q/P211) 用于 [STM32F103](https://www.st.com/zh/microcontrollers-microprocessors/stm32f103.html) 系列开发
 
-#### [源圈OS-Q: 起点决定收益](http://www.OS-Q.com)
+| 目标平台 | arduino | cmsis | libopencm3 | mbedos | stm32 hal | zephyr |
+| ------- | ------- | ------ | --------- | --------- | ---------- | ---------- |
+| [STM32F103C8](https://github.com/SoCXin/STM32F103C8) | √  | √  |  √ | √   |   √ |  √  |
+| [STM32F103RB](https://github.com/SoCXin/STM32F103RB) | √  | √  |  √ | √   |   √ |  √  |
+
+
+#### [源圈OS-Q](http://www.OS-Q.com)
